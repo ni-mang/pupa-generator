@@ -1,7 +1,6 @@
 <a name="DIKR0"></a>
 
-![image.png](/src/main/resources/static/images/m_logo.png)<br />
-## PUPA<br />
+## PUPA![image.png](/src/main/resources/static/images/favicon.ico)<br />
 蛹，蜕变的开始。<br />
 一款具备多项目管理、团队化管理、自定义配置功能的代码生成工具。
 
