@@ -1,6 +1,6 @@
 <a name="DIKR0"></a>
 
-## PUPA![image.png](/src/main/resources/static/images/favicon.ico)<br />
+## PUPA![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/favicon.ico)<br />
 蛹，蜕变的开始。<br />
 一款具备多项目管理、团队化管理、自定义配置功能的代码生成工具。
 
@@ -49,7 +49,7 @@
 ## 功能说明
 <a name="Ht03I"></a>
 ### 系统结构
-![image.png](/src/main/resources/static/readme/system.png)
+![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/system.png)
 <a name="uTMBu"></a>
 ### 项目管理
 <a name="Ax3C9"></a>
@@ -66,8 +66,8 @@
 > - **拷贝**：快速拷贝当前项目，新项目所有者为当前用户，对新项目的操作不影响原有项目
 
 创建项目时必须选择一个配置，可选配置包括公共配置和用户自己的私有配置，均可在“配置管理”中进行维护；
-![image.png](/src/main/resources/static/readme/pro_01.png)
-![image.png](/src/main/resources/static/readme/pro_edit.png)
+![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/pro_01.png)
+![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/pro_edit.png)
 <a name="vAZaW"></a>
 #### 成员
 > - **添加**：项目所有者为项目添加授权用户，可选用户为除管理员之外，所有非当前项目成员的注册用户，被添加的用户将获得本项目的相关权属，仅项目所有者可用
@@ -75,8 +75,8 @@
 > - **删除**：删除成员，除去此成员对于本项目的相关权属，仅项目所有者可用
 > - **转让**：将本项目所有权转让给指定成员，转让成功后，原所有者将立即剔除对本项目的相应管理权限，谨慎使用，仅项目所有者可用
 
-![image.png](/src/main/resources/static/readme/member.png)
-![image.png](/src/main/resources/static/readme/member_add.png)
+![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/member.png)
+![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/member_add.png)
 <a name="zaxFS"></a>
 #### 数据源
 > - **添加**：添加数据源，用于连接目标数据库，仅项目所有者可用
@@ -86,8 +86,8 @@
 
 维护数据源信息时，根据所选数据库，需要额外配置数据类型映射，默认采用系统预设的映射关系，如需要添加新的映射项，可登录管理员账号，在数据映射管理中进行设置。<br />
 由于是通过读取数据库的信息库获取表、字段信息，因此在数据源中填写的数据库用户必须拥有足够的权限，否则无法同步数据。
-![image.png](/src/main/resources/static/readme/source.png)
-![image.png](/src/main/resources/static/readme/source_edit.png)
+![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/source.png)
+![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/source_edit.png)
 <a name="RARCr"></a>
 #### 库表
 > - **添加**：手动添加表，暂不支持sql生成，仅项目所有者可用
@@ -101,8 +101,8 @@
 
 数据同步时，只会将上游数据库的数据同步至系统，不做逆向同步，不会影响数据库原有内容；获取的数据根据表名、字段名匹配，对系统中不存在的数据执行新增操作，对系统中已存在的同名数据执行修改操作（不覆盖扩展配置内容），对于系统中存在而数据源中不存在的数据，将此数据的“是否存在于数据库”一列设置为“不存在”。
 首次打开预览界面时，由于下载Monaco控件需要些许时间，可能无法正常展示，多刷新几次或返回上一级再进入一般就可以正常显示。
-![image.png](/src/main/resources/static/readme/table.png)
-![image.png](/src/main/resources/static/readme/preview.png)
+![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/table.png)
+![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/preview.png)
 <a name="C7QdJ"></a>
 #### 字段
 > - **添加**：手动添加字段，仅项目所有者可用
@@ -110,8 +110,8 @@
 > - **删除**：删除字段，仅项目所有者可用
 
 项目、成员、数据源、表单、字段均可设置扩展配置，扩展配置项在“配置管理>扩展”中进行维护，扩展配置作为自定义参数，可在模板中的使用。
-![image.png](/src/main/resources/static/readme/field.png)
-![image.png](/src/main/resources/static/readme/filed_edit.png)
+![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/field.png)
+![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/filed_edit.png)
 <a name="LjcEJ"></a>
 ### 配置管理
 <a name="RDVc5"></a>
@@ -127,8 +127,8 @@
 > - **模板**：模板管理
 > - **拷贝**：快速拷贝当前配置，新配置所有者为当前用户，对新配置的操作不影响原有配置
 
-![image.png](/src/main/resources/static/readme/config.png)
-![image.png](/src/main/resources/static/readme/config_edit.png)
+![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/config.png)
+![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/config_edit.png)
 <a name="jCy0V"></a>
 #### 映射
 > - **添加**：添加映射配置项，仅配置所有者可用
@@ -137,8 +137,8 @@
 
 映射配置，支持不同数据库对不同程序语言的数据类型映射配置。<br />
 生成代码时将根据所选语言进行数据类型映射。
-![image.png](/src/main/resources/static/readme/mapper.png)
-![image.png](/src/main/resources/static/readme/mapper_edit.png)
+![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/mapper.png)
+![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/mapper_edit.png)
 <a name="qBQ92"></a>
 #### 扩展
 > - **添加**：添加扩展配置项，仅配置所有者可用
@@ -147,8 +147,8 @@
 
 扩展配置可满足用户添加自定义参数的需求，应用于模板维护中，生成代码时将根据项目中的具体配置填入模板的相应位置。<br />
 扩展配置根据作用域进行区分，分别作用于项目、成员、数据源、表单、字段等维度。
-![image.png](/src/main/resources/static/readme/extend.png)
-![image.png](/src/main/resources/static/readme/extend_edit.png)
+![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/extend.png)
+![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/extend_edit.png)
 <a name="qBQ91"></a>
 #### 模板
 > - **添加**：添加模板，仅配置所有者可用
@@ -156,28 +156,28 @@
 > - **删除**：删除模板，仅配置所有者可用
 > - **查看**：非配置所有者不可编辑模板，但可查看
 
-![image.png](/src/main/resources/static/readme/temp.png)
-![image.png](/src/main/resources/static/readme/temp_edit.png)
+![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/temp.png)
+![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/temp_edit.png)
 模板名称不影响代码生成，文件生成地址允许使用模板，必需与选择的模板引擎一致，生成的文件将根据填写的地址进行命名，因此生成地址必须末尾必须指定文件名及文件类型，且同一个配置中，不允许存在多个生成地址相同的模板。<br />
 <font color=#DF2A3F>错误示例：</font>business/controller/#(table.classNameUp)Controller<br />
 <font color=#5C8D07>正确示例：</font>business/controller/#(table.classNameUp)Controller<font color=#5C8D07>.java</font><br />
 系统集成了主流的三种模板引擎，即Enjoy、Freemarker、Vilocity，可根据自己的喜好选择，允许不同模板分别采用不同的模板语言，但同一模板内不允许混用多种模板语言。<br />
 Monaco Editor 编辑器根据所选语言调整代码规范，生成代码时将根据所选语言进行数据类型映射，为了更好的编辑体验，也为了数据类型映射的准确性，请务必选择正确的语言。<br />
-![image.png](/src/main/resources/static/readme/lang.png)<br />
+![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/lang.png)<br />
 编辑模板时，可通过左侧“参数”按钮查看所有可用参数，参数根据作用域分块展示，并用不同颜色标识系统<br />
 <font color=#b1eaba>内置参数</font>及<font color=#eab1d3>自定义扩展配置</font>，可点击参数快速复制。<br />
-![image.png](/src/main/resources/static/readme/param.png)
+![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/param.png)
 <a name="XmBPP"></a>
 ### 列类型管理
 仅管理员可用，维护不同数据库中的常用列类型，用于配置映射关系时，根据指定库获取列类型清单并维护与程序语言的映射关系。
-![image.png](/src/main/resources/static/readme/col.png)
-![image.png](/src/main/resources/static/readme/col_add.png)
+![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/col.png)
+![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/col_add.png)
 <a name="AuJIn"></a>
 ### 人员管理
 仅管理员可用，管理系统用户，可进行手动添加新用户，重置用户密码，启用、禁用账户等操作。
-![image.png](/src/main/resources/static/readme/user.png)
-![image.png](/src/main/resources/static/readme/user_add.png)
-![image.png](/src/main/resources/static/readme/reset_pwd.png)
+![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/user.png)
+![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/user_add.png)
+![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/reset_pwd.png)
 <a name="We3n5"></a>
 ## 规范
 获取表、字段数据时，系统会进行一些加工处理，如获取表名、字段名、字段注释、关联枚举、字段取值限制等，为了使获取的数据更加统一，同时也为了生成的代码更适用于开发，建议遵循以下数据库设计规范：
@@ -197,7 +197,7 @@ Monaco Editor 编辑器根据所选语言调整代码规范，生成代码时将
       <font color=#5C8D07>例：</font><font color=#2E8AEB>门户中心</font><font color=#ED740C>/</font><font color=#2E8AEB>账户管理</font><font color=#ED740C>/</font><font color=#9773DA>用户信息</font>
 > 12. <font color=#DF2A3F>★</font> 字段注释格式为“<font color=#2E8AEB>[字段中文名]</font><font color=#9773DA>{枚举类名}</font><font color=#ED740C>额外说明</font>”，如没有枚举及额外说明，可不加“[ ]”直接填写字段中文名；<br />
       <font color=#5C8D07>例：</font><font color=#2E8AEB>[类型]</font><font color=#9773DA>{ProConfigTypeEnum}</font><font color=#ED740C>0:公共,1:私人</font><br />
-      ![image.png](/src/main/resources/static/readme/notes.png)
+      ![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/notes.png)
 > 13. 本规范适用于mysql、maria数据库，其它品牌数据库视其规则调整；
 
 
@@ -218,33 +218,33 @@ Monaco Editor 编辑器根据所选语言调整代码规范，生成代码时将
 
 - Monaco Editor 编辑器目前只添加了部分常用语言，如需扩展，需改动项目中的枚举类：	<br />
   <font color=#5C8D07>com/jinyuan/pupa/common/enums/proTemp/ProTempLangEnum.java</font><br />
-  ![image.png](/src/main/resources/static/readme/ext_ed_01.png)
+  ![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/ext_ed_01.png)
 - 可参考以下目录内容添加相应语言的枚举项：<br />
   <font color=#5C8D07>static/js/monaco/vs/basic-languages</font><br />
-  ![image.png](/src/main/resources/static/readme/ext_ed_02.png)
+  ![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/ext_ed_02.png)
   <a name="Dl2if"></a>
 ### 数据库
 PUPA目前仅支持Mysql及MariaDB两种数据库，可根据需求自行添加对其它数据库的扩展，方式如下：
 
 - 在 <font color=#5C8D07>pom.xml</font> 中引入相应数据库驱动依赖；<br />
-  ![image.png](/src/main/resources/static/readme/ext_db_01.png)
+  ![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/ext_db_01.png)
 - 在 <font color=#5C8D07>com/jinyuan/pupa/dbExtends</font> 创建相应数据库包，如mysql；<br />
-  ![image.png](/src/main/resources/static/readme/ext_db_02.png)
+  ![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/ext_db_02.png)
 - 在包内添加相应的表、列数据对象entity及mapper，添加 service 实现类，必须实现 <font color=#5C8D07>IMetadataService.java</font>；<br />
-  ![image.png](/src/main/resources/static/readme/ext_db_03.png)<br />
-  ![image.png](/src/main/resources/static/readme/ext_db_04.png)
+  ![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/ext_db_03.png)<br />
+  ![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/ext_db_04.png)
 - 在 <font color=#5C8D07>resources/mapper</font> 中添加相应数据映射文件；<br />
-  ![image.png](/src/main/resources/static/readme/ext_db_05.png)
+  ![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/ext_db_05.png)
 - 在 <font color=#5C8D07>DatasourceBrandEnum.java</font> 中添加相应枚举数据；<br />
-  ![image.png](/src/main/resources/static/readme/ext_db_06.png)
+  ![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/ext_db_06.png)
   <a name="s2Pjs"></a>
 ### 模板引擎
 
 - 在 <font color=#5C8D07>pom.xml</font> 中引入相应模板引擎依赖；<br />
-  ![image.png](/src/main/resources/static/readme/ext_render_01.png)
+  ![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/ext_render_01.png)
 - 在 <font color=#5C8D07>com/jinyuan/pupa/common/tool/render</font> 中添加相应render渲染类，该类必须继承 <font color=#5C8D07>Render.java</font>，并实现其抽象方法；<br />
-  ![image.png](/src/main/resources/static/readme/ext_render_02.png)
+  ![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/ext_render_02.png)
 - 修改 <font color=#5C8D07>com/jinyuan/pupa/common/enums/proTemp/ProTempTypeEnum.java</font>，添加相应枚举项；<br />
-  ![image.png](/src/main/resources/static/readme/ext_render_03.png)
+  ![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/ext_render_03.png)
 - 修改 <font color=#5C8D07>com/jinyuan/pupa/business/service/impl/BizGenServiceImpl.java</font>，在 <font color=#5C8D07>getRenderMap</font> 方法中，初始化渲染类，并添加进map；<br />
-  ![image.png](/src/main/resources/static/readme/ext_render_04.png)
+  ![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/ext_render_04.png)
