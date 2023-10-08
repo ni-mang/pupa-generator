@@ -1,5 +1,11 @@
 <a name="DIKR0"></a>
-## 常用代码生成工具
+
+![image.png](/src/main/resources/static/images/m_logo.png)<br />
+## PUPA<br />
+蛹，蜕变的开始。<br />
+一款具备多项目管理、团队化管理、自定义配置功能的代码生成工具。
+
+## 常用代码生成工具优缺点
 开发工作中，为了节省时间，一般会使用代码生成工具来生成一些基础代码，如entity、vo、bo等，根据个人使用经验，将常用的代码生成方式归为以下三种。<br />
 
 第一种，基于ORM框架的代码生成功能，如Mybatis。
@@ -18,8 +24,7 @@
 
 总而言之，常见的代码生成工具中，大体存在的一些缺点是：配置复杂，内置参数不直观，自定义扩展繁琐，部署运行麻烦，不便于组内管理及进行个人定制，不适用于多数据源项目，不支持同时生成多语言数据类型映射，支持的模板语言较为单一等。
 <a name="IRr9u"></a>
-## PUPA简介
-蛹，蜕变的开始，新的起点。<br /><br />
+## PUPA介绍
 部件（仅罗列开发时使用的版本）：
 > - JDK版本：JDK 1.8
 > - 数据库：Mysql 5.7.3 
@@ -62,6 +67,8 @@
 > - **拷贝**：快速拷贝当前项目，新项目所有者为当前用户，对新项目的操作不影响原有项目
 
 创建项目时必须选择一个配置，可选配置包括公共配置和用户自己的私有配置，均可在“配置管理”中进行维护；
+![image.png](/src/main/resources/static/readme/pro_01.png)
+![image.png](/src/main/resources/static/readme/pro_edit.png)
 <a name="vAZaW"></a>
 #### 成员
 > - **添加**：项目所有者为项目添加授权用户，可选用户为除管理员之外，所有非当前项目成员的注册用户，被添加的用户将获得本项目的相关权属，仅项目所有者可用
@@ -69,6 +76,8 @@
 > - **删除**：删除成员，除去此成员对于本项目的相关权属，仅项目所有者可用
 > - **转让**：将本项目所有权转让给指定成员，转让成功后，原所有者将立即剔除对本项目的相应管理权限，谨慎使用，仅项目所有者可用
 
+![image.png](/src/main/resources/static/readme/member.png)
+![image.png](/src/main/resources/static/readme/member_add.png)
 <a name="zaxFS"></a>
 #### 数据源
 > - **添加**：添加数据源，用于连接目标数据库，仅项目所有者可用
@@ -78,6 +87,8 @@
 
 维护数据源信息时，根据所选数据库，需要额外配置数据类型映射，默认采用系统预设的映射关系，如需要添加新的映射项，可登录管理员账号，在数据映射管理中进行设置。<br />
 由于是通过读取数据库的信息库获取表、字段信息，因此在数据源中填写的数据库用户必须拥有足够的权限，否则无法同步数据。
+![image.png](/src/main/resources/static/readme/source.png)
+![image.png](/src/main/resources/static/readme/source_edit.png)
 <a name="RARCr"></a>
 #### 库表
 > - **添加**：手动添加表，暂不支持sql生成，仅项目所有者可用
@@ -90,6 +101,9 @@
 > - **预览**：预览当前表生成的代码
 
 数据同步时，只会将上游数据库的数据同步至系统，不做逆向同步，不会影响数据库原有内容；获取的数据根据表名、字段名匹配，对系统中不存在的数据执行新增操作，对系统中已存在的同名数据执行修改操作（不覆盖扩展配置内容），对于系统中存在而数据源中不存在的数据，将此数据的“是否存在于数据库”一列设置为“不存在”。
+首次打开预览界面时，由于下载Monaco控件需要些许时间，可能无法正常展示，多刷新几次或返回上一级再进入一般就可以正常显示。
+![image.png](/src/main/resources/static/readme/table.png)
+![image.png](/src/main/resources/static/readme/preview.png)
 <a name="C7QdJ"></a>
 #### 字段
 > - **添加**：手动添加字段，仅项目所有者可用
@@ -97,6 +111,8 @@
 > - **删除**：删除字段，仅项目所有者可用
 
 项目、成员、数据源、表单、字段均可设置扩展配置，扩展配置项在“配置管理>扩展”中进行维护，扩展配置作为自定义参数，可在模板中的使用。
+![image.png](/src/main/resources/static/readme/field.png)
+![image.png](/src/main/resources/static/readme/filed_edit.png)
 <a name="LjcEJ"></a>
 ### 配置管理
 <a name="RDVc5"></a>
@@ -112,6 +128,8 @@
 > - **模板**：模板管理
 > - **拷贝**：快速拷贝当前配置，新配置所有者为当前用户，对新配置的操作不影响原有配置
 
+![image.png](/src/main/resources/static/readme/config.png)
+![image.png](/src/main/resources/static/readme/config_edit.png)
 <a name="jCy0V"></a>
 #### 映射
 > - **添加**：添加映射配置项，仅配置所有者可用
@@ -120,6 +138,8 @@
 
 映射配置，支持不同数据库对不同程序语言的数据类型映射配置。<br />
 生成代码时将根据所选语言进行数据类型映射。
+![image.png](/src/main/resources/static/readme/mapper.png)
+![image.png](/src/main/resources/static/readme/mapper_edit.png)
 <a name="qBQ92"></a>
 #### 扩展
 > - **添加**：添加扩展配置项，仅配置所有者可用
@@ -128,6 +148,8 @@
 
 扩展配置可满足用户添加自定义参数的需求，应用于模板维护中，生成代码时将根据项目中的具体配置填入模板的相应位置。<br />
 扩展配置根据作用域进行区分，分别作用于项目、成员、数据源、表单、字段等维度。
+![image.png](/src/main/resources/static/readme/extend.png)
+![image.png](/src/main/resources/static/readme/extend_edit.png)
 <a name="qBQ91"></a>
 #### 模板
 > - **添加**：添加模板，仅配置所有者可用
@@ -135,6 +157,8 @@
 > - **删除**：删除模板，仅配置所有者可用
 > - **查看**：非配置所有者不可编辑模板，但可查看
 
+![image.png](/src/main/resources/static/readme/temp.png)
+![image.png](/src/main/resources/static/readme/temp_edit.png)
 模板名称不影响代码生成，文件生成地址允许使用模板，必需与选择的模板引擎一致，生成的文件将根据填写的地址进行命名，因此生成地址必须末尾必须指定文件名及文件类型，且同一个配置中，不允许存在多个生成地址相同的模板。<br />
 <font color=#DF2A3F>错误示例：</font>business/controller/#(table.classNameUp)Controller<br />
 <font color=#5C8D07>正确示例：</font>business/controller/#(table.classNameUp)Controller<font color=#5C8D07>.java</font><br />
@@ -147,9 +171,14 @@ Monaco Editor 编辑器根据所选语言调整代码规范，生成代码时将
 <a name="XmBPP"></a>
 ### 列类型管理
 仅管理员可用，维护不同数据库中的常用列类型，用于配置映射关系时，根据指定库获取列类型清单并维护与程序语言的映射关系。
+![image.png](/src/main/resources/static/readme/col.png)
+![image.png](/src/main/resources/static/readme/col_add.png)
 <a name="AuJIn"></a>
 ### 人员管理
 仅管理员可用，管理系统用户，可进行手动添加新用户，重置用户密码，启用、禁用账户等操作。
+![image.png](/src/main/resources/static/readme/user.png)
+![image.png](/src/main/resources/static/readme/user_add.png)
+![image.png](/src/main/resources/static/readme/reset_pwd.png)
 <a name="We3n5"></a>
 ## 规范
 获取表、字段数据时，系统会进行一些加工处理，如获取表名、字段名、字段注释、关联枚举、字段取值限制等，为了使获取的数据更加统一，同时也为了生成的代码更适用于开发，建议遵循以下数据库设计规范：
