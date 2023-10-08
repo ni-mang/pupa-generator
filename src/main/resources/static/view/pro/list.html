@@ -1,0 +1,50 @@
+<div class="layuimini-container layuimini-page-anim">
+    <div class="layuimini-main">
+
+        <fieldset class="table-search-fieldset">
+            <legend>搜索信息</legend>
+            <div style="margin: 10px 10px 10px 10px">
+                <form class="layui-form layui-form-pane" lay-filter="dataSearchBar" action="">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">项目名称</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="name" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <button type="submit" class="layui-btn layui-btn-primary"  lay-submit lay-filter="dataSearchBtn"><i class="layui-icon"></i> 搜 索</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </fieldset>
+
+        <script type="text/html" id="toolbar">
+            <div class="layui-btn-container">
+                <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="add"> 添加 </button>
+                <button class="layui-btn layui-btn-sm layui-btn-warm" lay-event="exportAll"> 导出全部 </button>
+                <button class="layui-btn layui-btn-sm data-add-btn" style="background-color:#9873e5" lay-event="exportSelect"> 导出选中 </button>
+                <button class="layui-btn layui-btn-sm data-add-btn" id="import" title="导入.pupa文件"> 导入 </button>
+<!--                <button class="layui-btn layui-btn-sm layui-btn-danger data-delete-btn" lay-event="delete"> 删除 </button>-->
+            </div>
+        </script>
+
+        <table class="layui-hide" id="projectTable" lay-filter="projectTable"></table>
+
+        <script type="text/html" id="projectTableBar">
+            {{#  if(!d.readOnly || isAdmin){ }}
+            <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit">编辑</a>
+            <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete">删除</a>
+            {{#  }else{ }}
+            <a class="layui-btn layui-btn-xs" lay-event="view">查看</a>
+            {{#  } }}
+            <a class="layui-btn layui-btn-xs layui-btn-warm" lay-event="member">成员</a>
+            <a class="layui-btn layui-btn-xs" style="background-color:#e573b7" lay-event="datasource">数据源</a>
+            <a class="layui-btn layui-btn-xs" style="background-color:#9873e5" lay-event="copy">拷贝</a>
+        </script>
+
+    </div>
+</div>
+<script src="/js/common/convert.js"></script>
+<script src="/js/biz/pro/list.js"></script>

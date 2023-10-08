@@ -1,0 +1,70 @@
+<div class="layuimini-main">
+
+    <div class="layui-form layuimini-form" lay-filter="editForm">
+
+        <input type="hidden" id="reqUrl">
+        <input type="hidden" id="reqType">
+        <input type="hidden" id="tableName">
+        <input type="hidden" id="configId" name="configId" value="${configId}">
+        <input type="hidden" id="hasExtend" value="true">
+        <input type="hidden" id="id" name="id" value="${id}">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">模板名称</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" lay-verify="required" lay-reqtext="模板名称不能为空" placeholder="请输入模板名称" value="" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">文件生成路径</label>
+            <div class="layui-input-block">
+                <input type="text" name="path" lay-verify="required" lay-reqtext="文件生成路径不能为空" placeholder="请输入文件生成路径" value="" class="layui-input">
+                <tip>文件生成路径用于指定文件类型及在下载压缩包中的路径，可使用选择的模板引擎语言定义。示例：common/entity/${table.ClassName}.java</tip>
+            </div>
+        </div>
+
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">备注</label>
+            <div class="layui-input-block">
+                <textarea name="notes" class="layui-textarea" placeholder="请输入备注"></textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">模板引擎</label>
+            <div class="layui-input-inline">
+                <select name="tempType" lay-verify="required" lay-reqtext="请选择模板引擎">
+                </select>
+            </div>
+
+            <label class="layui-form-label required">语言</label>
+            <div class="layui-input-inline">
+                <select name="contentLang" lay-filter="contentLang" lay-verify="required" lay-reqtext="请选择语言">
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item layui-form-text">
+            <div class="layui-input-block">
+                <div id="container" style="width: 100%;height: 1000px;"></div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">确认保存</button>
+            </div>
+        </div>
+
+        <div class="layer-footer" style="z-index: 10; position: fixed; text-align: left; bottom: 0; width:50px; height:50px; left: 97%; top: 40%;">
+            <button style="height: 50px;width: 50px; border-radius: 25% 10%;" type="button" class="layui-btn layui-btn-sm layui-btn-primary" id="seeConfig" onclick="showConfigInfo(this)">参数</button>
+        </div>
+    </div>
+</div>
+<script src="/js/monaco/vs/loader.js"></script>
+<script src="/js/monaco/vs/basic-languages/java/java.js"></script>
+<script src="/js/common/monaco.js"></script>
+
+<script src="/js/biz/template/edit.js"></script>
+<script src="/js/common/save.js"></script>

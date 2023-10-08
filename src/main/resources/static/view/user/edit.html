@@ -1,0 +1,25 @@
+<div class="layuimini-main">
+
+    <div class="layui-form layuimini-form" lay-filter="editForm">
+
+        <input type="hidden" id="reqUrl">
+        <input type="hidden" id="reqType">
+        <input type="hidden" id="id" name="id" value="${id}">
+        <input type="hidden" name="optLock">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">昵称</label>
+            <div class="layui-input-block">
+                <input type="text" name="nickName" placeholder="请输入昵称" value="" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">确认保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/biz/user/edit.js"></script>
+<script src="/js/common/save.js"></script>

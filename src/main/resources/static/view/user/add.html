@@ -1,0 +1,39 @@
+<div class="layuimini-main">
+
+    <div class="layui-form layuimini-form">
+
+        <input type="hidden" id="reqUrl">
+        <input type="hidden" id="reqType">
+        <input type="hidden" id="hasExtend" value="true">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">登录名</label>
+            <div class="layui-input-block">
+                <input type="text" name="loginName" lay-verify="required" lay-reqtext="登录名不能为空" placeholder="请输入登录名" value="" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">昵称</label>
+            <div class="layui-input-block">
+                <input type="text" name="nickName" placeholder="请输入昵称" value="" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">密码</label>
+            <div class="layui-input-block">
+                <input type="password" name="password" lay-verify="required" lay-reqtext="密码不能为空" placeholder="请输入密码" value="" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">确认保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/utils/md5.js"></script>
+<script src="/js/biz/user/add.js"></script>
+<script src="/js/common/save.js"></script>

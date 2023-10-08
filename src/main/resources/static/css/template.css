@@ -1,0 +1,22 @@
+.config-info-div {background-color: #393D49;}
+.config-info-notes {padding-left: 20px;color: #fff;display:inline-block;}
+.config-info-name {padding-left: 20px;color: #eae6a6;cursor:pointer;position: relative;display:inline-block;width: 40%;height: 20px;}
+.config-info-name:hover {color: #e0a06b;}
+.config-info-key {padding-left: 20px;color: #b1eaba;cursor:pointer;display:inline-block;width: 40%;height: 20px;}
+.config-info-key:hover {color: #b1caea;}
+.config-info-key:active {color: #c1b1ea;}
+.config-info-ext {color: #eab1d3;}
+
+.my-title[titVal]:hover:after {
+    content: attr(titVal);
+    color: #fff;
+    padding: 3px 8px;
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    word-wrap:break-word;
+    z-index: 20;
+    border-radius: 10px;
+    background-color: rgba(38, 35, 35, 0.95);
+}
+

@@ -1,0 +1,26 @@
+<div class="layuimini-main">
+
+    <div class="layui-form layuimini-form">
+
+        <input type="hidden" id="reqUrl">
+        <input type="hidden" id="reqType">
+        <input type="hidden" id="tableName">
+        <input type="hidden" id="projectId" name="projectId" value="${projectId}">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">成员</label>
+            <div class="layui-input-inline">
+                <select name="userId" lay-verify="required" lay-reqtext="请选择成员">
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">确认保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/biz/member/add.js"></script>
+<script src="/js/common/save.js"></script>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>PUPA</title>
+
+    <script src="/js/common/include-layuimini.js"></script>
+    <script src="/js/common/include.js"></script>
+
+</head>
+<body class="layui-layout-body layuimini-all">
+<div class="layui-layout layui-layout-admin">
+
+    <div class="layui-header header">
+        <div class="layui-logo layuimini-logo layuimini-back-home"></div>
+
+        <div class="layuimini-header-content">
+            <a>
+                <div class="layuimini-tool"><i title="展开" class="fa fa-outdent" data-side-fold="1"></i></div>
+            </a>
+
+            <!--电脑端头部菜单-->
+            <ul class="layui-nav layui-layout-left layuimini-header-menu layuimini-menu-header-pc layuimini-pc-show">
+            </ul>
+
+            <ul class="layui-nav layui-layout-right">
+
+                <li class="layui-nav-item" lay-unselect>
+                    <a href="javascript:;" data-refresh="刷新"><i class="fa fa-refresh"></i></a>
+                </li>
+                <li class="layui-nav-item" lay-unselect>
+                    <a href="javascript:;" data-clear="清理" class="layuimini-clear"><i class="fa fa-trash-o"></i></a>
+                </li>
+                <li class="layui-nav-item mobile layui-hide-xs" lay-unselect>
+                    <a href="javascript:;" data-check-screen="full"><i class="fa fa-arrows-alt"></i></a>
+                </li>
+                <li class="layui-nav-item layuimini-setting">
+                    <a href="javascript:;" id="showNickName"></a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a href="javascript:;" layuimini-content-href="auth/setting.html" data-title="基本资料" data-icon="fa fa-gears">用户信息</a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" layuimini-content-href="auth/modifyPwd.html" data-title="修改密码" data-icon="fa fa-gears">修改密码</a>
+                        </dd>
+                        <dd>
+                            <hr>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" class="login-out">退出登录</a>
+                        </dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item layuimini-select-bgcolor" lay-unselect style="width: 20px">
+<!--                    <a href="javascript:;" data-bgcolor="配色方案"><i class="fa fa-ellipsis-v"></i></a>-->
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!--无限极左侧菜单-->
+    <div class="layui-side layui-bg-black layuimini-menu-left">
+    </div>
+
+    <!--初始化加载层-->
+    <div class="layuimini-loader">
+        <div class="layuimini-loader-inner"></div>
+    </div>
+
+    <div class="layui-body">
+
+        <div class="layui-card layuimini-page-header layui-hide">
+            <div class="layui-breadcrumb layuimini-page-title">
+<!--                <a lay-href="" href="/">主页</a><span lay-separator="">/</span>-->
+<!--                <a><cite>常规管理</cite></a><span lay-separator="">/</span>-->
+<!--                <a><cite>系统设置</cite></a>-->
+            </div>
+        </div>
+
+        <div class="layuimini-content-page">
+        </div>
+
+    </div>
+
+</div>
+<script src="/js/common/index.js"></script>
+</body>
+</html>

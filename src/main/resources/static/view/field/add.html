@@ -1,0 +1,156 @@
+<div class="layuimini-main">
+
+    <div class="layui-form layuimini-form">
+
+        <input type="hidden" id="reqUrl">
+        <input type="hidden" id="reqType">
+        <input type="hidden" id="tableName">
+        <input type="hidden" id="hasExtend" value="true">
+
+        <input type="hidden" id="projectId" name="projectId" value="${projectId}">
+        <input type="hidden" id="sourceId" name="sourceId" value="${sourceId}">
+        <input type="hidden" id="tableId" name="tableId" value="${tableId}">
+        <input type="hidden" id="configId" value="${configId}">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">中文名</label>
+            <div class="layui-input-block">
+                <input type="text" name="columnCn" lay-verify="required" lay-reqtext="中文名不能为空" placeholder="请输入中文名" value="" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">注释</label>
+            <div class="layui-input-block">
+                <input type="text" name="columnNotes" placeholder="请输入注释" value="" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">列名</label>
+            <div class="layui-input-block">
+                <input type="text" name="columnName" lay-verify="required" lay-reqtext="列名不能为空" placeholder="请输入列名" value="" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">属性名</label>
+            <div class="layui-input-block">
+                <input type="text" name="attrName" lay-verify="required" lay-reqtext="属性名不能为空" placeholder="请输入属性名" value="" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">物理类型</label>
+            <div class="layui-input-block">
+                <input type="text" name="dataType" lay-verify="required" lay-reqtext="物理类型不能为空" placeholder="请输入物理类型" value="" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">顺位</label>
+            <div class="layui-input-inline">
+                <input type="text" name="ordinalPosition" lay-verify="required" lay-reqtext="顺位不能为空" placeholder="请输入顺位" value="1" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">长度/数值范围下限</label>
+            <div class="layui-input-inline">
+                <input type="text" name="boundMin" placeholder="请输入长度/数值范围下限" value="" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">长度/数值范围上限</label>
+            <div class="layui-input-inline">
+                <input type="text" name="boundMax" placeholder="请输入长度/数值范围上限" value="" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">默认值</label>
+            <div class="layui-input-inline">
+                <input type="text" name="columnDefault" placeholder="请输入默认值" value="" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">枚举名</label>
+            <div class="layui-input-inline">
+                <input type="text" name="enumName" placeholder="请输入枚举名" value="" class="layui-input">
+            </div>
+        </div>
+
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">是否主键</label>
+            <div class="layui-input-inline">
+                <input type="radio" name="primary" lay-filter="primary" value="true" title="是">
+                <input type="radio" name="primary" lay-filter="primary" value="false" title="否" checked>
+            </div>
+        </div>
+
+        <div class="layui-form-item layui-hide" id="idTypeDiv" >
+            <label class="layui-form-label">主键类型</label>
+            <div class="layui-input-inline">
+                <select name="idType" lay-reqtext="请选择主键类型">
+                    <option value="AUTO">AUTO</option>
+                    <option value="ASSIGN_ID">ASSIGN_ID</option>
+                    <option value="ASSIGN_UUID">ASSIGN_UUID</option>
+                    <option value="NONE">NONE</option>
+                    <option value="INPUT">INPUT</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">是否必须</label>
+            <div class="layui-input-inline">
+                <input type="radio" name="requiredFlag" value="true" title="是" checked>
+                <input type="radio" name="requiredFlag" value="false" title="否">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">插入标识</label>
+            <div class="layui-input-inline">
+                <input type="radio" name="insertFlag" value="true" title="是" checked>
+                <input type="radio" name="insertFlag" value="false" title="否">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">展示标识</label>
+            <div class="layui-input-inline">
+                <input type="radio" name="viewFlag" value="true" title="是" checked>
+                <input type="radio" name="viewFlag" value="false" title="否">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">查询标识</label>
+            <div class="layui-input-inline">
+                <input type="radio" name="queryFlag" value="true" title="是" checked>
+                <input type="radio" name="queryFlag" value="false" title="否">
+            </div>
+        </div>
+
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">扩展配置</label>
+            <div class="layui-input-block">
+                <div id="extendDiv" lay-filter="extendDiv"></div>
+            </div>
+        </div>
+
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">确认保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/common/subTable.js"></script>
+<script src="/js/biz/field/add.js"></script>
+<script src="/js/common/save.js"></script>

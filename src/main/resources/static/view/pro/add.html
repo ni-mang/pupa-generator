@@ -1,0 +1,50 @@
+<div class="layuimini-main">
+
+    <div class="layui-form layuimini-form">
+
+        <input type="hidden" id="reqUrl">
+        <input type="hidden" id="reqType">
+        <input type="hidden" id="tableName">
+        <input type="hidden" id="hasExtend" value="true">
+
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">项目名</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" lay-verify="required" lay-reqtext="项目名不能为空" placeholder="请输入项目名" value="" class="layui-input">
+                <!--<tip>填写项目名称。</tip>-->
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">选择配置</label>
+            <div class="layui-input-inline">
+                <select name="configId" lay-filter="configId" lay-verify="required" lay-reqtext="请选择配置">
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">项目说明</label>
+            <div class="layui-input-block">
+                <textarea name="comments" class="layui-textarea" placeholder="请输入项目说明"></textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">扩展配置</label>
+            <div class="layui-input-block">
+                <div id="extendDiv" lay-filter="extendDiv"></div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">确认保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/common/subTable.js"></script>
+<script src="/js/biz/pro/add.js"></script>
+<script src="/js/common/save.js"></script>

@@ -1,0 +1,54 @@
+<div class="layuimini-main">
+
+    <div class="layui-form layuimini-form">
+
+        <input type="hidden" id="reqUrl">
+        <input type="hidden" id="reqType">
+        <input type="hidden" id="tableName">
+        <input type="hidden" id="configId" name="configId" value="${configId}">
+        <input type="hidden" id="hasExtend" value="true">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">名称</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" lay-verify="required" lay-reqtext="名称不能为空" placeholder="请输入名称" value="" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">数据库品牌</label>
+            <div class="layui-input-inline">
+                <select name="brand" lay-filter="brand" lay-verify="required" lay-reqtext="请选择数据库品牌">
+                </select>
+            </div>
+            <label class="layui-form-label required">程序语言</label>
+            <div class="layui-input-inline">
+                <select name="lang" lay-filter="lang" lay-verify="required" lay-reqtext="请选择程序语言">
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">说明</label>
+            <div class="layui-input-block">
+                <textarea name="comments" class="layui-textarea" placeholder="请输入说明"></textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">映射规则</label>
+            <div class="layui-input-block">
+                <div id="mapperDiv" lay-filter="mapperDiv"></div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">确认保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/common/subTable.js"></script>
+<script src="/js/biz/mapper/add.js"></script>
+<script src="/js/common/save.js"></script>

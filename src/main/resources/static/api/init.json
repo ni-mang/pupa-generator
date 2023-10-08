@@ -1,0 +1,25 @@
+{
+  "homeInfo": {
+    "title": "首页",
+    "href": "pro/list.html"
+  },
+  "logoInfo": {
+    "title": "PAPU",
+    "image": "/images/logo.png",
+    "href": ""
+  },
+  "menuInfo": [
+      {
+        "title": "项目管理",
+        "href": "pro/list.html",
+        "icon": "fa fa-home",
+        "target": "_self"
+      },
+      {
+        "title": "配置管理",
+        "href": "config/list.html",
+        "icon": "fa fa-gears",
+        "target": "_self"
+      }
+  ]
+}

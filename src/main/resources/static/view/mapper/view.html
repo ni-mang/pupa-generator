@@ -1,0 +1,46 @@
+<div class="layuimini-main">
+
+    <div class="layui-form layuimini-form" lay-filter="editForm">
+
+        <input type="hidden" id="tableName">
+        <input type="hidden" id="mapper">
+        <input type="hidden" id="id" name="id" value="${id}">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">名称</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" value="" class="layui-input" readonly>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">数据库品牌</label>
+            <div class="layui-input-inline">
+                <select name="brand" lay-filter="brand" disabled>
+                </select>
+            </div>
+            <label class="layui-form-label">程序语言</label>
+            <div class="layui-input-inline">
+                <select name="lang" lay-filter="lang" disabled>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">说明</label>
+            <div class="layui-input-block">
+                <textarea name="comments" class="layui-textarea" readonly></textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">映射规则</label>
+            <div class="layui-input-block">
+                <div id="mapperDiv" lay-filter="mapperDiv"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/common/subTable.js"></script>
+<script src="/js/biz/mapper/view.js"></script>
+<script src="/js/common/save.js"></script>

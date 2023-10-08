@@ -1,0 +1,38 @@
+<div class="layuimini-main">
+
+    <div class="layui-form layuimini-form">
+
+        <input type="hidden" id="reqUrl">
+        <input type="hidden" id="reqType">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">配置名称</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" lay-verify="required" lay-reqtext="配置名称不能为空" placeholder="请输入配置名称" value="" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">类型</label>
+            <div class="layui-input-inline">
+                <input type="radio" name="type" value="0" title="公共" checked>
+                <input type="radio" name="type" value="1" title="私有">
+            </div>
+        </div>
+
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">配置说明</label>
+            <div class="layui-input-block">
+                <textarea name="comments" class="layui-textarea" placeholder="请输入配置说明"></textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">确认保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/biz/config/add.js"></script>
+<script src="/js/common/save.js"></script>

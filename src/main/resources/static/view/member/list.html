@@ -1,0 +1,57 @@
+<div class="layuimini-container layuimini-page-anim">
+    <div class="layuimini-main">
+        <fieldset class="table-search-fieldset">
+            <legend>搜索信息</legend>
+            <div style="margin: 10px 10px 10px 10px">
+                <form class="layui-form layui-form-pane" action="">
+                    <div class="layui-form-item">
+                        
+                        <input type="hidden" id="projectId" value="${projectId}">
+                        <input type="hidden" id="configId" value="${configId}">
+                        <input type="hidden" id="isOwner" value="${isOwner}">
+
+                        <div class="layui-inline">
+                            <label class="layui-form-label">昵称</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="nickName" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        
+                        <div class="layui-inline">
+                            <button type="submit" class="layui-btn layui-btn-primary"  lay-submit lay-filter="memberSearchBtn"><i class="layui-icon"></i> 搜 索</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </fieldset>
+
+        <script type="text/html" id="memberToolbar">
+            <div class="layui-btn-container">
+                {{#  if(${isOwner}){ }}
+                <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="add"> 添加 </button>
+                {{#  } }}
+            </div>
+        </script>
+
+        <table class="layui-hide" id="memberTable" lay-filter="memberTable"></table>
+
+        <script type="text/html" id="memberTableBar">
+            {{#  if(d.userId == loginUser.id || ${isOwner}){ }}
+            <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit">编辑</a>
+            {{#  } }}
+            {{#  if(d.userId != loginUser.id && ${isOwner}){ }}
+            <a class="layui-btn layui-btn-xs layui-btn-warm" lay-event="transfer">转让</a>
+            {{#  } }}
+            {{#  if(${isOwner}){ }}
+            <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete">删除</a>
+            {{#  } }}
+            {{#  if(d.userId == loginUser.id && !${isOwner}){ }}
+            <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="quit">退出</a>
+            {{#  } }}
+
+        </script>
+
+    </div>
+</div>
+<script src="/js/common/convert.js"></script>
+<script src="/js/biz/member/list.js"></script>

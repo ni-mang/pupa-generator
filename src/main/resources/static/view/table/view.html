@@ -1,0 +1,41 @@
+<div class="layuimini-main">
+
+    <div class="layui-form layuimini-form" lay-filter="viewForm">
+
+        <input type="hidden" id="projectId" name="projectId" value="${projectId}">
+        <input type="hidden" id="sourceId" name="sourceId" value="${sourceId}">
+        <input type="hidden" id="id" name="id" value="${id}">
+        <input type="hidden" id="configId" value="${configId}">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">表名</label>
+            <div class="layui-input-block">
+                <input type="text" name="tableName" class="layui-input" readonly>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">模块</label>
+            <div class="layui-input-block">
+                <input type="text" name="module" class="layui-input" readonly>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">中文名</label>
+            <div class="layui-input-block">
+                <input type="text" name="cnName" class="layui-input" readonly>
+            </div>
+        </div>
+
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">扩展配置</label>
+            <div class="layui-input-block">
+                <div id="extendDiv" lay-filter="extendDiv"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="/js/common/subTable.js"></script>
+<script src="/js/biz/table/view.js"></script>

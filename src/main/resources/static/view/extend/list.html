@@ -1,0 +1,73 @@
+<div class="layuimini-container layuimini-page-anim">
+    <div class="layuimini-main">
+        <fieldset class="table-search-fieldset">
+            <legend>搜索信息</legend>
+            <div style="margin: 10px 10px 10px 10px">
+                <form class="layui-form layui-form-pane" action="">
+                    <div class="layui-form-item">
+                        <input type="hidden" id="isOwner" value="${isOwner}">
+                        <input type="hidden" id="configId" value="${configId}">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">键</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="key" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">键名</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="name" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">作用域</label>
+                            <div class="layui-input-inline">
+                                <select name="scope" lay-filter="scope">
+                                    <option value="">--请选择--</option>
+                                    <option value="0">项目</option>
+                                    <option value="1">项目成员</option>
+                                    <option value="2">数据源</option>
+                                    <option value="3">表单</option>
+                                    <option value="4">字段</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">状态</label>
+                            <div class="layui-input-inline">
+                                <select name="status" lay-filter="status">
+                                    <option value="">--请选择--</option>
+                                    <option value="0">禁用</option>
+                                    <option value="1">启用</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <button type="submit" class="layui-btn layui-btn-primary"  lay-submit lay-filter="extendSearchBtn"><i class="layui-icon"></i> 搜 索</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </fieldset>
+
+        <script type="text/html" id="extendToolbar">
+            <div class="layui-btn-container">
+                {{#  if(${isOwner}){ }}
+                <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="add"> 添加 </button>
+                {{#  } }}
+            </div>
+        </script>
+
+        <table class="layui-hide" id="extendTable" lay-filter="extendTable"></table>
+
+        <script type="text/html" id="extendTableBar">
+            {{#  if(${isOwner}){ }}
+            <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit">编辑</a>
+            <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete">删除</a>
+            {{#  } }}
+        </script>
+
+    </div>
+</div>
+<script src="/js/common/convert.js"></script>
+<script src="/js/biz/extend/list.js"></script>

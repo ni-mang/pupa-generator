@@ -1,0 +1,77 @@
+<div class="layuimini-main">
+
+    <div class="layui-form layuimini-form" lay-filter="viewForm">
+
+        <input type="hidden" id="projectId" name="projectId" value="${projectId}">
+        <input type="hidden" id="configId" value="${configId}">
+        <input type="hidden" id="id" name="id" value="${id}">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">连接名</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" class="layui-input" readonly>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">数据库品牌</label>
+            <div class="layui-input-inline">
+                <select name="brand" lay-filter="brand" disabled>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">主机</label>
+            <div class="layui-input-block">
+                <input type="text" name="mainAddr" class="layui-input" readonly>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">端口</label>
+            <div class="layui-input-block">
+                <input type="text" name="port" class="layui-input" readonly>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">库</label>
+            <div class="layui-input-block">
+                <input type="text" name="schema" class="layui-input" readonly>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">用户名</label>
+            <div class="layui-input-block">
+                <input type="text" name="account" class="layui-input" readonly>
+            </div>
+        </div>
+
+        <!--<div class="layui-form-item">
+            <label class="layui-form-label">链接后缀</label>
+            <div class="layui-input-block">
+                <input type="text" name="urlSuffix" class="layui-input" readonly>
+                <tip>如：serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&useSSL=true</tip>
+            </div>
+        </div>-->
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">忽略前缀</label>
+            <div class="layui-input-block">
+                <input type="text" name="prefix" class="layui-input" readonly>
+                <tip>用于生成代码时忽略表头，如：tb_,sys_</tip>
+            </div>
+        </div>
+
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">扩展配置</label>
+            <div class="layui-input-block">
+                <div id="extendDiv" lay-filter="extendDiv"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/common/subTable.js"></script>
+<script src="/js/biz/datasource/view.js"></script>

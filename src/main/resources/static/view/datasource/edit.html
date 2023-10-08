@@ -1,0 +1,100 @@
+<div class="layuimini-main">
+
+    <div class="layui-form layuimini-form" lay-filter="editForm">
+
+        <input type="hidden" id="reqUrl">
+        <input type="hidden" id="reqType">
+        <input type="hidden" id="tableName">
+        <input type="hidden" id="hasExtend" value="true">
+
+        <input type="hidden" id="extend">
+        <input type="hidden" id="mapper">
+        <input type="hidden" id="projectId" name="projectId" value="${projectId}">
+        <input type="hidden" id="configId" value="${configId}">
+        <input type="hidden" id="id" name="id" value="${id}">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">连接名</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" lay-verify="required" lay-reqtext="连接名不能为空" placeholder="请输入连接名" value="" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">数据库品牌</label>
+            <div class="layui-input-inline">
+                <select name="brand" lay-filter="brand" lay-verify="required" lay-reqtext="请选择数据库品牌">
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">主机</label>
+            <div class="layui-input-block">
+                <input type="text" name="mainAddr" lay-verify="required" lay-reqtext="主机不能为空" placeholder="请输入主机" value="" class="layui-input">
+                <tip>确保站点网络能够访问数据库所在网络</tip>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">端口</label>
+            <div class="layui-input-block">
+                <input type="text" name="port" lay-verify="required" lay-reqtext="端口不能为空" placeholder="请输入端口" value="" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">库</label>
+            <div class="layui-input-block">
+                <input type="text" name="schema" lay-verify="required" lay-reqtext="库不能为空" placeholder="请输入库" value="" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">用户名</label>
+            <div class="layui-input-block">
+                <input type="text" name="account" lay-verify="required" lay-reqtext="用户名不能为空" placeholder="请输入用户名" value="" class="layui-input">
+                <tip>此用户需拥有访问信息库的权限，否则无法获取表单数据</tip>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">密码</label>
+            <div class="layui-input-block">
+                <input type="password" name="password" lay-verify="required" lay-reqtext="密码不能为空" placeholder="请输入密码" value="" class="layui-input">
+            </div>
+        </div>
+
+        <!--<div class="layui-form-item">
+            <label class="layui-form-label">链接后缀</label>
+            <div class="layui-input-block">
+                <input type="text" name="urlSuffix" placeholder="请输入链接后缀" value="" class="layui-input">
+                <tip>如：serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&useSSL=true</tip>
+            </div>
+        </div>-->
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">忽略前缀</label>
+            <div class="layui-input-block">
+                <input type="text" name="prefix" placeholder="请输入忽略前缀" value="" class="layui-input">
+                <tip>忽略表头，如：tb_,sys_</tip>
+            </div>
+        </div>
+
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">扩展配置</label>
+            <div class="layui-input-block">
+                <div id="extendDiv" lay-filter="extendDiv"></div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">确认保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/common/subTable.js"></script>
+<script src="/js/biz/datasource/edit.js"></script>
+<script src="/js/common/save.js"></script>

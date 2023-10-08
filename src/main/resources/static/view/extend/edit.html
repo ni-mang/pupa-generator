@@ -1,0 +1,68 @@
+<div class="layuimini-main">
+
+    <div class="layui-form layuimini-form" lay-filter="editForm">
+
+        <input type="hidden" id="reqUrl">
+        <input type="hidden" id="reqType">
+        <input type="hidden" id="tableName">
+        <input type="hidden" id="configId" name="configId" value="${configId}">
+        <input type="hidden" id="id" name="id" value="${id}">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">键名</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" lay-verify="required" lay-reqtext="键名不能为空" placeholder="请输入键名" value="" class="layui-input">
+                <tip>键的中文名称</tip>
+            </div>
+        </div>
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">说明</label>
+            <div class="layui-input-block">
+                <textarea name="comments" class="layui-textarea" placeholder="请输入说明"></textarea>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label required">键</label>
+            <div class="layui-input-inline">
+                <input type="text" name="key" lay-verify="required" lay-reqtext="键不能为空" placeholder="请输入键" value="" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">值</label>
+            <div class="layui-input-inline">
+                <input type="text" name="value" placeholder="请输入值" value="" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">作用域</label>
+            <div class="layui-input-inline">
+                <select name="scope" lay-verify="required" lay-reqtext="请选择作用域">
+                    <option value="">--请选择--</option>
+                    <option value="0">项目</option>
+                    <option value="1">项目成员</option>
+                    <option value="2">数据源</option>
+                    <option value="3">表单</option>
+                    <option value="4">字段</option>
+                </select>
+            </div>
+        </div>
+
+        <!--<div class="layui-form-item">
+            <label class="layui-form-label required">状态</label>
+            <div class="layui-input-inline">
+                <input type="radio" name="status" value="1" title="启用">
+                <input type="radio" name="status" value="0" title="禁用">
+            </div>
+        </div>-->
+
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">确认保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/biz/extend/edit.js"></script>
+<script src="/js/common/save.js"></script>

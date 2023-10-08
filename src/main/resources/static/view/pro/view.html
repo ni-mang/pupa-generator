@@ -1,0 +1,50 @@
+<div class="layuimini-main">
+
+    <div class="layui-form layuimini-form" lay-filter="viewForm">
+
+        <input type="hidden" id="extend">
+        <input type="hidden" id="id" name="id" value="${id}">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">项目名</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" class="layui-input" readonly>
+                <!--<tip>填写项目名称</tip>-->
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">所有者</label>
+            <div class="layui-input-block">
+                <input type="text" name="owner" class="layui-input" readonly>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">选择配置</label>
+            <div class="layui-input-inline">
+                <input type="hidden" name="configId" id="configId">
+                <input type="text" name="configName" class="layui-input" readonly>
+            </div>
+            <div class="layui-input-line">
+                <button class="layui-btn layui-btn-normal" lay-submit lay-filter="cloneBtn">拷贝配置</button>
+            </div>
+        </div>
+
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">项目说明</label>
+            <div class="layui-input-block">
+                <textarea name="comments" class="layui-textarea" readonly></textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">扩展配置</label>
+            <div class="layui-input-block">
+                <div id="extendDiv" lay-filter="extendDiv"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/common/subTable.js"></script>
+<script src="/js/biz/pro/view.js"></script>

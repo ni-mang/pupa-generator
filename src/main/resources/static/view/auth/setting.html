@@ -1,0 +1,25 @@
+<div class="layuimini-container layuimini-page-anim">
+    <div class="layuimini-main">
+
+        <div class="layui-form layuimini-form" lay-filter="setting">
+            <div class="layui-form-item">
+                <label class="layui-form-label">登录账号</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="loginName" value="" class="layui-input" disabled="">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label required">昵称</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="nickName" placeholder="请输入昵称"  value="" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">确认保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/biz/auth/setting.js"></script>
