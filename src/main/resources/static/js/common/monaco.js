@@ -1,27 +1,30 @@
 // 加载monaco编辑器
 var editor;
+layui.use(['form'], function () {
+    var layer = layui.layer
 
-function renderMonaco(elemId, value, lang, readOnly){
-    load(elemId);
-    require.config({ paths: { 'vs': '/js/monaco/vs' }});
-    require.config({'vs/nls': {availableLanguages: {'*':'zh-cn'}}});
-    require(['vs/editor/editor.main'],function(){
-        //console.log('monaco.editor', monaco.editor)
-        editor = monaco.editor.create(document.getElementById(elemId), {
-            value: [value].join('\n'),
-            language: lang,
-            theme:'vs-dark',
-            readOnly:readOnly
+    window.renderMonaco = function(elemId, value, lang, readOnly){
+        // 添加遮罩层
+        this.layerIndex = layer.load(0, {time: 30*1000, shade: [0.5, '#393D49'] });
+
+        require.config({ paths: { 'vs': '/js/monaco/vs' }});
+        require.config({'vs/nls': {availableLanguages: {'*':'zh-cn'}}});
+        require(['vs/editor/editor.main'],function(){
+            //console.log('monaco.editor', monaco.editor)
+            editor = monaco.editor.create(document.getElementById(elemId), {
+                value: [value].join('\n'),
+                language: lang,
+                theme:'vs-dark',
+                readOnly:readOnly
+            });
+            // 关闭遮罩层
+            layer.close(this.layerIndex);
         });
-    });
-}
-function load(elemId){
-    var p=document.createElement('p');
-    p.id = "prompt"
-    p.style.color = "red"
-    p.innerHTML='由于下载Monaco编辑器控件需要耗费一定时间，首次打开代码编辑或查看页面时，可能无法正常展开编辑器窗口，请稍作等待，或重复打开当前窗口！';
-    document.getElementById(elemId).after(p)
-}
+    }
+
+
+});
+
 
 //写入值
 //var con = 'package com.abc.pupa.business.controller;';
