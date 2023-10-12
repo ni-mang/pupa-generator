@@ -9,7 +9,7 @@
 http://pupa.nimang.org.cn/view/index.html <br />
 
 ### 微信交流，请备注：pupa
-![img.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/wx.ico)
+![img.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/wx.png)
 
 ## 常用代码生成工具优缺点
 开发工作中，为了节省时间，一般会使用代码生成工具来生成一些基础代码，如entity、vo、bo等，根据个人使用经验，将常用的代码生成方式归为以下三种。<br />
