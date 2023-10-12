@@ -2,7 +2,14 @@
 
 ## PUPA![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/favicon.ico)<br />
 蛹，蜕变的开始。<br />
-一款具备多项目管理、团队化管理、自定义配置功能的代码生成工具。
+一款具备多项目管理、团队化管理、自定义配置功能的代码生成工具。<br />
+
+### 演示地址
+简单注册，先行体验 <br />
+http://pupa.nimang.org.cn/view/index.html <br />
+
+### 微信交流，请备注：pupa
+![img.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/wx.ico)
 
 ## 常用代码生成工具优缺点
 开发工作中，为了节省时间，一般会使用代码生成工具来生成一些基础代码，如entity、vo、bo等，根据个人使用经验，将常用的代码生成方式归为以下三种。<br />
