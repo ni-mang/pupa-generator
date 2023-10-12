@@ -4,36 +4,18 @@
 蛹，蜕变的开始。<br />
 一款具备多项目管理、团队化管理、自定义配置功能的代码生成工具。<br />
 
-### 演示地址
+#### 演示地址
 简单注册，先行体验 <br />
 http://pupa.nimang.org.cn/view/index.html <br />
 
-### 微信交流，请备注：pupa
+#### 微信交流
+请备注：pupa <br />
 ![img.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/wx.png)
 
-## 常用代码生成工具优缺点
-开发工作中，为了节省时间，一般会使用代码生成工具来生成一些基础代码，如entity、vo、bo等，根据个人使用经验，将常用的代码生成方式归为以下三种。<br />
-
-第一种，基于ORM框架的代码生成功能，如Mybatis。
-- <font color=#5C8D07>优点</font>：无需运行额外项目，只要引入相应插件（如mybatis-generator-core），配置数据源、生成路径等信息即可生成代码，简单方便；
-- <font color=#DF2A3F>缺点</font>：如果想要生成自定义代码内容，就需要进行比较复杂的配置，技术要求较高，需要手动移植相关配置才能在其它项目使用，不具备团队内成员间分享的便捷性。
-
-第二种，选用第三方开发平台作为项目主体时，平台自带的代码生成器。
-
-- <font color=#5C8D07>优点</font>：已预设相关模板，无需过多配置生成规则，能够快捷生成与平台契合的前后端代码；
-- <font color=#DF2A3F>缺点</font>：通常随业务代码一起下载至本地，需要额外启动代码生成器，如要生成自定义内容，需要对平台预设模板进行改动，一旦提交至代码仓库，或单独部署团队公用，则可能影响其他项目成员生成的代码，同时也无法应对多项目定制生成的场景。
-
-第三种，使用三方提供的代码生成器，这类工具繁多。
-
-- <font color=#5C8D07>优点</font>：高自由度，可根据实际需求调整相应模板，操作简单，以zip包的形式下载代码，自行选择需要的文件复制到项目中，降低项目代码被意外覆盖的风险；
-- <font color=#DF2A3F>缺点</font>：生成代码时使用的参数内置于系统中，只能通过修改生成器代码进行调整，可能需要针对不同项目定制一套生成器，增加了工作量。
-
-总而言之，常见的代码生成工具中，大体存在的一些缺点是：配置复杂，内置参数不直观，自定义扩展繁琐，部署运行麻烦，不便于组内管理及进行个人定制，不适用于多数据源项目，不支持同时生成多语言数据类型映射，支持的模板语言较为单一等。
-<a name="IRr9u"></a>
 ## PUPA介绍
-部件（仅罗列开发时使用的版本）：
+环境、框架、组件：
 > - JDK版本：JDK 1.8
-> - 数据库：Mysql 5.7.3 
+> - 数据库：Mysql 5.7.3
 > - 框架：Spring-boot-web
 > - 登录控制：sa-token 1.34.0
 > - 前端UI框架：Layuimini 2.5.5 单页模式（jQuery + Html5）
@@ -51,6 +33,19 @@ http://pupa.nimang.org.cn/view/index.html <br />
 > - 可用参数随时查看，清晰了然
 > - 可直接<font color=#1D7ADE>克隆</font>项目、配置，快速个性化定制
 > - 支持项目、配置<font color=#1D7ADE>导入导出</font>，移植无压力
+
+<a name="xUHgN"></a>
+## 部署
+> 1. 确保服务器已安装 Java 1.8+、Mysql 数据库，在数据库内运行项目目录下的 <font color=#5C8D07>resources/sql/pupa.sql</font> 初始化数据；
+> 2. 修改项目配置文件 <font color=#5C8D07>resources/application.yml</font> 中的 <font color=#ED740C>datasource</font> 数据库连接配置；
+> 3. 修改前端配置 <font color=#5C8D07>static/js/common/common.js</font>，将 <font color=#ED740C>serverPath</font> 参数中的地址设置为相应服务器地址；
+> 4. 构建项目；
+> 5. 复制项目目录下的 <font color=#5C8D07>target/pupa-1.0-SNAPSHOT.java</font> 到服务器自定目录；
+> 6. 至此可直接通过服务器指令启动服务，也可使用提供的脚本启动运行，操作如下：
+>> 1. 修改jar文件名为 <font color=#5C8D07>pupa.jar</font>；
+>> 2. 复制项目目录下的 <font color=#5C8D07>resources/run/start.sh</font> 到服务器，与jar文件同一目录；
+>> 3. 进入服务器项目目录，执行 <font color=#2E8AEB>./start.sh</font> 命令启动项目，如 <font color=#5C8D07>start.sh</font> 未授权，则执行 <font color=#2E8AEB>chmod u+x start.sh</font> 命令进行授权，再启动项目；
+>> 4. 在浏览器输入实际项目地址进行访问，如：http://192.168.0.1:7384/view/index.html。
 
 <a name="woSZP"></a>
 ## 功能说明
@@ -187,38 +182,21 @@ Monaco Editor 编辑器根据所选语言调整代码规范，生成代码时将
 ![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/reset_pwd.png)
 <a name="We3n5"></a>
 ## 规范
-获取表、字段数据时，系统会进行一些加工处理，如获取表名、字段名、字段注释、关联枚举、字段取值限制等，为了使获取的数据更加统一，同时也为了生成的代码更适用于开发，建议遵循以下数据库设计规范：
-> 1. 中间表建议加上本表的主键字段，不要使用关联字段作为主键，避免使用MybatisPlus的updateById更新数据时无法有效更新；
-> 2. 表示时间的数据，使用datetime类型，只需精确到日期的，使用date类型；
-> 3. 表示布尔的数据，使用tinyint类型；
-> 4. 表示金额等需要高精度保存的数据，使用decimal类型；
-> 5. 字符串类型字段建议标明长度，默认填充空字符；
-> 6. 整数类型建议标明长度，如不可能为负数，则设置为无符号，默认0；<br />
+获取表、字段数据时，系统会进行一些加工处理，如获取表名、字段名、字段注释、关联枚举、字段取值限制等，为了使获取的数据更加统一，建议遵循以下数据库设计规范：
+
+> 1. 字符串类型字段建议标明长度，默认填充空字符；
+> 2. 整数类型建议标明长度，如不可能为负数，则设置为无符号，默认0；<br />
      <font color=#5C8D07>例：int 4 即表示取值范围为-9999—9999，设置为无符号后表示取值范围为0—9999</font>
-> 7. 浮点类型建议标明长度、精度，如不可能为负数，则设置为无符号，默认0；<br />
+> 3. 浮点类型建议标明长度、精度，如不可能为负数，则设置为无符号，默认0；<br />
      <font color=#5C8D07>例：decimal 4,2 即表示取值范围为-99.99—99.99，设置为无符号后表示取值范围为0.00—99.99</font>
-> 8. 表名、字段名使用下划线间隔的形式命名，尽量简短，符合业务应用场景，建议小写，可读性更高；
-> 9. 字段名不以“is_”作为开头；
-> 10. <font color=#DF2A3F>★</font> 表注释、字段注释必填；
-> 11. <font color=#DF2A3F>★</font> 表注释格式为“<font color=#2E8AEB>所属模块</font><font color=#ED740C>/</font><font color=#2E8AEB>...</font><font color=#ED740C>/</font><font color=#9773DA>表中文名</font>”，如不设置模块，可直接填写表中文名；<br />
-      <font color=#5C8D07>例：</font><font color=#2E8AEB>门户中心</font><font color=#ED740C>/</font><font color=#2E8AEB>账户管理</font><font color=#ED740C>/</font><font color=#9773DA>用户信息</font>
-> 12. <font color=#DF2A3F>★</font> 字段注释格式为“<font color=#2E8AEB>[字段中文名]</font><font color=#9773DA>{枚举类名}</font><font color=#ED740C>额外说明</font>”，如没有枚举及额外说明，可不加“[ ]”直接填写字段中文名；<br />
-      <font color=#5C8D07>例：</font><font color=#2E8AEB>[类型]</font><font color=#9773DA>{ProConfigTypeEnum}</font><font color=#ED740C>0:公共,1:私人</font><br />
-      ![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/notes.png)
-> 13. 本规范适用于mysql、maria数据库，其它品牌数据库视其规则调整；
+> 4. <font color=#DF2A3F>★</font> 表注释、字段注释必填；
+> 5. <font color=#DF2A3F>★</font> 表注释格式为“<font color=#2E8AEB>所属模块</font><font color=#ED740C>/</font><font color=#2E8AEB>...</font><font color=#ED740C>/</font><font color=#9773DA>表中文名</font>”，如不设置模块，可直接填写表中文名；<br />
+     <font color=#5C8D07>例：</font><font color=#2E8AEB>门户中心</font><font color=#ED740C>/</font><font color=#2E8AEB>账户管理</font><font color=#ED740C>/</font><font color=#9773DA>用户信息</font>
+> 6. <font color=#DF2A3F>★</font> 字段注释格式为“<font color=#2E8AEB>[字段中文名]</font><font color=#9773DA>{枚举类名}</font><font color=#ED740C>额外说明</font>”，如没有枚举及额外说明，可不加“[ ]”直接填写字段中文名；<br />
+     <font color=#5C8D07>例：</font><font color=#2E8AEB>[类型]</font><font color=#9773DA>{ProConfigTypeEnum}</font><font color=#ED740C>0:公共,1:私人</font><br />
+     ![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/notes.png)
+> 7. 本规范适用于mysql、maria数据库，其它品牌数据库视其规则调整；
 
-
-<a name="xUHgN"></a>
-## 部署
-> 1. 确保服务器已安装Mysql数据库，在数据库内运行项目目录下的 <font color=#5C8D07>resources/sql/pupa.sql</font> 初始化数据；
-> 2. 修改项目配置文件 <font color=#5C8D07>resources/application.yml</font> 中的 <font color=#ED740C>datasource</font> 数据库连接配置；
-> 3. 修改前端配置 <font color=#5C8D07>static/js/common/common.js</font>，将 <font color=#ED740C>serverPath</font> 参数中的地址设置为相应服务器地址；
-> 4. 构建项目；
-> 5. 复制项目目录下的 <font color=#5C8D07>target/pupa-1.0-SNAPSHOT.java</font> 到服务器自定目录，修改文件名为 <font color=#5C8D07>pupa.jar</font>；
-> 6. 复制项目目录下的 <font color=#5C8D07>resources/run/start.sh</font> 到服务器，与jar文件同一目录；
-> 7. 进入服务器项目目录，执行 <font color=#2E8AEB>./start.sh</font> 命令启动项目，如 <font color=#5C8D07>start.sh</font> 未授权，则执行 <font color=#2E8AEB>chmod u+x start.sh</font> 命令为进行授权，再启动项目；
-> 8. 在浏览器输入实际项目地址进行访问，如：http://192.168.0.1:7384/view/index.html
-<a name="HMKuG"></a>
 ## 扩展
 <a name="ViPyV"></a>
 ### 编辑器语言

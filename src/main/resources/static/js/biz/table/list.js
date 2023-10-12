@@ -66,7 +66,7 @@ layui.use(['form', 'table','miniPage','element'], function () {
     table.on('toolbar(dbTableTable)', function (obj) {
         let ids = checkId();
         if (obj.event === 'add') {   // 监听添加操作
-            let content = miniPage.getHrefContent('table/add.html' + param);
+            let content = miniPage.getHrefContent(pagePath + '/table/add.html' + param);
             let index = layer.open({
                 title: '添加',
                 type: 1,
@@ -184,7 +184,7 @@ layui.use(['form', 'table','miniPage','element'], function () {
         let rowData = obj.data;
         if (obj.event === 'edit') {
 
-            let content = miniPage.getHrefContent('table/edit.html' + param + '&id=' + rowData.id);
+            let content = miniPage.getHrefContent(pagePath + '/table/edit.html' + param + '&id=' + rowData.id);
 
             let index = layer.open({
                 title: rowData.tableName + '-编辑',
@@ -229,7 +229,7 @@ layui.use(['form', 'table','miniPage','element'], function () {
                     return false;
             });
         } else if (obj.event === 'view') {
-            let content = miniPage.getHrefContent('table/view.html' + param + '&id=' + rowData.id);
+            let content = miniPage.getHrefContent(pagePath + '/table/view.html' + param + '&id=' + rowData.id);
             let index = layer.open({
                 title: rowData.tableName + '-查看',
                 type: 1,
@@ -245,7 +245,7 @@ layui.use(['form', 'table','miniPage','element'], function () {
             return false;
         } else if (obj.event === 'field') {
             let openWH = miniPage.getOpenWidthHeight();
-            let content = miniPage.getHrefContent('field/list.html' + param + '&tableId=' + rowData.id + "&isOwner=true");
+            let content = miniPage.getHrefContent(pagePath + '/field/list.html' + param + '&tableId=' + rowData.id + "&isOwner=true");
             let index = layer.open({
                 title: rowData.tableName + '-字段',
                 type: 1,
@@ -262,7 +262,7 @@ layui.use(['form', 'table','miniPage','element'], function () {
             return false;
         } else if (obj.event === 'preview') {
             let openWH = miniPage.getOpenWidthHeight();
-            let content = miniPage.getHrefContent('table/preview.html?id=' + rowData.id);
+            let content = miniPage.getHrefContent(pagePath + '/table/preview.html?id=' + rowData.id);
             let index = layer.open({
                 title: rowData.tableName + '-生成预览',
                 type: 1,

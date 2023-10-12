@@ -81,7 +81,7 @@ layui.use(['form', 'table','miniPage','element','upload'], function () {
     table.on('toolbar(projectTable)', function (obj) {
         let ids = checkId();
         if (obj.event === 'add') {   // 监听添加操作
-            var content = miniPage.getHrefContent('pro/add.html');
+            var content = miniPage.getHrefContent(pagePath + '/pro/add.html');
             var index = layer.open({
                 title: '添加',
                 type: 1,
@@ -142,7 +142,7 @@ layui.use(['form', 'table','miniPage','element','upload'], function () {
         let rowData = obj.data;
         let isOwner = rowData.ownerId === loginUser.id || isAdmin
         if (obj.event === 'edit') {
-            let content = miniPage.getHrefContent('pro/edit.html?id=' + rowData.id);
+            let content = miniPage.getHrefContent(pagePath + '/pro/edit.html?id=' + rowData.id);
             let index = layer.open({
                 title: rowData.name + '-编辑',
                 type: 1,
@@ -188,7 +188,7 @@ layui.use(['form', 'table','miniPage','element','upload'], function () {
                     return false;
             });
         } else if (obj.event === 'view') {
-            let content = miniPage.getHrefContent('pro/view.html?id=' + rowData.id);
+            let content = miniPage.getHrefContent(pagePath + '/pro/view.html?id=' + rowData.id);
             let index = layer.open({
                 title: rowData.name + '-查看',
                 type: 1,
@@ -203,7 +203,7 @@ layui.use(['form', 'table','miniPage','element','upload'], function () {
             });
             return false;
         } else if (obj.event === 'member') {
-            let content = miniPage.getHrefContent('member/list.html?projectId=' + rowData.id + "&configId=" + rowData.configId + "&isOwner=" + isOwner);
+            let content = miniPage.getHrefContent(pagePath + '/member/list.html?projectId=' + rowData.id + "&configId=" + rowData.configId + "&isOwner=" + isOwner);
             let index = layer.open({
                 title: rowData.name + '-成员',
                 type: 1,
@@ -219,7 +219,7 @@ layui.use(['form', 'table','miniPage','element','upload'], function () {
             });
             return false;
         } else if (obj.event === 'datasource') {
-            let content = miniPage.getHrefContent('datasource/list.html?projectId=' + rowData.id + "&configId=" + rowData.configId + "&isOwner=" + isOwner);
+            let content = miniPage.getHrefContent(pagePath + '/datasource/list.html?projectId=' + rowData.id + "&configId=" + rowData.configId + "&isOwner=" + isOwner);
             let index = layer.open({
                 title: rowData.name + '-数据源',
                 type: 1,

@@ -65,7 +65,7 @@ layui.use(['form', 'table','miniPage','element'], function () {
     table.on('toolbar(viewTable)', function (obj) {
         let ids = checkId();
         if (obj.event === 'add') {   // 监听添加操作
-            let content = miniPage.getHrefContent('column/add.html');
+            let content = miniPage.getHrefContent(pagePath + '/column/add.html');
 
             let index = layer.open({
                 title: '添加',
@@ -136,7 +136,7 @@ layui.use(['form', 'table','miniPage','element'], function () {
         let rowData = obj.data;
         if (obj.event === 'edit') {
 
-            let content = miniPage.getHrefContent('column/edit.html?id=' + rowData.id);
+            let content = miniPage.getHrefContent(pagePath + '/column/edit.html?id=' + rowData.id);
 
             let index = layer.open({
                 title: '编辑',

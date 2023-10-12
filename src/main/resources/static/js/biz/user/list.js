@@ -61,7 +61,7 @@ layui.use(['form', 'table','miniPage','element'], function () {
      */
     table.on('toolbar(viewTable)', function (obj) {
         if (obj.event === 'add') {   // 监听添加操作
-            let content = miniPage.getHrefContent('user/add.html');
+            let content = miniPage.getHrefContent(pagePath + '/user/add.html');
 
             let index = layer.open({
                 title: '添加',
@@ -91,7 +91,7 @@ layui.use(['form', 'table','miniPage','element'], function () {
         let rowData = obj.data;
         if (obj.event === 'edit') {
 
-            let content = miniPage.getHrefContent('user/edit.html?id=' + rowData.id);
+            let content = miniPage.getHrefContent(pagePath + '/user/edit.html?id=' + rowData.id);
 
             let index = layer.open({
                 title: rowData.nickName + '-编辑',
@@ -136,7 +136,7 @@ layui.use(['form', 'table','miniPage','element'], function () {
                     return false;
             });
         } else if (obj.event === 'resetPwd') {
-            let content = miniPage.getHrefContent('user/resetPwd.html?userId=' + rowData.id);
+            let content = miniPage.getHrefContent(pagePath + '/user/resetPwd.html?userId=' + rowData.id);
             let index = layer.open({
                 title: rowData.nickName + '-密码重置',
                 type: 1,

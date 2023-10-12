@@ -92,7 +92,7 @@ layui.use(['form', 'table','miniPage','element','upload'], function () {
     table.on('toolbar(viewTable)', function (obj) {
         let ids = checkId();
         if (obj.event === 'add') {   // 监听添加操作
-            let content = miniPage.getHrefContent('config/add.html');
+            let content = miniPage.getHrefContent(pagePath + '/config/add.html');
 
             let index = layer.open({
                 title: '添加',
@@ -153,7 +153,7 @@ layui.use(['form', 'table','miniPage','element','upload'], function () {
         let isOwner = rowData.userId === loginUser.id || isAdmin
         if (obj.event === 'edit') {
 
-            let content = miniPage.getHrefContent('config/edit.html');
+            let content = miniPage.getHrefContent(pagePath + '/config/edit.html');
 
             let index = layer.open({
                 title: rowData.name + '-编辑',
@@ -201,7 +201,7 @@ layui.use(['form', 'table','miniPage','element','upload'], function () {
                     return false;
             });
         } else if (obj.event === 'mapper') {
-            let content = miniPage.getHrefContent('mapper/list.html?configId=' + rowData.id + "&isOwner=" + isOwner);
+            let content = miniPage.getHrefContent(pagePath + '/mapper/list.html?configId=' + rowData.id + "&isOwner=" + isOwner);
             let index = layer.open({
                 title: rowData.name + '-映射',
                 type: 1,
@@ -217,7 +217,7 @@ layui.use(['form', 'table','miniPage','element','upload'], function () {
             });
             return false;
         } else if (obj.event === 'extend') {
-            let content = miniPage.getHrefContent('extend/list.html?configId=' + rowData.id + "&isOwner=" + isOwner);
+            let content = miniPage.getHrefContent(pagePath + '/extend/list.html?configId=' + rowData.id + "&isOwner=" + isOwner);
             let index = layer.open({
                 title: rowData.name + '-扩展',
                 type: 1,
@@ -233,7 +233,7 @@ layui.use(['form', 'table','miniPage','element','upload'], function () {
             });
             return false;
         } else if (obj.event === 'template') {
-            let content = miniPage.getHrefContent('template/list.html?configId=' + rowData.id + "&isOwner=" + isOwner);
+            let content = miniPage.getHrefContent(pagePath + '/template/list.html?configId=' + rowData.id + "&isOwner=" + isOwner);
             let index = layer.open({
                 title: rowData.name + '-模板',
                 type: 1,
