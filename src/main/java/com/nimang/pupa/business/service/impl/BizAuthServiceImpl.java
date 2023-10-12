@@ -12,6 +12,7 @@ import com.nimang.pupa.business.service.BizAuthService;
 import com.nimang.pupa.business.service.BizProProjectUserService;
 import com.nimang.pupa.common.constants.ExceptionConstants;
 import com.nimang.pupa.common.enums.StatusEnum;
+import com.nimang.pupa.common.enums.user.UserTypeEnum;
 import com.nimang.pupa.common.exception.ApiException;
 import com.nimang.pupa.common.util.ConvertUtil;
 import com.nimang.pupa.common.util.SnowFlakeIdGen;
@@ -58,12 +59,14 @@ public class BizAuthServiceImpl implements BizAuthService {
 				.id(snowFlakeIdGen.nextId())
 				.loginName(baseBO.getLoginName())
 				.nickName(baseBO.getLoginName())
+				.type(UserTypeEnum.VISITOR_2.getCode())
 				.password(password)
 				.salt(salt)
 				.status(StatusEnum.STATUS_1.getCode()).build();
+		userService.save(user);
 		Long testProId = 908350977811591168L;
 		bizProProjectUserService.add(new ProProjectUserAddBO(testProId, user.getId()));
-		return userService.save(user);
+		return true;
 	}
 
 	/**
