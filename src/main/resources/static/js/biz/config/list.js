@@ -66,6 +66,11 @@ layui.use(['form', 'table','miniPage','element','upload'], function () {
                 layer.close(this.layerIndex);
                 // 刷新列表
                 table.reload('viewTable');
+
+                layer.msg("演示环境禁用此操作", {
+                    icon: 5
+                    , time: 3000
+                });
             }
         });
     }
