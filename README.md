@@ -8,7 +8,7 @@
 　　http://pupa.nimang.org.cn <br />
 
 #### 微信交流
-请备注：pupa 
+请备注：pupa <br />
 ![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/wx.png)
 
 ## PUPA介绍
