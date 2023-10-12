@@ -76,7 +76,7 @@ layui.use(['form', 'table','miniPage','element'], function () {
      */
     table.on('toolbar(datasourceTable)', function (obj) {
         if (obj.event === 'add') {   // 监听添加操作
-            let content = miniPage.getHrefContent('datasource/add.html' + param);
+            let content = miniPage.getHrefContent(pagePath + '/datasource/add.html' + param);
             let index = layer.open({
                 title: '添加',
                 type: 1,
@@ -105,7 +105,7 @@ layui.use(['form', 'table','miniPage','element'], function () {
         let rowData = obj.data;
         if (obj.event === 'edit') {
 
-            let content = miniPage.getHrefContent('datasource/edit.html' + param + '&configId=' + configId + '&id=' + rowData.id);
+            let content = miniPage.getHrefContent(pagePath + '/datasource/edit.html' + param + '&configId=' + configId + '&id=' + rowData.id);
 
             let index = layer.open({
                 title: rowData.name + '-编辑',
@@ -150,7 +150,7 @@ layui.use(['form', 'table','miniPage','element'], function () {
                     return false;
             });
         } else if (obj.event === 'view') {
-            let content = miniPage.getHrefContent('datasource/view.html' + param + '&configId=' + configId + '&id=' + rowData.id);
+            let content = miniPage.getHrefContent(pagePath + '/datasource/view.html' + param + '&configId=' + configId + '&id=' + rowData.id);
             let index = layer.open({
                 title: rowData.name + '-查看',
                 type: 1,
@@ -166,7 +166,7 @@ layui.use(['form', 'table','miniPage','element'], function () {
             return false;
         } else if (obj.event === 'table') {
             let openWH = miniPage.getOpenWidthHeight();
-            let content = miniPage.getHrefContent('table/list.html' + param + '&configId=' + configId + '&sourceId=' + rowData.id + "&isOwner=true");
+            let content = miniPage.getHrefContent(pagePath + '/table/list.html' + param + '&configId=' + configId + '&sourceId=' + rowData.id + "&isOwner=true");
             let index = layer.open({
                 title: rowData.name + '-' + rowData.schema + '-库表',
                 type: 1,

@@ -79,7 +79,7 @@ layui.use(['form', 'table','miniPage','element'], function () {
      */
     table.on('toolbar(templateTable)', function (obj) {
         if (obj.event === 'add') {   // 监听添加操作
-            let content = miniPage.getHrefContent('template/add.html' + param);
+            let content = miniPage.getHrefContent(pagePath + '/template/add.html' + param);
             let index = layer.open({
                 title: '添加',
                 type: 1,
@@ -112,7 +112,7 @@ layui.use(['form', 'table','miniPage','element'], function () {
         let rowData = obj.data;
         if (obj.event === 'edit') {
 
-            let content = miniPage.getHrefContent('template/edit.html' + param + "&id=" + rowData.id);
+            let content = miniPage.getHrefContent(pagePath + '/template/edit.html' + param + "&id=" + rowData.id);
 
             let index = layer.open({
                 title: rowData.name + '-编辑',
@@ -161,7 +161,7 @@ layui.use(['form', 'table','miniPage','element'], function () {
                     return false;
             });
         } else if (obj.event === 'view') {
-            let content = miniPage.getHrefContent('template/view.html?id=' + rowData.id);
+            let content = miniPage.getHrefContent(pagePath + '/template/view.html?id=' + rowData.id);
             let index = layer.open({
                 title: rowData.name + '-查看',
                 type: 1,

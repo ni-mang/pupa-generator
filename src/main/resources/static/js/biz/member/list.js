@@ -61,7 +61,7 @@ layui.use(['form', 'table','miniPage','element'], function () {
      */
     table.on('toolbar(memberTable)', function (obj) {
         if (obj.event === 'add') {   // 监听添加操作
-            let content = miniPage.getHrefContent('member/add.html' + param);
+            let content = miniPage.getHrefContent(pagePath + '/member/add.html' + param);
             let index = layer.open({
                 title: '添加',
                 type: 1,
@@ -90,7 +90,7 @@ layui.use(['form', 'table','miniPage','element'], function () {
         let rowData = obj.data;
         if (obj.event === 'edit') {
 
-            let content = miniPage.getHrefContent('member/edit.html' + param + '&configId=' + configId + "&isOwner=" + isOwner + '&id=' + rowData.id);
+            let content = miniPage.getHrefContent(pagePath + '/member/edit.html' + param + '&configId=' + configId + "&isOwner=" + isOwner + '&id=' + rowData.id);
 
             let index = layer.open({
                 title: rowData.nickName + '-编辑',

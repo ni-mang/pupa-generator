@@ -73,7 +73,7 @@ layui.use(['form', 'table','miniPage','element'], function () {
      */
     table.on('toolbar(extendTable)', function (obj) {
         if (obj.event === 'add') {   // 监听添加操作
-            let content = miniPage.getHrefContent('extend/add.html' + param);
+            let content = miniPage.getHrefContent(pagePath + '/extend/add.html' + param);
             let index = layer.open({
                 title: '添加',
                 type: 1,
@@ -102,7 +102,7 @@ layui.use(['form', 'table','miniPage','element'], function () {
         let rowData = obj.data;
         if (obj.event === 'edit') {
 
-            let content = miniPage.getHrefContent('extend/edit.html' + param + "&id=" + rowData.id);
+            let content = miniPage.getHrefContent(pagePath + '/extend/edit.html' + param + "&id=" + rowData.id);
 
             let index = layer.open({
                 title: rowData.name + '-编辑',

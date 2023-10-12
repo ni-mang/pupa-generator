@@ -32,7 +32,7 @@ layui.config({
                         time: 1000,
                         shade: 0.3
                     }, function () {
-                        location.href = pagePath + '/index.html#/pro/list.html'; //项目列表
+                        location.href = '/index.html#' + pagePath + '/pro/list.html'; //项目列表
                     });
                 },
                 completeFn:function(){

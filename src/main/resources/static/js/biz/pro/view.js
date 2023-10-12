@@ -33,7 +33,7 @@ layui.use(['form'], function () {
                         time: 1000,
                         shade: 0.3
                     },function (){
-                        location.href = "#/config/list.html";
+                        location.href = "#" + pagePath + "/config/list.html";
                         layer.close(parentIndex);
                     });
                 }
