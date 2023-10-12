@@ -21,6 +21,9 @@ public class ExceptionConstants {
 
     //********************* CANT *********************
     public static final String CANT_DEL_ACC_AUDIT = "当前账户状态不允许删除";
+    public static final String CANT_OPERATE_OF_DEMO = "演示环境禁用此操作";
+    public static final String CANT_ADD_PROJECT_OF_DEMO = "演示环境每个用户最多创建{0}个项目";
+    public static final String CANT_ADD_CONFIG_OF_DEMO = "演示环境每个用户最多创建{0}个配置";
 
 
     //********************* OTHER *********************

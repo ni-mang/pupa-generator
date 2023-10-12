@@ -23,6 +23,7 @@ import com.nimang.pupa.common.constants.Constants;
 import com.nimang.pupa.common.constants.ExceptionConstants;
 import com.nimang.pupa.common.enums.pro.ProUserRoleEnum;
 import com.nimang.pupa.common.enums.proConfig.ProExtendScopeEnum;
+import com.nimang.pupa.common.enums.user.UserTypeEnum;
 import com.nimang.pupa.common.exception.ApiException;
 import com.nimang.pupa.common.tool.mp.query.MPQueryWrapper;
 import com.nimang.pupa.common.util.ConvertUtil;
@@ -74,6 +75,13 @@ public class BizProProjectServiceImpl implements BizProProjectService {
 	@Override
 	public Long add(ProProjectAddBO addBO) {
 		long userId = UserUtil.getId();
+		if(UserTypeEnum.VISITOR_2.equals(UserUtil.get().getType())){
+			long max = 2;
+			long count = proProjectService.count(new LambdaQueryWrapper<ProProject>().eq(ProProject::getCreateBy, userId));
+			if(count == max){
+				throw new ApiException(MessageFormat.format(ExceptionConstants.CANT_ADD_PROJECT_OF_DEMO, max));
+			}
+		}
 		ProProject proProject = ConvertUtil.convertOfEntity(addBO, ProProject.class);
 		Long id = snowFlakeIdGen.nextId();
 		proProject.setId(id);
@@ -117,9 +125,20 @@ public class BizProProjectServiceImpl implements BizProProjectService {
 		return proProjectService.updateById(proProject);
 	}
 
+	/**
+	 * 克隆
+	 * @param id Long 项目-ID
+	 * @return
+	 * @author LinLaichun
+	 * @date 2023-04-26
+	 */
 	@Override
 	public Long clone(Long id) {
 		long userId = UserUtil.getId();
+		SysUser user = UserUtil.get();
+		if(UserTypeEnum.VISITOR_2.equals(user.getType())){
+			throw new ApiException(ExceptionConstants.CANT_OPERATE_OF_DEMO);
+		}
 		ProProject targetProject = proProjectService.getById(id);
 		if(ObjectUtil.isNull(targetProject)){
 			throw new ApiException(ExceptionConstants.NOT_FIND_POINT_DATA);
@@ -454,6 +473,10 @@ public class BizProProjectServiceImpl implements BizProProjectService {
 	@Override
 	public Integer importAll(MultipartFile file) {
 		Long userId = UserUtil.getId();
+		SysUser user = UserUtil.get();
+		if(UserTypeEnum.VISITOR_2.equals(user.getType())){
+			throw new ApiException(ExceptionConstants.CANT_OPERATE_OF_DEMO);
+		}
 		String importText = FileUtil.read(file);
 		List<EAIProject> eaiProjectList = JSON.parseArray(Base64.decodeStr(importText),EAIProject.class);
 		if(ObjectUtil.isEmpty(eaiProjectList)){

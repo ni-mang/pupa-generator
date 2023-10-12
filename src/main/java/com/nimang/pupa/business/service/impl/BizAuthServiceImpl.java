@@ -5,9 +5,11 @@ import cn.hutool.core.util.RandomUtil;
 import cn.hutool.crypto.digest.MD5;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.nimang.pupa.base.entity.SysUser;
+import com.nimang.pupa.base.model.proProjectUser.ProProjectUserAddBO;
 import com.nimang.pupa.base.model.sysUser.*;
 import com.nimang.pupa.base.service.ISysUserService;
 import com.nimang.pupa.business.service.BizAuthService;
+import com.nimang.pupa.business.service.BizProProjectUserService;
 import com.nimang.pupa.common.constants.ExceptionConstants;
 import com.nimang.pupa.common.enums.StatusEnum;
 import com.nimang.pupa.common.exception.ApiException;
@@ -32,6 +34,7 @@ public class BizAuthServiceImpl implements BizAuthService {
 
 	private final SnowFlakeIdGen snowFlakeIdGen;
 	private final ISysUserService userService;
+	private final BizProProjectUserService bizProProjectUserService;
 
 	/**
 	 * 注册
@@ -58,6 +61,8 @@ public class BizAuthServiceImpl implements BizAuthService {
 				.password(password)
 				.salt(salt)
 				.status(StatusEnum.STATUS_1.getCode()).build();
+		Long testProId = 908350977811591168L;
+		bizProProjectUserService.add(new ProProjectUserAddBO(testProId, user.getId()));
 		return userService.save(user);
 	}
 

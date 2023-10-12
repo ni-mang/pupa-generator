@@ -17,6 +17,7 @@ public enum UserTypeEnum implements EnumInterface {
 //    0:超级管理员,1:普通用户
     SUPER_0(0, "超级管理员"),
     ORDINARY_1(1, "普通用户"),
+    VISITOR_2(2, "游客"),
     ;
 
     private Integer code;

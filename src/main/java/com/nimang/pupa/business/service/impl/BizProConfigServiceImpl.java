@@ -18,6 +18,7 @@ import com.nimang.pupa.business.service.BizProConfigService;
 import com.nimang.pupa.common.constants.ExceptionConstants;
 import com.nimang.pupa.common.enums.StatusEnum;
 import com.nimang.pupa.common.enums.proConfig.ProConfigTypeEnum;
+import com.nimang.pupa.common.enums.user.UserTypeEnum;
 import com.nimang.pupa.common.pojo.StatusChangeBO;
 import com.nimang.pupa.common.tool.mp.query.MPQueryWrapper;
 import com.nimang.pupa.common.exception.ApiException;
@@ -72,6 +73,13 @@ public class BizProConfigServiceImpl implements BizProConfigService {
 	@Override
 	public Long add(ProConfigAddBO addBO) {
 		SysUser user = UserUtil.get();
+		if(UserTypeEnum.VISITOR_2.equals(user.getType())){
+			long max = 2;
+			long count = proConfigService.count(new LambdaQueryWrapper<ProConfig>().eq(ProConfig::getUserId, user.getId()));
+			if(count == max){
+				throw new ApiException(MessageFormat.format(ExceptionConstants.CANT_ADD_CONFIG_OF_DEMO, max));
+			}
+		}
 		long exist = proConfigService.count(new LambdaQueryWrapper<ProConfig>().eq(ProConfig::getUserId, user.getId()).eq(ProConfig::getName, addBO.getName()));
 		if(exist > 0){
 			throw new ApiException("已存在名为“" + addBO.getName() + "”的配置");
@@ -118,6 +126,9 @@ public class BizProConfigServiceImpl implements BizProConfigService {
 	@Override
 	public Long clone(Long configId) {
 		SysUser user = UserUtil.get();
+		if(UserTypeEnum.VISITOR_2.equals(user.getType())){
+			throw new ApiException(ExceptionConstants.CANT_OPERATE_OF_DEMO);
+		}
 		ProConfig targetConfig = proConfigService.getById(configId);
 		if(ObjectUtil.isNull(targetConfig)){
 			throw new ApiException(ExceptionConstants.NOT_FIND_POINT_DATA);
@@ -384,7 +395,10 @@ public class BizProConfigServiceImpl implements BizProConfigService {
 	 */
 	@Override
 	public Integer importAll(MultipartFile file) {
-
+		SysUser user = UserUtil.get();
+		if(UserTypeEnum.VISITOR_2.equals(user.getType())){
+			throw new ApiException(ExceptionConstants.CANT_OPERATE_OF_DEMO);
+		}
 		String importText = FileUtil.read(file);
 		List<EAIConfig> eaiConfigList = JSON.parseArray(Base64.decodeStr(importText),EAIConfig.class);
 		if(ObjectUtil.isEmpty(eaiConfigList)){
