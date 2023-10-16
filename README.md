@@ -7,9 +7,11 @@
 #### 演示地址
 　　http://pupa.nimang.org.cn <br />
 
-#### 微信交流
-请备注：pupa <br />
-![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/wx.png)
+[//]: # (#### 微信交流)
+[//]: # (请备注：pupa <br />)
+[//]: # (![image.png]&#40;https://gitee.com/nimang/picture-library/raw/master/pupa/readme/wx.png&#41;)
+#### 意见反馈邮箱
+　　362682205@qq.com
 
 ## PUPA介绍
 环境、框架、组件：
