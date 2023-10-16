@@ -27,23 +27,24 @@
             <label class="layui-form-label required">地址</label>
             <div class="layui-input-block">
                 <input type="text" name="mainAddr" lay-verify="required" lay-reqtext="地址不能为空" placeholder="请输入地址" value="" class="layui-input">
-                <tip>确保数据库地址能够被当前服务访问</tip>
+                <tip>确保数据库地址能够被当前服务访问，例：127.0.0.1:3306</tip>
             </div>
         </div>
 
         <div class="layui-form-item">
-            <label class="layui-form-label required">端口</label>
+            <label class="layui-form-label required">库名</label>
             <div class="layui-input-block">
-                <input type="text" name="port" lay-verify="required" lay-reqtext="端口不能为空" placeholder="请输入端口" value="" class="layui-input">
+                <input type="text" name="schema" lay-verify="required" lay-reqtext="库名不能为空" placeholder="请输入库名" value="" class="layui-input">
             </div>
         </div>
 
-        <div class="layui-form-item">
-            <label class="layui-form-label required">库</label>
+        <!--<div class="layui-form-item">
+            <label class="layui-form-label">链接后缀</label>
             <div class="layui-input-block">
-                <input type="text" name="schema" lay-verify="required" lay-reqtext="库不能为空" placeholder="请输入库" value="" class="layui-input">
+                <input type="text" name="urlSuffix" placeholder="请输入链接后缀" value="" class="layui-input">
+                <tip>如：serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&useSSL=true</tip>
             </div>
-        </div>
+        </div>-->
 
         <div class="layui-form-item">
             <label class="layui-form-label required">用户名</label>
@@ -58,14 +59,6 @@
                 <input type="password" name="password" lay-verify="required" lay-reqtext="密码不能为空" placeholder="请输入密码" value="" class="layui-input">
             </div>
         </div>
-
-        <!--<div class="layui-form-item">
-            <label class="layui-form-label">链接后缀</label>
-            <div class="layui-input-block">
-                <input type="text" name="urlSuffix" placeholder="请输入链接后缀" value="" class="layui-input">
-                <tip>如：serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&useSSL=true</tip>
-            </div>
-        </div>-->
 
         <div class="layui-form-item">
             <label class="layui-form-label">忽略前缀</label>

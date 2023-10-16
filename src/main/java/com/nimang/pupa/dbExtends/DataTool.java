@@ -1,6 +1,7 @@
 package com.nimang.pupa.dbExtends;
 
 import cn.hutool.core.util.StrUtil;
+import com.nimang.pupa.base.entity.ProField;
 import com.nimang.pupa.base.entity.ProTable;
 
 public class DataTool {
@@ -63,6 +64,10 @@ public class DataTool {
         return notes;
     }
 
+    /**
+     * 设置模块信息
+     * @param proTable
+     */
     public static void setModule(ProTable proTable) {
         String comment = proTable.getTableComment();
         if(comment.contains(SP_STR)){
@@ -72,5 +77,48 @@ public class DataTool {
             proTable.setModule("");
             proTable.setCnName(comment);
         }
+    }
+
+    /**
+     * 设置数值类型字段的边界值
+     * @param proField
+     * @param precision
+     * @param scale
+     */
+    public static void setBoundsForNum(ProField proField, Integer precision, Integer scale){
+        precision = Math.min(precision, DBConstants.PRECISION_LIMIT_FLOAT);
+        StringBuilder max = new StringBuilder();
+        StringBuilder min = new StringBuilder();
+        if (scale > 0) {
+            // 浮点数
+            precision = Math.min(precision, DBConstants.PRECISION_LIMIT_FLOAT);
+            for(int i=1;i<=precision;i++){
+                if(proField.getUnsigned()){
+                    if(i>=precision-scale){
+                        min.append("0");
+                    }
+                }else {
+                    min.append("9");
+                }
+                max.append("9");
+                if(i==precision-scale){
+                    min.append(".");
+                    max.append(".");
+                }
+            }
+        } else {
+            // 整型
+            precision = Math.min(precision, DBConstants.PRECISION_LIMIT);
+            for(int i=1;i<=precision;i++){
+                max.append("9");
+            }
+            if(proField.getUnsigned()){
+                min.append("0");
+            }else {
+                min.append(max);
+            }
+        }
+        proField.setBoundMin(min.toString());
+        proField.setBoundMax(max.toString());
     }
 }

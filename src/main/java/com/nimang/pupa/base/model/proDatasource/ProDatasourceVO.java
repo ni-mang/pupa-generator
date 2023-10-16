@@ -57,19 +57,13 @@ public class ProDatasourceVO implements Serializable {
     private String brandDesc;
 
     /**
-     * 主机地址
+     * 地址
      */
     @NotBlank
     private String mainAddr;
 
     /**
-     * 端口
-     */
-    @NotBlank
-    private String port;
-
-    /**
-     * 库
+     * 库名
      */
     @NotBlank
     private String schema;

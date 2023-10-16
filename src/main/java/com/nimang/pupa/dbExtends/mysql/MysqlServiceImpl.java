@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.nimang.pupa.base.entity.ProDatasource;
 import com.nimang.pupa.base.entity.ProTable;
+import com.nimang.pupa.base.service.IDatasourceService;
 import com.nimang.pupa.dbExtends.DBConstants;
 import com.nimang.pupa.dbExtends.DataTool;
 import com.nimang.pupa.dbExtends.mysql.entity.MysqlColumns;
@@ -32,6 +33,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class MysqlServiceImpl implements IMetadataService {
     private final SnowFlakeIdGen snowFlakeIdGen;
+    private final IDatasourceService datasourceService;
     private final IProExtendService proExtendService;
 
     @Override
@@ -39,15 +41,44 @@ public class MysqlServiceImpl implements IMetadataService {
         return DatasourceBrandEnum.PDB_MYSQL;
     }
 
+    @Override
+    public String getUrl(ProDatasource datasource) {
+        // jdbc:mysql://localhost:3306/scheme?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+        StringBuilder url = new StringBuilder("jdbc:mysql://");
+        url.append(datasource.getMainAddr()).append("/").append(datasource.getSchema());
+        if (StrUtil.isNotBlank(datasource.getUrlSuffix())){
+            url.append("?").append(datasource.getUrlSuffix());
+        }
+        return url.toString();
+    }
+
+    /**
+     * 获取数据库连接SessionFactory
+     * @param datasource ProDatasource 数据源配置
+     * @return SessionFactory
+     */
+    @Override
+    public SqlSessionFactory getSessionFactory(ProDatasource datasource) {
+        ProDatasource datasourceCopy = ConvertUtil.convertOfEntity(datasource, ProDatasource.class);
+        datasourceCopy.setSchema("information_schema");
+        SourceInfo sourceInfo = new SourceInfo(
+                "com.mysql.cj.jdbc.Driver",
+                getUrl(datasourceCopy),
+                datasourceCopy.getAccount(),
+                datasourceCopy.getPassword()
+        );
+        return datasourceService.link(sourceInfo);
+    }
+
     /**
      * 获取指定库的所有表
-     * @param sessionFactory SqlSessionFactory
      * @param datasource ProDatasource 数据源配置
      * @param tableNames List<String> 表名集合
      * @return List<ProTable>
      */
     @Override
-    public List<ProTable> findTables(SqlSessionFactory sessionFactory, ProDatasource datasource, List<String> tableNames) {
+    public List<ProTable> findTables(ProDatasource datasource, List<String> tableNames) {
+        SqlSessionFactory sessionFactory = getSessionFactory(datasource);
         if(ObjectUtil.isNull(sessionFactory)){
             return new ArrayList<>();
         }
@@ -90,17 +121,16 @@ public class MysqlServiceImpl implements IMetadataService {
 
     /**
      * 获取指定库、表的所有列
-     * @param sessionFactory SqlSessionFactory
      * @param datasource ProDatasource 数据源配置
      * @param proTableList List<ProTable> 表数据
      * @return List<ProField>
      */
     @Override
-    public List<ProField> findColumns(SqlSessionFactory sessionFactory, ProDatasource datasource, List<ProTable> proTableList) {
+    public List<ProField> findColumns(ProDatasource datasource, List<ProTable> proTableList) {
+        SqlSessionFactory sessionFactory = getSessionFactory(datasource);
         if(sessionFactory == null){
             return new ArrayList<>();
         }
-
         List<String> tableNames = proTableList.stream().map(ProTable::getTableName).collect(Collectors.toList());
         Map<String, Long> tableMap = proTableList.stream().collect(Collectors.toMap(ProTable::getTableName, ProTable::getId));
 
@@ -137,7 +167,11 @@ public class MysqlServiceImpl implements IMetadataService {
                 proField.setUnsigned(proField.getColumnType().contains("unsigned"));
             }
             if(proField.getPrimary()){
-                proField.setIdType(getIdType(proField.getExtra()));
+                if("auto_increment".equals(proField.getExtra())){
+                    proField.setIdType(IdType.AUTO.toString());
+                }else {
+                    proField.setIdType(IdType.ASSIGN_ID.toString());
+                }
             }
             setBounds(proField);
             proFieldList.add(proField);
@@ -148,22 +182,10 @@ public class MysqlServiceImpl implements IMetadataService {
     }
 
     /**
-     * 获取主键值类型
-     * @param extra
-     * @return
-     */
-    public String getIdType(String extra) {
-        if("auto_increment".equals(extra)){
-            return IdType.AUTO.toString();
-        }else {
-            return IdType.ASSIGN_ID.toString();
-        }
-    }
-
-    /**
-     * 设置字段极限值
+     * 设置字段边界值
      * @param proField
      */
+    @Override
     public void setBounds(ProField proField){
         // 字符最大长度、数字精度均为空，不需要计算取值范围
         if(proField.getCharacterMaximumLength() == null && proField.getNumericPrecision() == null){
@@ -191,42 +213,7 @@ public class MysqlServiceImpl implements IMetadataService {
             precision = Integer.parseInt(first);
 
             // 计算数值极限值
-            StringBuilder max = new StringBuilder();
-            StringBuilder min = new StringBuilder();
-            if(!proField.getUnsigned()){
-                min = new StringBuilder("-");
-            }
-            if (scale > 0) {
-                // 浮点数
-                precision = Math.min(precision, DBConstants.PRECISION_LIMIT_FLOAT);
-                for(int i=1;i<=precision;i++){
-                    if(proField.getUnsigned()){
-                        if(i>=precision-scale){
-                            min.append("0");
-                        }
-                    }else {
-                        min.append("9");
-                    }
-                    max.append("9");
-                    if(i==precision-scale){
-                        min.append(".");
-                        max.append(".");
-                    }
-                }
-            } else {
-                // 整型
-                precision = Math.min(precision, DBConstants.PRECISION_LIMIT);
-                for(int i=1;i<=precision;i++){
-                    max.append("9");
-                }
-                if(proField.getUnsigned()){
-                    min.append("0");
-                }else {
-                    min.append(max);
-                }
-            }
-            proField.setBoundMin(min.toString());
-            proField.setBoundMax(max.toString());
+            DataTool.setBoundsForNum(proField, precision, scale);
         }
     }
 }

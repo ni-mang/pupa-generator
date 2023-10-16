@@ -98,9 +98,8 @@ CREATE TABLE `pro_datasource`  (
   `name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '[连接名]',
   `brand` int(1) NOT NULL COMMENT '[数据库品牌]',
   `main_addr` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '[主机地址]',
-  `port` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '[端口]',
   `schema` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '[库]',
-  `url_suffix` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '[链接后缀]如：serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&useSSL=true',
+  `url_suffix` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '[链接后缀]',
   `account` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '[账号]',
   `password` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '[密码]',
   `prefix` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '[忽略前缀]',
@@ -115,7 +114,9 @@ CREATE TABLE `pro_datasource`  (
 -- ----------------------------
 -- Records of pro_datasource
 -- ----------------------------
-INSERT INTO `pro_datasource` VALUES (908389119868448768, 908350977811591168, '示例项目-mysql', 0, '127.0.0.1', '3306', 'pupa', NULL, 'root', 'root123', 'pro_,sys_', '[{\"key\":\"optimisticLockerCol\",\"value\":\"version\"},{\"key\":\"logicDeleteCol\",\"value\":\"del_flag\"},{\"key\":\"fillCreateTimeCol\",\"value\":\"create_time\"},{\"key\":\"fillUpdateTimeCol\",\"value\":\"update_time\"}]', '2023-10-08 13:35:09', 1, NULL);
+INSERT INTO `pro_datasource` VALUES (908389119868448768, 908350977811591168, '示例项目-mysql', 0, '127.0.0.1:3306', 'pupa', NULL, 'root', 'root123', 'pro_,sys_', '[{\"key\":\"optimisticLockerCol\",' ||
+                                                                                                                                                                  '' ||
+                                                                                                                                                                  '\"value\":\"version\"},{\"key\":\"logicDeleteCol\",\"value\":\"del_flag\"},{\"key\":\"fillCreateTimeCol\",\"value\":\"create_time\"},{\"key\":\"fillUpdateTimeCol\",\"value\":\"update_time\"}]', '2023-10-08 13:35:09', 1, NULL);
 
 -- ----------------------------
 -- Table structure for pro_extend

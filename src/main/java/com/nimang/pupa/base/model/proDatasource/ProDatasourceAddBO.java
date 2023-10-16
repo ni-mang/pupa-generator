@@ -45,24 +45,17 @@ public class ProDatasourceAddBO implements Serializable{
     private Integer brand;
 
     /**
-     * 主机地址
+     * 地址
      */
-    @NotBlank(message = "缺少“主机地址”")
-    @Size(max = 100,message="“主机地址”不应超过100个字符")
+    @NotBlank(message = "缺少“地址”")
+    @Size(max = 100,message="“地址”不应超过100个字符")
     private String mainAddr;
 
     /**
-     * 端口
+     * 库名
      */
-    @NotBlank(message = "缺少“端口”")
-    @Size(max = 10,message="“端口”不应超过10个字符")
-    private String port;
-
-    /**
-     * 库
-     */
-    @NotBlank(message = "缺少“库”")
-    @Size(max = 30,message="“库”不应超过30个字符")
+    @NotBlank(message = "缺少“库名”")
+    @Size(max = 30,message="“库名”不应超过30个字符")
     private String schema;
 
     /**

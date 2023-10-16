@@ -20,22 +20,40 @@ public interface IMetadataService {
     DatasourceBrandEnum getBrand();
 
     /**
+     * 获取数据库链接
+     * @param datasource ProDatasource
+     * @return String
+     */
+    String getUrl(ProDatasource datasource);
+
+    /**
+     * 获取数据库连接SessionFactory
+     * @param datasource ProDatasource 数据源配置
+     * @return SessionFactory
+     */
+    SqlSessionFactory getSessionFactory(ProDatasource datasource);
+
+    /**
      * 获取指定库的所有表
-     * @param sessionFactory SqlSessionFactory
      * @param datasource ProDatasource 数据源配置
      * @param tableNames List<String> 表名集合
      * @return List<ProTable>
      */
-    List<ProTable> findTables(SqlSessionFactory sessionFactory, ProDatasource datasource, List<String> tableNames);
+    List<ProTable> findTables(ProDatasource datasource, List<String> tableNames);
 
     /**
      * 获取指定库、表的所有列
-     * @param sessionFactory SqlSessionFactory
      * @param datasource ProDatasource 数据源配置
      * @param proTableList List<ProTable> 表数据
      * @return List<ProField>
      */
-    List<ProField> findColumns(SqlSessionFactory sessionFactory, ProDatasource datasource, List<ProTable> proTableList);
+    List<ProField> findColumns(ProDatasource datasource, List<ProTable> proTableList);
+
+    /**
+     * 设置字段边界值
+     * @param proField 表字段
+     */
+    void setBounds(ProField proField);
 
     /**
      * 是否匹配

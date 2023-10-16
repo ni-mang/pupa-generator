@@ -48,6 +48,8 @@
 >> 3. 进入服务器项目目录，执行 <font color=#2E8AEB>./start.sh</font> 命令启动项目，如 <font color=#5C8D07>start.sh</font> 未授权，则执行 <font color=#2E8AEB>chmod u+x start.sh</font> 命令进行授权，再启动项目；
 >> 4. 在浏览器输入实际项目地址进行访问，例：http://192.168.0.1:7384。
 
+> 默认管理员账号/密码：  admin/123456
+
 <a name="woSZP"></a>
 ## 功能说明
 <a name="Ht03I"></a>
