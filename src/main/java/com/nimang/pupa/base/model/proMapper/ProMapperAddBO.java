@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  * 数据映射-新增BO
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-07-19
  */
 @Data

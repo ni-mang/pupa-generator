@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * 表单-业务接口
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-26
  */
 public interface BizProTableService {

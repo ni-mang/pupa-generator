@@ -36,7 +36,7 @@ import java.util.stream.Collectors;
 
 /**
  * 项目成员-业务接口实现
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-26
  */
 @RequiredArgsConstructor
@@ -55,7 +55,7 @@ public class BizProProjectUserServiceImpl implements BizProProjectUserService {
 	 * 新增
 	 * @param addBO ProProjectUserAddBO 新增数据
 	 * @return Long 项目ID
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 */
 	@Override
@@ -76,7 +76,7 @@ public class BizProProjectUserServiceImpl implements BizProProjectUserService {
 	 * 修改
 	 * @param editBO ProProjectUserEditBO 修改数据
 	 * @return Boolean
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 */
 	@Override
@@ -115,7 +115,7 @@ public class BizProProjectUserServiceImpl implements BizProProjectUserService {
 	 * 根据主键删除
 	 * @param id Long 项目成员-ID
 	 * @return Boolean
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 */
 	@Override
@@ -128,7 +128,7 @@ public class BizProProjectUserServiceImpl implements BizProProjectUserService {
 	 * 根据主键获取
 	 * @param id Long 项目成员-ID
 	 * @return ProProjectUser
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 */
 	@Override
@@ -140,7 +140,7 @@ public class BizProProjectUserServiceImpl implements BizProProjectUserService {
 	 * 条件查询（可分页）
 	 * @param queryBO ProProjectUserQueryBO 查询参数
 	 * @return Page<ProProjectUser>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 */
 	@Override

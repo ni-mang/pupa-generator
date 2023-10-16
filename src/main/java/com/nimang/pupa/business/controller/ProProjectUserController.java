@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * 项目/项目成员
  * @module pupa
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-26
  */
 
@@ -43,7 +43,7 @@ public class ProProjectUserController {
 	 * 新增
 	 * @param bizModel ProProjectUserAddBO 新增-业务数据包
 	 * @return R<Long> 项目ID
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 * @status released
 	 */
@@ -59,7 +59,7 @@ public class ProProjectUserController {
 	 * 修改
 	 * @param bizModel ProProjectUserEditBO 修改-业务数据包
 	 * @return R<Boolean>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 * @status released
 	 */
@@ -75,7 +75,7 @@ public class ProProjectUserController {
 	 * 授权转让
 	 * @param bizModel ProProjectUserEditBO 转让-业务数据包
 	 * @return R<Boolean>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-07-26
 	 * @status released
 	 */
@@ -91,7 +91,7 @@ public class ProProjectUserController {
 	 * 根据主键删除
 	 * @param bo Long IdBO-ID
 	 * @return R<Boolean>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 * @status released
 	 */
@@ -107,7 +107,7 @@ public class ProProjectUserController {
 	 * 根据主键获取
 	 * @param bo Long IdBO-ID
 	 * @return R<ProProjectUserVO>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 * @status released
 	 */
@@ -124,7 +124,7 @@ public class ProProjectUserController {
 	 * 条件查询（可分页）
 	 * @param queryBO ProProjectUserQueryBO 查询参数
 	 * @return RPage<ProProjectUserVO>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 * @status released
 	 */
@@ -145,7 +145,7 @@ public class ProProjectUserController {
 	 * 获取项目成员选择下拉数据
 	 * @param queryBO ProProjectUserQueryBO 查询参数
 	 * @return R<List<UserVO>>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-06-10
 	 * @status released
 	 */

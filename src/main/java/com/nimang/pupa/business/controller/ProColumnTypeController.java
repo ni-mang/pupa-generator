@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * 用户/列类型
  * @module pupa
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-09-08
  */
 
@@ -43,7 +43,7 @@ public class ProColumnTypeController {
 	 * 新增
 	 * @param addBO ProColumnTypeAddBO 新增-业务数据包
 	 * @return R<Long> ID
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-09-08
 	 * @status developing
 	 */
@@ -58,7 +58,7 @@ public class ProColumnTypeController {
 	 * 修改
 	 * @param editBO ProColumnTypeEditBO 修改-业务数据包
 	 * @return R<Boolean>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-09-08
 	 * @status developing
 	 */
@@ -73,7 +73,7 @@ public class ProColumnTypeController {
 	 * 根据主键删除
 	 * @param id Long 列类型-ID
 	 * @return R<Boolean>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-09-08
 	 * @status developing
 	 */
@@ -88,7 +88,7 @@ public class ProColumnTypeController {
 	 * 根据主键批量删除
 	 * @param ids Long[] 列类型-ID数组
 	 * @return R<Boolean>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-09-08
 	 * @status developing
 	 * @ignore
@@ -104,7 +104,7 @@ public class ProColumnTypeController {
 	 * 根据主键获取
 	 * @param id Long 列类型-ID
 	 * @return R<ProColumnTypeVO>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-09-08
 	 * @status developing
 	 */
@@ -120,7 +120,7 @@ public class ProColumnTypeController {
 	 * 条件查询（可分页）
 	 * @param queryBO ProColumnTypeQueryBO 查询参数
 	 * @return RPage<ProColumnTypeVO>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-09-08
 	 * @status developing
 	 */

@@ -6,7 +6,7 @@ import com.nimang.pupa.base.entity.ProColumnType;
 
 /**
  * 列类型-Mapper
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-09-07
  */
 public interface ProColumnTypeMapper extends BaseMapper<ProColumnType> {

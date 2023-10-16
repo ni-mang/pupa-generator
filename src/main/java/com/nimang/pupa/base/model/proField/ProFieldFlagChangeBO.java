@@ -10,7 +10,7 @@ import java.io.Serializable;
 
 /**
  * 表字段-变更标识BO
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-09-20
  */
 @Data

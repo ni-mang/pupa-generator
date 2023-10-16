@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 配置-编辑BO
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-21
  */
 @Data

@@ -25,7 +25,7 @@ import java.util.List;
 
 /**
  * 数据映射-业务接口实现
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-08-09
  */
 @RequiredArgsConstructor
@@ -40,7 +40,7 @@ public class BizProMapperServiceImpl implements BizProMapperService {
 	 * 新增
 	 * @param addBO ProMapperAddBO 新增数据
 	 * @return Long ID
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-08-09
 	 */
 	@Override
@@ -62,7 +62,7 @@ public class BizProMapperServiceImpl implements BizProMapperService {
 	 * 修改
 	 * @param editBO ProMapperEditBO 修改数据
 	 * @return Boolean
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-08-09
 	 */
 	@Override
@@ -82,7 +82,7 @@ public class BizProMapperServiceImpl implements BizProMapperService {
 	 * 根据主键删除
 	 * @param id Long 数据映射配置-ID
 	 * @return Boolean
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-08-09
 	 */
 	@Override
@@ -94,7 +94,7 @@ public class BizProMapperServiceImpl implements BizProMapperService {
 	 * 根据主键批量删除
 	 * @param ids List<Long> 数据映射配置-ID集合
 	 * @return Boolean
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-08-09
 	 */
 	@Override
@@ -106,7 +106,7 @@ public class BizProMapperServiceImpl implements BizProMapperService {
 	 * 根据主键获取
 	 * @param id Long 数据映射配置-ID
 	 * @return ProMapper
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-08-09
 	 */
 	@Override
@@ -118,7 +118,7 @@ public class BizProMapperServiceImpl implements BizProMapperService {
 	 * 条件查询（可分页）
 	 * @param queryBO ProMapperQueryBO 查询参数
 	 * @return Page<ProMapper>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-08-09
 	 */
 	@Override

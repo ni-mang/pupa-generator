@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * 配置/配置
  * @module pupa
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-21
  */
 
@@ -46,7 +46,7 @@ public class ProConfigController {
 	 * 新增
 	 * @param addBO ProConfigAddBO 新增-业务数据包
 	 * @return R<Long> ID
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 * @status released
 	 */
@@ -61,7 +61,7 @@ public class ProConfigController {
 	 * 修改
 	 * @param bizModel ProConfigEditBO 修改-业务数据包
 	 * @return R<Boolean>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 * @status released
 	 */
@@ -76,7 +76,7 @@ public class ProConfigController {
 	 * 状态变更
 	 * @param bizModel StatusChangeBO> 状态变更-业务数据包
 	 * @return R<Boolean>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-06-27
 	 * @status released
 	 */
@@ -91,7 +91,7 @@ public class ProConfigController {
 	 * 克隆
 	 * @param bizModel IdBO> 目标对象ID
 	 * @return R<Long> 新配置ID
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 * @status released
 	 */
@@ -106,7 +106,7 @@ public class ProConfigController {
 	 * 根据主键删除
 	 * @param bo IdBO 配置-ID
 	 * @return R<Boolean>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 * @status released
 	 */
@@ -121,7 +121,7 @@ public class ProConfigController {
 	 * 根据主键获取
 	 * @param bo IdBO 配置-ID
 	 * @return R<ProConfigVO>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 * @status released
 	 */
@@ -137,7 +137,7 @@ public class ProConfigController {
 	 * 获取参数说明
 	 * @param bo IdBO 配置-ID
 	 * @return R<List<GenDataVO>>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-07-12
 	 */
 	@GetMapping("/showConfigInfo")
@@ -151,7 +151,7 @@ public class ProConfigController {
 	 * 条件查询（可分页）
 	 * @param queryBO ProConfigQueryBO 查询参数
 	 * @return RPage<ProConfigVO>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 * @status released
 	 */
@@ -170,7 +170,7 @@ public class ProConfigController {
 	/**
 	 * 获取下拉选择列表
 	 * @return
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-24
 	 * @status released
 	 */
@@ -185,7 +185,7 @@ public class ProConfigController {
 	/**
 	 * 导出选择配置
 	 * @param bo
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-07-17
 	 * @status released
 	 */
@@ -197,7 +197,7 @@ public class ProConfigController {
 	/**
 	 * 导出全部配置
 	 * @param queryBO
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-07-17
 	 * @status released
 	 */
@@ -210,7 +210,7 @@ public class ProConfigController {
 	 * 导入配置文件
 	 * @param file
 	 * @return
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-07-17
 	 * @status released
 	 */

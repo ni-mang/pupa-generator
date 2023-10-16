@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * 扩展-数据服务接口
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-21
  */
 public interface IProExtendService extends IService<ProExtend>{

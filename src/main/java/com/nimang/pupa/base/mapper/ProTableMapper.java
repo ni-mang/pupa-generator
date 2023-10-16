@@ -6,7 +6,7 @@ import com.nimang.pupa.base.entity.ProTable;
 
 /**
  * 表单-Mapper
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-26
  */
 public interface ProTableMapper extends BaseMapper<ProTable> {

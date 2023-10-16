@@ -13,7 +13,7 @@ import java.io.Serializable;
 
 /**
  * 列类型
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-09-07
  */
 @Data

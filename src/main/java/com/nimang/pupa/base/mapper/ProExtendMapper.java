@@ -6,7 +6,7 @@ import com.nimang.pupa.base.entity.ProExtend;
 
 /**
  * 扩展-Mapper
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-21
  */
 public interface ProExtendMapper extends BaseMapper<ProExtend> {

@@ -24,7 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 /**
  * 项目/项目
  * @module pupa
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-26
  */
 
@@ -42,7 +42,7 @@ public class ProProjectController {
 	 * 新增
 	 * @param bizModel ProProjectAddBO 新增-业务数据包
 	 * @return R<Long> ID
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 * @status released
 	 */
@@ -58,7 +58,7 @@ public class ProProjectController {
 	 * 修改
 	 * @param bizModel ProProjectEditBO 修改-业务数据包
 	 * @return R<Boolean>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 * @status released
 	 */
@@ -74,7 +74,7 @@ public class ProProjectController {
 	 * 克隆
 	 * @param bizModel IdBO> 目标ID
 	 * @return R<Long> 新配置ID
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 * @status released
 	 */
@@ -89,7 +89,7 @@ public class ProProjectController {
 	 * 根据主键删除
 	 * @param bo IdBO 项目-ID
 	 * @return R<Boolean>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 * @status released
 	 */
@@ -105,7 +105,7 @@ public class ProProjectController {
 	 * 根据主键批量删除
 	 * @param bo IdsBO 项目-ID数组
 	 * @return R<Boolean>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 * @status released
 	 */
@@ -121,7 +121,7 @@ public class ProProjectController {
 	 * 根据主键获取
 	 * @param bo IdBO 项目-ID
 	 * @return R<ProProjectVO>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 * @status released
 	 */
@@ -138,7 +138,7 @@ public class ProProjectController {
 	 * 条件查询（可分页）
 	 * @param queryBO ProProjectQueryBO 查询参数
 	 * @return RPage<ProProjectVO>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 * @status released
 	 */
@@ -158,7 +158,7 @@ public class ProProjectController {
 	/**
 	 * 导出选择项目
 	 * @param bo
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-07-18
 	 * @status released
 	 */
@@ -170,7 +170,7 @@ public class ProProjectController {
 	/**
 	 * 导出全部项目
 	 * @param queryBO
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-07-18
 	 * @status released
 	 */
@@ -183,7 +183,7 @@ public class ProProjectController {
 	 * 导入项目文件
 	 * @param file
 	 * @return
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-07-18
 	 * @status released
 	 */
