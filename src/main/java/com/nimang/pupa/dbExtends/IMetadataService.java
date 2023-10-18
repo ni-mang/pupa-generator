@@ -50,7 +50,7 @@ public interface IMetadataService {
     List<ProField> findColumns(ProDatasource datasource, List<ProTable> proTableList);
 
     /**
-     * 设置字段边界值
+     * 设置字段取值范围
      * @param proField 表字段
      */
     void setBounds(ProField proField);

@@ -30,12 +30,12 @@ layui.use(['form', 'table','miniPage','element'], function () {
             {field: 'cnName', width: 200, title: '中文名'},
             {field: 'tableName', width: 250, title: '表名', sort: true},
             {field: 'infixName', width: 250, title: '无前缀名'},
-            {field: 'module', width: 300, title: '模块', sort: true},
+            {field: 'module', width: 200, title: '模块'},
             {field: 'existFlag', width: 100, title: '是否存在于数据库', sort: true, templet:function (d){
                     return d.existFlag==true?'<span style="color: green">存在</span>':'<span style="color: orangered">不存在</span>';
                 }},
             {field: 'createTime', width: 200, title: '创建时间', sort: true},
-            {field: 'updateTime', width: 200, title: '变更时间', sort: true},
+            // {field: 'updateTime', width: 200, title: '变更时间', sort: true},
             {title: '操作', minWidth: 250, toolbar: '#dbTableTableBar', align: "center", fixed:"right"}
         ]],
         limits: [10, 15, 20, 25, 50],

@@ -80,7 +80,7 @@ public class DataTool {
     }
 
     /**
-     * 设置数值类型字段的边界值
+     * 设置数值类型字段的取值范围
      * @param proField
      * @param precision
      * @param scale
@@ -89,6 +89,9 @@ public class DataTool {
         precision = Math.min(precision, DBConstants.PRECISION_LIMIT_FLOAT);
         StringBuilder max = new StringBuilder();
         StringBuilder min = new StringBuilder();
+        if(!proField.getUnsigned()){
+            min = new StringBuilder("-");
+        }
         if (scale > 0) {
             // 浮点数
             precision = Math.min(precision, DBConstants.PRECISION_LIMIT_FLOAT);

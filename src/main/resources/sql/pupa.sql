@@ -63,6 +63,39 @@ INSERT INTO `pro_column_type` VALUES (879781146187444243, 1, 'timestamp');
 INSERT INTO `pro_column_type` VALUES (879781146187444244, 1, 'binary');
 INSERT INTO `pro_column_type` VALUES (879781146187444245, 1, 'blob');
 INSERT INTO `pro_column_type` VALUES (879781146187444246, 1, 'enum');
+INSERT INTO `pro_column_type` VALUES (911945413338509312, 2, 'bigint');
+INSERT INTO `pro_column_type` VALUES (911945489771311104, 2, 'timestamp');
+INSERT INTO `pro_column_type` VALUES (911945524726640640, 2, 'binary');
+INSERT INTO `pro_column_type` VALUES (911945561066090496, 2, 'bit');
+INSERT INTO `pro_column_type` VALUES (911945594658271232, 2, 'char');
+INSERT INTO `pro_column_type` VALUES (911945649070977024, 2, 'decimal');
+INSERT INTO `pro_column_type` VALUES (911945788133126144, 2, 'money');
+INSERT INTO `pro_column_type` VALUES (911945824132837376, 2, 'smallmoney');
+INSERT INTO `pro_column_type` VALUES (911945983528972288, 2, 'float');
+INSERT INTO `pro_column_type` VALUES (911946024557654016, 2, 'int');
+INSERT INTO `pro_column_type` VALUES (911946061660467200, 2, 'image');
+INSERT INTO `pro_column_type` VALUES (911946122054250496, 2, 'varbinary(max)');
+INSERT INTO `pro_column_type` VALUES (911946157194129408, 2, 'varchar(max)');
+INSERT INTO `pro_column_type` VALUES (911946214526070784, 2, 'text');
+INSERT INTO `pro_column_type` VALUES (911946247854010368, 2, 'nchar');
+INSERT INTO `pro_column_type` VALUES (911946280569581568, 2, 'nvarchar');
+INSERT INTO `pro_column_type` VALUES (911946326610456576, 2, 'nvarchar(max)');
+INSERT INTO `pro_column_type` VALUES (911946388115730432, 2, 'ntext');
+INSERT INTO `pro_column_type` VALUES (911946436593496064, 2, 'numeric');
+INSERT INTO `pro_column_type` VALUES (911946497939386368, 2, 'real');
+INSERT INTO `pro_column_type` VALUES (911946553165787136, 2, 'smallint');
+INSERT INTO `pro_column_type` VALUES (911946584807616512, 2, 'datetime');
+INSERT INTO `pro_column_type` VALUES (911946613702176768, 2, 'smalldatetime');
+INSERT INTO `pro_column_type` VALUES (911946643653701632, 2, 'varbinary');
+INSERT INTO `pro_column_type` VALUES (911946704450138112, 2, 'udt');
+INSERT INTO `pro_column_type` VALUES (911946737920684032, 2, 'varchar');
+INSERT INTO `pro_column_type` VALUES (911946765468872704, 2, 'tinyint');
+INSERT INTO `pro_column_type` VALUES (911946806099095552, 2, 'uniqueidentifier');
+INSERT INTO `pro_column_type` VALUES (911946834280624128, 2, 'xml');
+INSERT INTO `pro_column_type` VALUES (911946881999220736, 2, 'time');
+INSERT INTO `pro_column_type` VALUES (911946919034925056, 2, 'date');
+INSERT INTO `pro_column_type` VALUES (911946949984694272, 2, 'datetime2');
+INSERT INTO `pro_column_type` VALUES (911946987460800512, 2, 'datetimeoffset (2)');
 
 -- ----------------------------
 -- Table structure for pro_config
@@ -114,9 +147,7 @@ CREATE TABLE `pro_datasource`  (
 -- ----------------------------
 -- Records of pro_datasource
 -- ----------------------------
-INSERT INTO `pro_datasource` VALUES (908389119868448768, 908350977811591168, '示例项目-mysql', 0, '127.0.0.1:3306', 'pupa', NULL, 'root', 'root123', 'pro_,sys_', '[{\"key\":\"optimisticLockerCol\",' ||
-                                                                                                                                                                  '' ||
-                                                                                                                                                                  '\"value\":\"version\"},{\"key\":\"logicDeleteCol\",\"value\":\"del_flag\"},{\"key\":\"fillCreateTimeCol\",\"value\":\"create_time\"},{\"key\":\"fillUpdateTimeCol\",\"value\":\"update_time\"}]', '2023-10-08 13:35:09', 1, NULL);
+INSERT INTO `pro_datasource` VALUES (908389119868448768, 908350977811591168, '示例项目-mysql', 0, '127.0.0.1:3306', 'pupa', 'useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai', 'root', 'root123', 'pro_,sys_', '[{\"key\":\"optimisticLockerCol\",\"value\":\"version\"},{\"key\":\"logicDeleteCol\",\"value\":\"del_flag\"},{\"key\":\"fillCreateTimeCol\",\"value\":\"create_time\"},{\"key\":\"fillUpdateTimeCol\",\"value\":\"update_time\"}]', '2023-10-08 13:35:09', 1, NULL);
 
 -- ----------------------------
 -- Table structure for pro_extend
@@ -222,6 +253,7 @@ CREATE TABLE `pro_mapper`  (
 -- ----------------------------
 INSERT INTO `pro_mapper` VALUES (908349132707901441, 908349132707901440, 'Mysql-Java', 0, 'java', '[{\"attrType\":\"Boolean\",\"columnType\":\"tinyint\",\"importPath\":\"\"},{\"attrType\":\"Integer\",\"columnType\":\"smallint\",\"importPath\":\"\"},{\"attrType\":\"Integer\",\"columnType\":\"mediumint\",\"importPath\":\"\"},{\"attrType\":\"Integer\",\"columnType\":\"int\",\"importPath\":\"\"},{\"attrType\":\"Integer\",\"columnType\":\"integer\",\"importPath\":\"\"},{\"attrType\":\"Long\",\"columnType\":\"bigint\",\"importPath\":\"\"},{\"attrType\":\"Float\",\"columnType\":\"float\",\"importPath\":\"\"},{\"attrType\":\"Double\",\"columnType\":\"double\",\"importPath\":\"\"},{\"attrType\":\"BigDecimal\",\"columnType\":\"decimal\",\"importPath\":\"java.math.BigDecimal\"},{\"attrType\":\"Boolean\",\"columnType\":\"bit\",\"importPath\":\"\"},{\"attrType\":\"String\",\"columnType\":\"char\",\"importPath\":\"\"},{\"attrType\":\"String\",\"columnType\":\"varchar\",\"importPath\":\"\"},{\"attrType\":\"String\",\"columnType\":\"tinytext\",\"importPath\":\"\"},{\"attrType\":\"String\",\"columnType\":\"text\",\"importPath\":\"\"},{\"attrType\":\"String\",\"columnType\":\"mediumtext\",\"importPath\":\"\"},{\"attrType\":\"String\",\"columnType\":\"longtext\",\"importPath\":\"\"},{\"attrType\":\"String\",\"columnType\":\"longblob\",\"importPath\":\"\"},{\"attrType\":\"LocalDate\",\"columnType\":\"date\",\"importPath\":\"java.time.LocalDate\"},{\"attrType\":\"LocalDateTime\",\"columnType\":\"datetime\",\"importPath\":\"java.time.LocalDateTime\"},{\"attrType\":\"LocalDateTime\",\"columnType\":\"timestamp\",\"importPath\":\"java.time.LocalDateTime\"},{\"attrType\":\"byte[]\",\"columnType\":\"binary\",\"importPath\":\"\"},{\"attrType\":\"byte[]\",\"columnType\":\"blob\",\"importPath\":\"\"},{\"attrType\":\"String\",\"columnType\":\"enum\",\"importPath\":\"\"}]', 'tinyint >> Boolean;\ndatetime,timestamp >> LocalDateTime;');
 INSERT INTO `pro_mapper` VALUES (908349132712095744, 908349132707901440, 'Maria-Java', 1, 'java', '[{\"attrType\":\"Boolean\",\"columnType\":\"tinyint\",\"importPath\":\"\"},{\"attrType\":\"Integer\",\"columnType\":\"smallint\",\"importPath\":\"\"},{\"attrType\":\"Integer\",\"columnType\":\"mediumint\",\"importPath\":\"\"},{\"attrType\":\"Integer\",\"columnType\":\"int\",\"importPath\":\"\"},{\"attrType\":\"Integer\",\"columnType\":\"integer\",\"importPath\":\"\"},{\"attrType\":\"Long\",\"columnType\":\"bigint\",\"importPath\":\"\"},{\"attrType\":\"Float\",\"columnType\":\"float\",\"importPath\":\"\"},{\"attrType\":\"Double\",\"columnType\":\"double\",\"importPath\":\"\"},{\"attrType\":\"BigDecimal\",\"columnType\":\"decimal\",\"importPath\":\"java.math.BigDecimal\"},{\"attrType\":\"Boolean\",\"columnType\":\"bit\",\"importPath\":\"\"},{\"attrType\":\"String\",\"columnType\":\"char\",\"importPath\":\"\"},{\"attrType\":\"String\",\"columnType\":\"varchar\",\"importPath\":\"\"},{\"attrType\":\"String\",\"columnType\":\"tinytext\",\"importPath\":\"\"},{\"attrType\":\"String\",\"columnType\":\"text\",\"importPath\":\"\"},{\"attrType\":\"String\",\"columnType\":\"mediumtext\",\"importPath\":\"\"},{\"attrType\":\"String\",\"columnType\":\"longtext\",\"importPath\":\"\"},{\"attrType\":\"String\",\"columnType\":\"longblob\",\"importPath\":\"\"},{\"attrType\":\"LocalDate\",\"columnType\":\"date\",\"importPath\":\"java.time.LocalDate\"},{\"attrType\":\"LocalDateTime\",\"columnType\":\"datetime\",\"importPath\":\"java.time.LocalDateTime\"},{\"attrType\":\"LocalDateTime\",\"columnType\":\"timestamp\",\"importPath\":\"java.time.LocalDateTime\"},{\"attrType\":\"byte[]\",\"columnType\":\"binary\",\"importPath\":\"\"},{\"attrType\":\"byte[]\",\"columnType\":\"blob\",\"importPath\":\"\"},{\"attrType\":\"String\",\"columnType\":\"enum\",\"importPath\":\"\"}]', 'tinyint >> Boolean;\ndatetime,timestamp >> LocalDateTime;');
+INSERT INTO `pro_mapper` VALUES (912013354784436224, 908349132707901440, 'SqlServer-Java', 2, 'java', '[{\"attrType\":\"Long\",\"columnType\":\"bigint\",\"importPath\":\"\"},{\"attrType\":\"byte[]\",\"columnType\":\"timestamp\",\"importPath\":\"\"},{\"attrType\":\"byte[]\",\"columnType\":\"binary\",\"importPath\":\"\"},{\"attrType\":\"Boolean\",\"columnType\":\"bit\",\"importPath\":\"\"},{\"attrType\":\"String\",\"columnType\":\"char\",\"importPath\":\"\"},{\"attrType\":\"BigDecimal\",\"columnType\":\"decimal\",\"importPath\":\"java.math.BigDecimal\"},{\"attrType\":\"BigDecimal\",\"columnType\":\"money\",\"importPath\":\"java.math.BigDecimal\"},{\"attrType\":\"BigDecimal\",\"columnType\":\"smallmoney\",\"importPath\":\"java.math.BigDecimal\"},{\"attrType\":\"Double\",\"columnType\":\"float\",\"importPath\":\"\"},{\"attrType\":\"Integer\",\"columnType\":\"int\",\"importPath\":\"\"},{\"attrType\":\"byte[]\",\"columnType\":\"image\",\"importPath\":\"\"},{\"attrType\":\"byte[]\",\"columnType\":\"varbinary(max)\",\"importPath\":\"\"},{\"attrType\":\"String\",\"columnType\":\"varchar(max)\",\"importPath\":\"\"},{\"attrType\":\"String\",\"columnType\":\"text\",\"importPath\":\"\"},{\"attrType\":\"String\",\"columnType\":\"nchar\",\"importPath\":\"\"},{\"attrType\":\"String\",\"columnType\":\"nvarchar\",\"importPath\":\"\"},{\"attrType\":\"String\",\"columnType\":\"nvarchar(max)\",\"importPath\":\"\"},{\"attrType\":\"String\",\"columnType\":\"ntext\",\"importPath\":\"\"},{\"attrType\":\"BigDecimal\",\"columnType\":\"numeric\",\"importPath\":\"java.math.BigDecimal\"},{\"attrType\":\"Float\",\"columnType\":\"real\",\"importPath\":\"\"},{\"attrType\":\"Short\",\"columnType\":\"smallint\",\"importPath\":\"\"},{\"attrType\":\"Date\",\"columnType\":\"datetime\",\"importPath\":\"java.sql.Date\"},{\"attrType\":\"Date\",\"columnType\":\"smalldatetime\",\"importPath\":\"java.sql.Date\"},{\"attrType\":\"byte[]\",\"columnType\":\"varbinary\",\"importPath\":\"\"},{\"attrType\":\"byte[]\",\"columnType\":\"udt\",\"importPath\":\"\"},{\"attrType\":\"String\",\"columnType\":\"varchar\",\"importPath\":\"\"},{\"attrType\":\"Short\",\"columnType\":\"tinyint\",\"importPath\":\"\"},{\"attrType\":\"String\",\"columnType\":\"uniqueidentifier\",\"importPath\":\"\"},{\"attrType\":\"String\",\"columnType\":\"xml\",\"importPath\":\"\"},{\"attrType\":\"Date\",\"columnType\":\"time\",\"importPath\":\"java.sql.Date\"},{\"attrType\":\"Date\",\"columnType\":\"date\",\"importPath\":\"java.sql.Date\"},{\"attrType\":\"Date\",\"columnType\":\"datetime2\",\"importPath\":\"java.sql.Date\"},{\"attrType\":\"DateTimeOffset\",\"columnType\":\"datetimeoffset (2)\",\"importPath\":\"microsoft.sql.DateTimeOffset\"}]', '');
 
 -- ----------------------------
 -- Table structure for pro_project

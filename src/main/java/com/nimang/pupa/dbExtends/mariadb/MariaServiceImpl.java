@@ -187,7 +187,7 @@ public class MariaServiceImpl implements IMetadataService {
     }
 
     /**
-     * 设置字段边界值
+     * 设置字段取值范围
      * @param proField
      */
     public void setBounds(ProField proField){
@@ -216,7 +216,7 @@ public class MariaServiceImpl implements IMetadataService {
             }
             precision = Integer.parseInt(first);
 
-            // 计算数值极限值
+            // 设置取值范围
             DataTool.setBoundsForNum(proField, precision, scale);
         }
     }
