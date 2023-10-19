@@ -6,7 +6,7 @@ import com.nimang.pupa.base.entity.ProConfig;
 
 /**
  * 配置-Mapper
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-21
  */
 public interface ProConfigMapper extends BaseMapper<ProConfig> {

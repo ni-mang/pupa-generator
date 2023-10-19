@@ -16,28 +16,15 @@ import java.util.stream.Stream;
 @EnumTag(label = "datasource_brand")
 public enum DatasourceBrandEnum implements EnumInterface {
 
-    PDB_MYSQL(0, "Mysql", "com.mysql.cj.jdbc.Driver", "jdbc:mysql://", "information_schema"),
-    PDB_MARIADB(1, "MariaDB", "org.mariadb.jdbc.Driver", "jdbc:mariadb://", "information_schema"),
+    PDB_MYSQL(0, "Mysql"),
+    PDB_MARIADB(1, "MariaDB"),
+    PDB_SQL_SERVER(2, "SqlServer"),
     ;
 
     private Integer code;
 
     private String msg;
 
-    /**
-     * 数据库驱动
-     */
-    private String driver;
-
-    /**
-     * 数据库链接地址前缀
-     */
-    private String prefix;
-
-    /**
-     * 表数据库名
-     */
-    private String schema;
 
     /**
      * 根据code获取枚举对象

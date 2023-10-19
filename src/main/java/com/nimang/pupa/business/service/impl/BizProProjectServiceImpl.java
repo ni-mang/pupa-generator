@@ -43,7 +43,7 @@ import java.util.stream.Collectors;
 
 /**
  * 项目-业务接口实现
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-26
  */
 @RequiredArgsConstructor
@@ -69,7 +69,7 @@ public class BizProProjectServiceImpl implements BizProProjectService {
 	 * 新增
 	 * @param addBO ProProjectAddBO 新增数据
 	 * @return Long ID
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 */
 	@Override
@@ -110,7 +110,7 @@ public class BizProProjectServiceImpl implements BizProProjectService {
 	 * 修改
 	 * @param editBO ProProjectEditBO 修改数据
 	 * @return Boolean
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 */
 	@Override
@@ -236,7 +236,7 @@ public class BizProProjectServiceImpl implements BizProProjectService {
 	 * 根据主键删除
 	 * @param id Long 项目-ID
 	 * @return Boolean
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 */
 	@Override
@@ -256,7 +256,7 @@ public class BizProProjectServiceImpl implements BizProProjectService {
 	 * 根据主键批量删除
 	 * @param ids List<Long> 项目-ID集合
 	 * @return Boolean
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 */
 	@Override
@@ -268,7 +268,7 @@ public class BizProProjectServiceImpl implements BizProProjectService {
 	 * 根据主键获取
 	 * @param id Long 项目-ID
 	 * @return ProProject
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 */
 	@Override
@@ -280,7 +280,7 @@ public class BizProProjectServiceImpl implements BizProProjectService {
 	 * 条件查询（可分页）
 	 * @param queryBO ProProjectQueryBO 查询参数
 	 * @return Page<ProProject>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 */
 	@Override

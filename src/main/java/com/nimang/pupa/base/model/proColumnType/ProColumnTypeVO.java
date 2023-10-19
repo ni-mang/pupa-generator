@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * 列类型-结果VO
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-09-08
  */
 @Data

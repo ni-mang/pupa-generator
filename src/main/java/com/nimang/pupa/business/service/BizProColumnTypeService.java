@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * 列类型-业务接口
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-09-08
  */
 public interface BizProColumnTypeService {

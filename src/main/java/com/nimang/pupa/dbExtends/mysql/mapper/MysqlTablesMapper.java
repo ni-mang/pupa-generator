@@ -5,7 +5,7 @@ import com.nimang.pupa.dbExtends.mysql.entity.MysqlTables;
 
 
 /**
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-18
  */
 public interface MysqlTablesMapper extends BaseMapper<MysqlTables> {

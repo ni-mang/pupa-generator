@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * 配置/扩展
  * @module pupa
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-21
  */
 
@@ -39,7 +39,7 @@ public class ProExtendController {
 	 * 新增
 	 * @param bizModel ProExtendAddBO 新增-业务数据包
 	 * @return R<Long> ID
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 * @status released
 	 */
@@ -55,7 +55,7 @@ public class ProExtendController {
 	 * 修改
 	 * @param bizModel ProExtendEditBO 修改-业务数据包
 	 * @return R<Boolean>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 * @status released
 	 */
@@ -71,7 +71,7 @@ public class ProExtendController {
 	 * 状态变更
 	 * @param bizModel StatusChangeBO 状态变更-业务数据包
 	 * @return R<Boolean>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-06-30
 	 * @status released
 	 */
@@ -87,7 +87,7 @@ public class ProExtendController {
 	 * 根据主键删除
 	 * @param bo IdBO 扩展-ID
 	 * @return R<Boolean>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 * @status released
 	 */
@@ -103,7 +103,7 @@ public class ProExtendController {
 	 * 根据主键批量删除
 	 * @param bo IdsBO 扩展-ID数组
 	 * @return R<Boolean>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 * @status released
 	 */
@@ -119,7 +119,7 @@ public class ProExtendController {
 	 * 根据主键获取
 	 * @param bo IdBO 扩展-ID
 	 * @return R<ProExtendVO>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 * @status released
 	 */
@@ -136,7 +136,7 @@ public class ProExtendController {
 	 * 条件查询（可分页）
 	 * @param queryBO ProExtendQueryBO 查询参数
 	 * @return RPage<ProExtendVO>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 * @status released
 	 */
@@ -158,7 +158,7 @@ public class ProExtendController {
 	 * 展示所有扩展信息
 	 * @param bo
 	 * @return R<List<ProExtendShowVO>>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-28
 	 * @status released
 	 */

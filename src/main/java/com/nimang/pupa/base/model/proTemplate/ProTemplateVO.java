@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * 模板-结果VO
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-21
  */
 @Data

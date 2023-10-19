@@ -2,11 +2,13 @@ package com.nimang.pupa.base.entity;
 
 import cn.hutool.core.util.StrUtil;
 import com.nimang.pupa.dbExtends.DatasourceBrandEnum;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class SourceInfo {
 
     /**
@@ -29,18 +31,4 @@ public class SourceInfo {
      */
     private String password;
 
-    public SourceInfo(ProDatasource datasource) {
-        DatasourceBrandEnum pdbEnum = DatasourceBrandEnum.getByCode(datasource.getBrand());
-        StringBuilder urlBuild = new StringBuilder();
-        urlBuild.append(pdbEnum.getPrefix());
-        urlBuild.append(datasource.getMainAddr()).append(":").append(datasource.getPort());
-        urlBuild.append("/").append(pdbEnum.getSchema());
-        if(StrUtil.isNotBlank(datasource.getUrlSuffix())){
-            urlBuild.append("?").append(datasource.getUrlSuffix());
-        }
-        this.driver = pdbEnum.getDriver();
-        this.url = urlBuild.toString();
-        this.username = datasource.getAccount();
-        this.password = datasource.getPassword();
-    }
 }

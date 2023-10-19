@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * 项目-业务接口
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-26
  */
 public interface BizProProjectService {

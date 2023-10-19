@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 /**
  * 状态变更BO
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-06-25
  */
 @Data

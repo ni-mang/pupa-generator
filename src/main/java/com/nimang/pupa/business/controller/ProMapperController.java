@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * 配置/数据映射
  * @module pupa
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-09-08
  */
 
@@ -41,7 +41,7 @@ public class ProMapperController {
 	 * 新增
 	 * @param addBO ProMapperAddBO 新增-业务数据包
 	 * @return R<Long> ID
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-09-08
 	 * @status developing
 	 */
@@ -57,7 +57,7 @@ public class ProMapperController {
 	 * 修改
 	 * @param editBO ProMapperEditBO 修改-业务数据包
 	 * @return R<Boolean>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-09-08
 	 * @status developing
 	 */
@@ -73,7 +73,7 @@ public class ProMapperController {
 	 * 根据主键删除
 	 * @param id Long 数据映射-ID
 	 * @return R<Boolean>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-09-08
 	 * @status developing
 	 */
@@ -89,7 +89,7 @@ public class ProMapperController {
 	 * 根据主键批量删除
 	 * @param ids Long[] 数据映射-ID数组
 	 * @return R<Boolean>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-09-08
 	 * @status developing
 	 * @ignore
@@ -106,7 +106,7 @@ public class ProMapperController {
 	 * 根据主键获取
 	 * @param id Long 数据映射-ID
 	 * @return R<ProMapperVO>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-09-08
 	 * @status developing
 	 */
@@ -123,7 +123,7 @@ public class ProMapperController {
 	 * 条件查询（可分页）
 	 * @param queryBO ProMapperQueryBO 查询参数
 	 * @return RPage<ProMapperVO>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-09-08
 	 * @status developing
 	 */

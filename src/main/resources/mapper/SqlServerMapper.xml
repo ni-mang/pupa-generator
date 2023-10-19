@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nimang.pupa.dbExtends.sqlServer.mapper.SqlServerMapper">
+
+    <select id="queryTable" resultType="com.nimang.pupa.dbExtends.sqlServer.entity.SqlServerTables" parameterType="string">
+        SELECT * FROM
+        (
+            SELECT
+                cast(so.name AS varchar(500)) AS tableName,
+                cast(sep.value AS varchar(500)) AS tableComment,
+                so.crdate AS createTime
+            FROM sysobjects so
+            LEFT JOIN sys.extended_properties sep ON sep.major_id=so.id AND sep.minor_id=0
+            WHERE (xtype='U' OR xtype='v')
+        ) t
+        WHERE 1=1
+        <if test="tableNames != null">
+            AND t.tableName IN
+            <foreach  item="tableName"  collection="list" open="(" separator="," close=" )">
+                #{tableName}
+            </foreach>
+        </if>
+        ORDER BY t.tableName
+    </select>
+    <select id="queryColumns" resultType="com.nimang.pupa.dbExtends.sqlServer.entity.SqlServerColumns" parameterType="string">
+        SELECT
+            a.*,
+            CAST ( c.VALUE AS VARCHAR ( 500 ) ) AS columnComment,
+            (SELECT
+                 CASE COUNT(1)
+                     WHEN 1 THEN 'PRI' ELSE ''
+                 END
+             FROM
+                 syscolumns,
+                 sysobjects,
+                 sysindexes,
+                 sysindexkeys,
+                 systypes
+             WHERE
+                 syscolumns.xusertype = systypes.xusertype
+               AND syscolumns.id = object_id( b.NAME )
+               AND sysobjects.xtype = 'PK'
+               AND sysobjects.parent_obj = syscolumns.id
+               AND sysindexes.id = syscolumns.id
+               AND sysobjects.NAME = sysindexes.NAME
+               AND sysindexkeys.id = syscolumns.id
+               AND sysindexkeys.indid = sysindexes.indid
+               AND syscolumns.colid = sysindexkeys.colid
+               AND syscolumns.NAME = a.column_name
+            ) AS columnKey,
+            '' AS extra
+        FROM INFORMATION_SCHEMA.COLUMNS a
+                 LEFT JOIN sys.objects b ON b.name = a.table_name
+                 LEFT JOIN sys.extended_properties c ON c.major_id = b.object_id AND c.minor_id = a.ORDINAL_POSITION
+        WHERE 1=1
+        <if test="tableNames != null">
+            AND a.table_name IN
+            <foreach  item="tableName"  collection="list" open="(" separator="," close=" )">
+                #{tableName}
+            </foreach>
+        </if>
+        ORDER BY a.ordinal_position
+    </select>
+
+</mapper>

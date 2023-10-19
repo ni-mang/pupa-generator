@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * 数据映射-业务接口
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-08-09
  */
 public interface BizProMapperService {

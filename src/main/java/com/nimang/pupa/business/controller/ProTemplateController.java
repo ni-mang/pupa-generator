@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.*;
 /**
  * 配置/模板
  * @module pupa
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-21
  */
 
@@ -40,7 +40,7 @@ public class ProTemplateController {
 	 * 新增
 	 * @param bizModel ProTemplateAddBO 新增-业务数据包
 	 * @return R<Long> ID
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 * @status released
 	 */
@@ -56,7 +56,7 @@ public class ProTemplateController {
 	 * 修改
 	 * @param bizModel ProTemplateEditBO 修改-业务数据包
 	 * @return R<Boolean>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 * @status released
 	 */
@@ -72,7 +72,7 @@ public class ProTemplateController {
 	 * 状态变更
 	 * @param bizModel StatusChangeBO 状态变更-业务数据包
 	 * @return R<Boolean>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-06-30
 	 * @status released
 	 */
@@ -88,7 +88,7 @@ public class ProTemplateController {
 	 * 根据主键删除
 	 * @param bo IdBO 模板-ID
 	 * @return R<Boolean>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 * @status released
 	 */
@@ -104,7 +104,7 @@ public class ProTemplateController {
 	 * 根据主键批量删除
 	 * @param bo IdsBO 模板-ID数组
 	 * @return R<Boolean>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 * @status released
 	 */
@@ -120,7 +120,7 @@ public class ProTemplateController {
 	 * 根据主键获取
 	 * @param bo IdBO 模板-ID
 	 * @return R<ProTemplateVO>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 * @status released
 	 */
@@ -137,7 +137,7 @@ public class ProTemplateController {
 	 * 条件查询（可分页）
 	 * @param queryBO ProTemplateQueryBO 查询参数
 	 * @return RPage<ProTemplateVO>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-03-01
 	 * @status released
 	 */

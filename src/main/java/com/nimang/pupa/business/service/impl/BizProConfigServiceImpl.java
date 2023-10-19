@@ -46,7 +46,7 @@ import java.util.stream.Collectors;
 
 /**
  * 配置-业务接口实现
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-21
  */
 @RequiredArgsConstructor
@@ -67,7 +67,7 @@ public class BizProConfigServiceImpl implements BizProConfigService {
 	 * 新增
 	 * @param addBO ProConfigAddBO 新增数据
 	 * @return Long ID
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 */
 	@Override
@@ -97,7 +97,7 @@ public class BizProConfigServiceImpl implements BizProConfigService {
 	 * 修改
 	 * @param editBO ProConfigEditBO 修改数据
 	 * @return Boolean
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 */
 	@Override
@@ -192,7 +192,7 @@ public class BizProConfigServiceImpl implements BizProConfigService {
 	 * 根据主键删除
 	 * @param id Long 配置-ID
 	 * @return Boolean
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 */
 	@Transactional(rollbackFor = Exception.class)
@@ -212,7 +212,7 @@ public class BizProConfigServiceImpl implements BizProConfigService {
 	 * 根据主键获取
 	 * @param id Long 配置-ID
 	 * @return ProConfig
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 */
 	@Override
@@ -244,7 +244,7 @@ public class BizProConfigServiceImpl implements BizProConfigService {
 	 * 条件查询（可分页）
 	 * @param queryBO ProConfigQueryBO 查询参数
 	 * @return Page<ProConfig>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 */
 	@Override
@@ -259,7 +259,7 @@ public class BizProConfigServiceImpl implements BizProConfigService {
 	/**
 	 * 下拉选择
 	 * @return List<ProConfig>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-24
 	 */
 	public List<ProConfig> listForSelect() {

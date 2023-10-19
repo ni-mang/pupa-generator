@@ -14,7 +14,7 @@ import java.io.Serializable;
 
 /**
  * 表字段-查询BO
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-26
  */
 @Data

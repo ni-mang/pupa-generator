@@ -31,7 +31,7 @@ public class GenController {
     /**
      * 全库生成
      * @param sourceId Long
-     * @author LinLaichun
+     * @author JustHuman
      * @date 2023-04-28
      * @status released
      */
@@ -46,7 +46,7 @@ public class GenController {
      * 生成指定表
      * @param tableIds Long[]
      * @return R<Integer>
-     * @author LinLaichun
+     * @author JustHuman
      * @date 2023-04-28
      * @status released
      */
@@ -61,7 +61,7 @@ public class GenController {
      * 预览指定表生成的内容
      * @param idBO IdBO
      * @return R<Integer>
-     * @author LinLaichun
+     * @author JustHuman
      * @date 2023-05-25
      * @status released
      */

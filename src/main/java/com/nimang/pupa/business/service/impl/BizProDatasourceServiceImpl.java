@@ -39,7 +39,7 @@ import java.util.stream.Collectors;
 
 /**
  * 数据源-业务接口实现
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-26
  */
 @RequiredArgsConstructor
@@ -50,7 +50,6 @@ public class BizProDatasourceServiceImpl implements BizProDatasourceService {
 	private final SnowFlakeIdGen snowFlakeIdGen;
 	private final TransactionTemplate transactionTemplate;
 	private final IProDatasourceService proDatasourceService;
-	private final IDatasourceService datasourceService;
 	private final IProTableService proTableService;
 	private final IProFieldService proFieldService;
 
@@ -59,7 +58,7 @@ public class BizProDatasourceServiceImpl implements BizProDatasourceService {
 	 * 新增
 	 * @param addBO ProDatasourceAddBO 新增数据
 	 * @return Long ID
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 */
 	@Override
@@ -80,7 +79,7 @@ public class BizProDatasourceServiceImpl implements BizProDatasourceService {
 	 * 修改
 	 * @param editBO ProDatasourceEditBO 修改数据
 	 * @return Boolean
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 */
 	@Override
@@ -97,7 +96,7 @@ public class BizProDatasourceServiceImpl implements BizProDatasourceService {
 	 * 根据主键删除
 	 * @param id Long 数据源-ID
 	 * @return Boolean
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 */
 	@Override
@@ -115,7 +114,7 @@ public class BizProDatasourceServiceImpl implements BizProDatasourceService {
 	 * 根据主键批量删除
 	 * @param ids List<Long> 数据源-ID集合
 	 * @return Boolean
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 */
 	@Override
@@ -127,7 +126,7 @@ public class BizProDatasourceServiceImpl implements BizProDatasourceService {
 	 * 根据主键获取
 	 * @param id Long 数据源-ID
 	 * @return ProDatasource
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 */
 	@Override
@@ -139,7 +138,7 @@ public class BizProDatasourceServiceImpl implements BizProDatasourceService {
 	 * 条件查询（可分页）
 	 * @param queryBO ProDatasourceQueryBO 查询参数
 	 * @return Page<ProDatasource>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 */
 	@Override
@@ -215,13 +214,12 @@ public class BizProDatasourceServiceImpl implements BizProDatasourceService {
 			throw new ApiException(ExceptionConstants.NOT_FIND_POINT_DATA);
 		}
 
-		SqlSessionFactory sessionFactory = getSessionFactory(datasource);
 		IMetadataService metadataService = getMetadataService(datasource.getBrand());
 
 		// 获取新增、修改的表
 		List<ProTable> addTableList = new ArrayList<>();
 		List<ProTable> upTableList = new ArrayList<>();
-		List<ProTable> findTableList = findTables(sessionFactory, metadataService, datasource, tableNames, addTableList, upTableList);
+		List<ProTable> findTableList = findTables(metadataService, datasource, tableNames, addTableList, upTableList);
 		List<ProTable> allTableList = new ArrayList<>();
 		allTableList.addAll(addTableList);
 		allTableList.addAll(upTableList);
@@ -229,7 +227,7 @@ public class BizProDatasourceServiceImpl implements BizProDatasourceService {
 		// 获取新增、修改的列
 		List<ProField> addFieldList = new ArrayList<>();
 		List<ProField> upFieldList = new ArrayList<>();
-		findFields(sessionFactory, metadataService, datasource, allTableList, addFieldList, upFieldList);
+		findFields(metadataService, datasource, allTableList, addFieldList, upFieldList);
 
 		transactionTemplate.execute(status -> {
 			if(ObjectUtil.isNotEmpty(addTableList)){
@@ -250,18 +248,9 @@ public class BizProDatasourceServiceImpl implements BizProDatasourceService {
 
 	}
 
-	/**
-	 * 获取数据库连接SessionFactory
-	 * @param datasource
-	 * @return SessionFactory
-	 */
-	public SqlSessionFactory getSessionFactory(ProDatasource datasource) {
-		return datasourceService.link(new SourceInfo(datasource));
-	}
 
 	/**
 	 * 获取新增、修改的表
-	 * @param sessionFactory
 	 * @param metadataService
 	 * @param datasource
 	 * @param tableNames
@@ -269,9 +258,9 @@ public class BizProDatasourceServiceImpl implements BizProDatasourceService {
 	 * @param upTableList
 	 * @return
 	 */
-	public List<ProTable> findTables(SqlSessionFactory sessionFactory, IMetadataService metadataService, ProDatasource datasource, List<String> tableNames, List<ProTable> addTableList, List<ProTable> upTableList) {
+	public List<ProTable> findTables(IMetadataService metadataService, ProDatasource datasource, List<String> tableNames, List<ProTable> addTableList, List<ProTable> upTableList) {
 
-		List<ProTable> findTableList = metadataService.findTables(sessionFactory, datasource, tableNames);
+		List<ProTable> findTableList = metadataService.findTables(datasource, tableNames);
 
 		LambdaQueryWrapper<ProTable> wrapper = new LambdaQueryWrapper<>();
 		wrapper.eq(ProTable::getSourceId, datasource.getId());
@@ -301,16 +290,15 @@ public class BizProDatasourceServiceImpl implements BizProDatasourceService {
 
 	/**
 	 * 获取新增、修改的列
-	 * @param sessionFactory
 	 * @param metadataService
 	 * @param datasource
 	 * @param proTableList
 	 * @param addFieldList
 	 * @param upFieldList
 	 */
-	public void findFields(SqlSessionFactory sessionFactory, IMetadataService metadataService, ProDatasource datasource, List<ProTable> proTableList, List<ProField> addFieldList, List<ProField> upFieldList) {
+	public void findFields(IMetadataService metadataService, ProDatasource datasource, List<ProTable> proTableList, List<ProField> addFieldList, List<ProField> upFieldList) {
 
-		List<ProField> findFieldList = metadataService.findColumns(sessionFactory, datasource, proTableList);
+		List<ProField> findFieldList = metadataService.findColumns(datasource, proTableList);
 
 		List<Long> tableIds = proTableList.stream().map(ProTable::getId).collect(Collectors.toList());
 		List<ProField> existFieldList = proFieldService.list(new LambdaQueryWrapper<ProField>().eq(ProField::getSourceId, datasource.getId()).in(ProField::getTableId, tableIds));

@@ -22,7 +22,7 @@ import java.time.LocalDateTime;
 
 /**
  * 模板-查询BO
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-21
  */
 @Data

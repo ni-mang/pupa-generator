@@ -6,7 +6,7 @@ import com.nimang.pupa.base.entity.ProProject;
 
 /**
  * 项目-Mapper
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-26
  */
 public interface ProProjectMapper extends BaseMapper<ProProject> {

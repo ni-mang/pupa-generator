@@ -13,7 +13,7 @@
 
     <groupId>com.nimang</groupId>
     <artifactId>pupa</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1-SNAPSHOT</version>
     <name>pupa</name>
     <description>蛹，新的起点</description>
 
@@ -33,6 +33,7 @@
         <enjoy.version>5.0.3</enjoy.version>
         <freemarker.version>2.3.32</freemarker.version>
         <commons.io.version>2.5</commons.io.version>
+        <sqlServer.version>4.0</sqlServer.version>
     </properties>
 
     <dependencies>
@@ -60,17 +61,25 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- MySQL连接 -->
+        <!-- Mysql驱动 -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
 
-        <!-- Maria连接 -->
+        <!-- Maria驱动 -->
         <dependency>
             <groupId>org.mariadb.jdbc</groupId>
             <artifactId>mariadb-java-client</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- SqlServer驱动 -->
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>sqljdbc4</artifactId>
+            <version>${sqlServer.version}</version>
             <scope>runtime</scope>
         </dependency>
 
@@ -188,4 +197,15 @@
             </plugin>
         </plugins>
     </build>
+
+    <repositories>
+        <repository>
+            <id>alimaven</id>
+            <name>aliyun maven</name>
+            <url>https://maven.aliyun.com/repository/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
 </project>

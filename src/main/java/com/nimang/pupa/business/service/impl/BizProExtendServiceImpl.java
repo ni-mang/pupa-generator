@@ -26,7 +26,7 @@ import java.util.List;
 
 /**
  * 扩展-业务接口实现
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-21
  */
 @RequiredArgsConstructor
@@ -41,7 +41,7 @@ public class BizProExtendServiceImpl implements BizProExtendService {
 	 * 新增
 	 * @param addBO ProExtendAddBO 新增数据
 	 * @return Long ID
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 */
 	@Override
@@ -62,7 +62,7 @@ public class BizProExtendServiceImpl implements BizProExtendService {
 	 * 修改
 	 * @param editBO ProExtendEditBO 修改数据
 	 * @return Boolean
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 */
 	@Override
@@ -87,7 +87,7 @@ public class BizProExtendServiceImpl implements BizProExtendService {
 	 * 根据主键删除
 	 * @param id Long 扩展-ID
 	 * @return Boolean
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 */
 	@Override
@@ -99,7 +99,7 @@ public class BizProExtendServiceImpl implements BizProExtendService {
 	 * 根据主键批量删除
 	 * @param ids List<Long> 扩展-ID集合
 	 * @return Boolean
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 */
 	@Override
@@ -111,7 +111,7 @@ public class BizProExtendServiceImpl implements BizProExtendService {
 	 * 根据主键获取
 	 * @param id Long 扩展-ID
 	 * @return ProExtend
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 */
 	@Override
@@ -123,7 +123,7 @@ public class BizProExtendServiceImpl implements BizProExtendService {
 	 * 条件查询（可分页）
 	 * @param queryBO ProExtendQueryBO 查询参数
 	 * @return Page<ProExtend>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 */
 	@Override

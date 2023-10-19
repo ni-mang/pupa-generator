@@ -6,7 +6,7 @@ import com.nimang.pupa.base.entity.ProTemplate;
 
 /**
  * 模板-Mapper
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-21
  */
 public interface ProTemplateMapper extends BaseMapper<ProTemplate> {

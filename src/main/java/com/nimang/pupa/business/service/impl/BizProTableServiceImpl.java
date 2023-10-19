@@ -32,7 +32,7 @@ import java.util.List;
 
 /**
  * 表单-业务接口实现
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-26
  */
 @RequiredArgsConstructor
@@ -47,7 +47,7 @@ public class BizProTableServiceImpl implements BizProTableService {
 	 * 新增
 	 * @param addBO ProTableAddBO 新增数据
 	 * @return Long ID
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 */
 	@Override
@@ -87,7 +87,7 @@ public class BizProTableServiceImpl implements BizProTableService {
 	 * 修改
 	 * @param editBO ProTableEditBO 修改数据
 	 * @return Boolean
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 */
 	@Override
@@ -123,7 +123,7 @@ public class BizProTableServiceImpl implements BizProTableService {
 	 * 根据主键删除
 	 * @param id Long 表单-ID
 	 * @return Boolean
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 */
 	@Override
@@ -135,7 +135,7 @@ public class BizProTableServiceImpl implements BizProTableService {
 	 * 根据主键批量删除
 	 * @param ids List<Long> 表单-ID集合
 	 * @return Boolean
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 */
 	@Override
@@ -147,7 +147,7 @@ public class BizProTableServiceImpl implements BizProTableService {
 	 * 根据主键获取
 	 * @param id Long 表单-ID
 	 * @return ProTable
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 */
 	@Override
@@ -159,7 +159,7 @@ public class BizProTableServiceImpl implements BizProTableService {
 	 * 条件查询（可分页）
 	 * @param queryBO ProTableQueryBO 查询参数
 	 * @return Page<ProTable>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 */
 	@Override

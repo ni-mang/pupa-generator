@@ -11,7 +11,7 @@ import java.io.Serializable;
 
 /**
  * 扩展-键值BO
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-26
  */
 @Data

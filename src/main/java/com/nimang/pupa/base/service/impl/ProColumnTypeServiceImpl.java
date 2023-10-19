@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * 列类型-数据服务接口实现
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-09-08
  */
 @RequiredArgsConstructor

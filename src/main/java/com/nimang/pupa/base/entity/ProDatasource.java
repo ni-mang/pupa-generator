@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 
 /**
  * 数据源
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-26
  */
 @Data
@@ -48,16 +48,11 @@ public class ProDatasource implements Serializable {
 	private Integer brand;
 
 	/**
-	 * 主机地址
+	 * 地址
+	 * 如：127.0.0.1:3306
 	 */
 	@TableField(value = "`main_addr`")
 	private String mainAddr;
-
-	/**
-	 * 端口
-	 */
-	@TableField(value = "`port`")
-	private String port;
 
 	/**
 	 * 库

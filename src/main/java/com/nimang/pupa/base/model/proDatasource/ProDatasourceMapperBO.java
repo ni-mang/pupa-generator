@@ -11,7 +11,7 @@ import java.io.Serializable;
 
 /**
  * 数据源-列字段类型映射BO
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-26
  */
 @Data

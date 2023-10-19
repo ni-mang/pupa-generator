@@ -28,7 +28,7 @@ import java.util.List;
 
 /**
  * 列类型-业务接口实现
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-09-08
  */
 @RequiredArgsConstructor
@@ -43,7 +43,7 @@ public class BizProColumnTypeServiceImpl implements BizProColumnTypeService {
 	 * 新增
 	 * @param addBO ProColumnTypeAddBO 新增数据
 	 * @return Long ID
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-09-08
 	 */
 	@Override
@@ -65,7 +65,7 @@ public class BizProColumnTypeServiceImpl implements BizProColumnTypeService {
 	 * 修改
 	 * @param editBO ProColumnTypeEditBO 修改数据
 	 * @return Boolean
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-09-08
 	 */
 	@Override
@@ -85,7 +85,7 @@ public class BizProColumnTypeServiceImpl implements BizProColumnTypeService {
 	 * 根据主键删除
 	 * @param id Long 列类型-ID
 	 * @return Boolean
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-09-08
 	 */
 	@Override
@@ -97,7 +97,7 @@ public class BizProColumnTypeServiceImpl implements BizProColumnTypeService {
 	 * 根据主键批量删除
 	 * @param ids List<Long> 列类型-ID集合
 	 * @return Boolean
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-09-08
 	 */
 	@Override
@@ -109,7 +109,7 @@ public class BizProColumnTypeServiceImpl implements BizProColumnTypeService {
 	 * 根据主键获取
 	 * @param id Long 列类型-ID
 	 * @return ProColumnType
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-09-08
 	 */
 	@Override
@@ -121,7 +121,7 @@ public class BizProColumnTypeServiceImpl implements BizProColumnTypeService {
 	 * 条件查询（可分页）
 	 * @param queryBO ProColumnTypeQueryBO 查询参数
 	 * @return Page<ProColumnType>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-09-08
 	 */
 	@Override

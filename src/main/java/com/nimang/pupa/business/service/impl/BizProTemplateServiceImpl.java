@@ -29,7 +29,7 @@ import java.util.List;
 
 /**
  * 模板-业务接口实现
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-21
  */
 @RequiredArgsConstructor
@@ -44,7 +44,7 @@ public class BizProTemplateServiceImpl implements BizProTemplateService {
 	 * 新增
 	 * @param addBO ProTemplateAddBO 新增数据
 	 * @return Long ID
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 */
 	@Override
@@ -65,7 +65,7 @@ public class BizProTemplateServiceImpl implements BizProTemplateService {
 	 * 修改
 	 * @param editBO ProTemplateEditBO 修改数据
 	 * @return Boolean
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 */
 	@Override
@@ -90,7 +90,7 @@ public class BizProTemplateServiceImpl implements BizProTemplateService {
 	 * 根据主键删除
 	 * @param id Long 模板-ID
 	 * @return Boolean
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 */
 	@Override
@@ -102,7 +102,7 @@ public class BizProTemplateServiceImpl implements BizProTemplateService {
 	 * 根据主键批量删除
 	 * @param ids List<Long> 模板-ID集合
 	 * @return Boolean
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 */
 	@Override
@@ -114,7 +114,7 @@ public class BizProTemplateServiceImpl implements BizProTemplateService {
 	 * 根据主键获取
 	 * @param id Long 模板-ID
 	 * @return ProTemplate
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 */
 	@Override
@@ -126,7 +126,7 @@ public class BizProTemplateServiceImpl implements BizProTemplateService {
 	 * 条件查询（可分页）
 	 * @param queryBO ProTemplateQueryBO 查询参数
 	 * @return Page<ProTemplate>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-21
 	 */
 	@Override

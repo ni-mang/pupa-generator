@@ -5,7 +5,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 /**
  * 数据源操作接口
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-27
  */
 public interface IDatasourceService {

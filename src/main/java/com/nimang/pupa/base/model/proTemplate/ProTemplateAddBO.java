@@ -11,7 +11,7 @@ import javax.validation.constraints.*;
 
 /**
  * 模板-新增BO
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-21
  */
 @Data

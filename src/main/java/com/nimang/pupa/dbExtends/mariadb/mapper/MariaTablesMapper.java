@@ -5,7 +5,7 @@ import com.nimang.pupa.dbExtends.mariadb.entity.MariaTables;
 
 
 /**
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-18
  */
 public interface MariaTablesMapper extends BaseMapper<MariaTables> {

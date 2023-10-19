@@ -20,7 +20,7 @@ import java.util.Arrays;
 /**
  * 项目/表字段
  * @module pupa
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-26
  */
 
@@ -38,7 +38,7 @@ public class ProFieldController {
 	 * 新增
 	 * @param bizModel ProFieldAddBO 新增-业务数据包
 	 * @return R<Long> ID
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 * @status released
 	 */
@@ -54,7 +54,7 @@ public class ProFieldController {
 	 * 修改
 	 * @param bizModel ProFieldEditBO 修改-业务数据包
 	 * @return R<Boolean>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 * @status released
 	 */
@@ -83,7 +83,7 @@ public class ProFieldController {
 	 * 根据主键删除
 	 * @param id Long 表字段-ID
 	 * @return R<Boolean>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 * @status released
 	 */
@@ -99,7 +99,7 @@ public class ProFieldController {
 	 * 根据主键批量删除
 	 * @param ids Long[] 表字段-ID数组
 	 * @return R<Boolean>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 * @status released
 	 */
@@ -115,7 +115,7 @@ public class ProFieldController {
 	 * 根据主键获取
 	 * @param id Long 表字段-ID
 	 * @return R<ProFieldVO>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 * @status released
 	 */
@@ -132,7 +132,7 @@ public class ProFieldController {
 	 * 条件查询（可分页）
 	 * @param queryBO ProFieldQueryBO 查询参数
 	 * @return RPage<ProFieldVO>
-	 * @author LinLaichun
+	 * @author JustHuman
 	 * @date 2023-04-26
 	 * @status released
 	 */

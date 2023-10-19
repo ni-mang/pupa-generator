@@ -10,7 +10,7 @@
 [//]: # (#### 微信交流)
 [//]: # (请备注：pupa <br />)
 [//]: # (![image.png]&#40;https://gitee.com/nimang/picture-library/raw/master/pupa/readme/wx.png&#41;)
-#### 意见反馈邮箱
+#### 反馈邮箱
 　　362682205@qq.com
 
 ## PUPA介绍
@@ -26,8 +26,8 @@
 > - 平台化，可管理<font color=#1D7ADE>多个项目</font>，一次部署长期使用
 > - 轻量级，mvc单体项目结构，无需依赖额外环境，部署更简单
 > - 支持团队内<font color=#1D7ADE>共享</font>，规范代码
-> - 支持<font color=#1D7ADE>多数据源</font>，支持多种类型数据库（mysql/maria，支持扩展）
-> - 支持<font color=#1D7ADE>多种模板引擎</font>（Enjoy/Freemarker/Vilocity，支持扩展）
+> - 支持<font color=#1D7ADE>多数据源</font>，支持多种类型数据库（Mysql、Maria、SqlServer，支持扩展）
+> - 支持<font color=#1D7ADE>多种模板引擎</font>（Enjoy、Freemarker、Vilocity，支持扩展）
 > - 支持同时生成<font color=#1D7ADE>多语言数据类型映射</font>，如同时生成匹配Java和TypeScript数据类型的代码
 > - 在线模板编辑器使用Monaco控件，使用体验同Visual Studio Code相差无几
 > - 支持在项目、成员、数据源、表、字段等维度进行<font color=#1D7ADE>自定义参数</font>的扩展配置，即配即用
@@ -47,6 +47,8 @@
 >> 2. 复制项目目录下的 <font color=#5C8D07>resources/run/start.sh</font> 到服务器，与jar文件同一目录；
 >> 3. 进入服务器项目目录，执行 <font color=#2E8AEB>./start.sh</font> 命令启动项目，如 <font color=#5C8D07>start.sh</font> 未授权，则执行 <font color=#2E8AEB>chmod u+x start.sh</font> 命令进行授权，再启动项目；
 >> 4. 在浏览器输入实际项目地址进行访问，例：http://192.168.0.1:7384。
+
+> 默认管理员账号、密码：  admin 123456
 
 <a name="woSZP"></a>
 ## 功能说明

@@ -6,7 +6,7 @@ import com.nimang.pupa.base.entity.ProField;
 
 /**
  * 表字段-Mapper
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-26
  */
 public interface ProFieldMapper extends BaseMapper<ProField> {

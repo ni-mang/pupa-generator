@@ -6,7 +6,7 @@ import com.nimang.pupa.base.entity.ProDatasource;
 
 /**
  * 数据源-Mapper
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-26
  */
 public interface ProDatasourceMapper extends BaseMapper<ProDatasource> {

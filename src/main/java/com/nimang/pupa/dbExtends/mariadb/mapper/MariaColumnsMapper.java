@@ -5,7 +5,7 @@ import com.nimang.pupa.dbExtends.mariadb.entity.MariaColumns;
 
 
 /**
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-18
  */
 public interface MariaColumnsMapper extends BaseMapper<MariaColumns> {

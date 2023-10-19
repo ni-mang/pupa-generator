@@ -11,7 +11,7 @@ import java.io.Serializable;
 
 /**
  * 配置-克隆BO
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-25
  */
 @Data

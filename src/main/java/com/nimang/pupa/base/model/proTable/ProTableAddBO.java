@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
 
 /**
  * 表单-新增BO
- * @author LinLaichun
+ * @author JustHuman
  * @date 2023-04-26
  */
 @Data
