@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-@Component
 public class MyMetaObjectHandler implements MetaObjectHandler {
 
     @Override
@@ -19,6 +18,9 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
             }else{
                 this.setFieldValByName("createTime", LocalDateTime.now(), metaObject);
             }
+        }
+        if (metaObject.hasGetter("createBy") && metaObject.getValue("createBy") == null) {
+            this.setFieldValByName("createBy", UserUtil.get().getNickName(), metaObject);
         }
         this.setFieldValByName("optLock", 1L, metaObject);
     }
@@ -31,6 +33,9 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
             }else{
                 this.setFieldValByName("updateTime", LocalDateTime.now(), metaObject);
             }
+        }
+        if (metaObject.hasGetter("updateBy") && metaObject.getValue("updateBy") == null) {
+            this.setFieldValByName("updateBy", UserUtil.get().getNickName(), metaObject);
         }
     }
 }

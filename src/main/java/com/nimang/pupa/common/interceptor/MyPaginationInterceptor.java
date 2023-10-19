@@ -3,10 +3,12 @@ package com.nimang.pupa.common.interceptor;
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
-import lombok.AllArgsConstructor;
 
-public class MPPaginationInterceptor extends PaginationInnerInterceptor {
-    public MPPaginationInterceptor(DbType dbType) {
+public class MyPaginationInterceptor extends PaginationInnerInterceptor {
+    public MyPaginationInterceptor() {
+        super();
+    }
+    public MyPaginationInterceptor(DbType dbType) {
         super(dbType);
     }
 
