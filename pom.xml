@@ -34,6 +34,7 @@
         <freemarker.version>2.3.32</freemarker.version>
         <commons.io.version>2.5</commons.io.version>
         <sqlServer.version>4.0</sqlServer.version>
+        <oracle.version>11.2.0.3</oracle.version>
     </properties>
 
     <dependencies>
@@ -80,6 +81,14 @@
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>sqljdbc4</artifactId>
             <version>${sqlServer.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- Oracle驱动 -->
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc6</artifactId>
+            <version>${oracle.version}</version>
             <scope>runtime</scope>
         </dependency>
 
