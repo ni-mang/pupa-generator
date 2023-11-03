@@ -35,7 +35,8 @@ public class MybatisPlusConfig {
         MyPaginationInterceptor myPaginationInterceptor = new MyPaginationInterceptor();
         myPaginationInterceptor.setDbType(DbType.MYSQL);
         myPaginationInterceptor.setOverflow(true);
-        myPaginationInterceptor.setMaxLimit(-1L);
+        // 出于安全考虑，最好不要取消全局查询数据量上限
+        //myPaginationInterceptor.setMaxLimit(-1L);
         return myPaginationInterceptor;
     }
 

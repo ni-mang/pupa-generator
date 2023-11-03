@@ -19,6 +19,7 @@ public enum DatasourceBrandEnum implements EnumInterface {
     PDB_MYSQL(0, "Mysql"),
     PDB_MARIADB(1, "MariaDB"),
     PDB_SQL_SERVER(2, "SqlServer"),
+    PDB_ORACLE(3, "Oracle"),
     ;
 
     private Integer code;

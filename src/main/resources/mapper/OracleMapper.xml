@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nimang.pupa.dbExtends.oracle.mapper.OracleMapper">
+
+    <select id="queryTable" resultType="com.nimang.pupa.dbExtends.oracle.entity.OracleTables" parameterType="string">
+        SELECT
+            dt.tablespace_name tableSchema,
+            dt.table_name tableName,
+            dtc.comments tableComment,
+            uo.created createTime,
+            uo.last_ddl_time updateTime
+        FROM
+            user_tables dt,
+            user_tab_comments dtc,
+            user_objects uo
+        WHERE
+            dt.table_name = dtc.table_name AND dt.table_name = uo.object_name AND uo.object_type='TABLE'
+        <if test="tableNames != null">
+            AND dt.table_name IN
+            <foreach  item="tableName"  collection="list" open="(" separator="," close=" )">
+                #{tableName}
+            </foreach>
+        </if>
+        ORDER BY dt.table_name
+    </select>
+    <select id="queryColumns" resultType="com.nimang.pupa.dbExtends.oracle.entity.OracleColumns" parameterType="string">
+        SELECT
+            temp.table_name tableName,
+            temp.column_name columnName,
+            temp.column_id ordinalPosition,
+            temp.data_default columnDefault,
+            temp.nullable isNullable,
+            temp.data_type dataType,
+            temp.char_col_decl_length characterMaximumLength,
+            temp.data_precision numericPrecision,
+            temp.data_scale numericScale,
+            temp.comments columnComment,
+            CASE
+                temp.constraint_type
+                WHEN 'P' THEN 'PRI'
+                WHEN 'C' THEN 'UNI'
+                ELSE ''
+            END columnKey
+        FROM
+        (
+            SELECT
+                col.table_name,
+                col.column_name,
+                col.data_type,
+                col.column_id,
+                col.data_default,
+                col.nullable,
+                col.char_col_decl_length,
+                col.data_precision,
+                col.data_scale,
+                colc.comments,
+                uc.constraint_type,
+                row_number ( ) over ( partition BY col.table_name,col.column_name ORDER BY uc.constraint_type DESC ) AS row_flg
+            FROM
+                    user_tab_columns col
+                LEFT JOIN user_col_comments colc ON colc.table_name = col.table_name AND colc.column_name = col.column_name
+                LEFT JOIN user_cons_columns ucc ON ucc.table_name = col.table_name AND ucc.column_name = col.column_name
+                LEFT JOIN user_constraints uc ON uc.constraint_name = ucc.constraint_name
+                WHERE (uc.constraint_type != 'C' OR uc.constraint_type IS NULL)
+            <if test="tableNames != null">
+                AND col.table_name IN
+                <foreach  item="tableName"  collection="list" open="(" separator="," close=" )">
+                    #{tableName}
+                </foreach>
+            </if>
+        ) temp
+        WHERE
+            temp.row_flg = 1
+        ORDER BY
+            temp.table_name,temp.column_id
+
+    </select>
+
+</mapper>
