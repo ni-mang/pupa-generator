@@ -130,7 +130,7 @@ public class ProColumnTypeController {
 		// 默认排序：按主键倒序
 		if(queryBO.isEmptyOrderItem()){
 			queryBO.putOrderItem(ProColumnType::getBrand, true);
-			//queryBO.putOrderItem(ProColumnType::getColumnType, true);
+			queryBO.putOrderItem(ProColumnType::getColumnType, true);
 		}
 		Page<ProColumnType> page = proColumnTypeService.query(queryBO);
 		Page<ProColumnTypeVO> voPage = proColumnTypeService.assemblePage(page);
@@ -146,7 +146,7 @@ public class ProColumnTypeController {
 	public R<List<ColumnMapper>> columnMapper(@NotNull(message = "请选择数据库品牌") Integer brand) {
 		ProColumnTypeQueryBO queryBO = new ProColumnTypeQueryBO();
 		queryBO.setBrand(brand);
-		//queryBO.putOrderItem(ProColumnType::getColumnType, true);
+		queryBO.putOrderItem(ProColumnType::getColumnType, true);
 		Page<ProColumnType> page = proColumnTypeService.query(queryBO);
 		List<ProColumnType> list = page.getRecords();
 		List<ColumnMapper> boList = ConvertUtil.convertOfAll(list, ColumnMapper.class);
