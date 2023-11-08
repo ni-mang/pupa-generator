@@ -26,7 +26,7 @@
 > - 平台化，可管理<font color=#1D7ADE>多个项目</font>，一次部署长期使用
 > - 轻量级，mvc单体项目结构，无需依赖额外环境，部署更简单
 > - 支持团队内<font color=#1D7ADE>共享</font>，规范代码
-> - 支持<font color=#1D7ADE>多数据源</font>，支持多种类型数据库（Mysql、Maria、SqlServer、Oracle，支持扩展）
+> - 支持<font color=#1D7ADE>多数据源</font>，支持多种类型数据库（Mysql、Maria、SqlServer、Oracle、PostgreSql，支持扩展）
 > - 支持<font color=#1D7ADE>多种模板引擎</font>（Enjoy、Freemarker、Vilocity，支持扩展）
 > - 支持同时生成<font color=#1D7ADE>多语言数据类型映射</font>，如同时生成匹配Java和TypeScript数据类型的代码
 > - 在线模板编辑器使用Monaco控件，使用体验同Visual Studio Code相差无几
@@ -212,7 +212,7 @@
   ![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/ext_ed_02.png)
   <a name="Dl2if"></a>
 ### 数据库
-　　PUPA目前支持Mysql、MariaDB、SqlServer、Oracle等数据库，可根据需求自行添加对其它数据库的扩展，方式如下：
+　　PUPA目前支持Mysql、MariaDB、SqlServer、Oracle、PostgreSql等数据库，可根据需求自行添加对其它数据库的扩展，方式如下：
 
 - 在 <font color=#5C8D07>pom.xml</font> 中引入相应数据库驱动依赖；<br />
   ![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/ext_db_01.png)

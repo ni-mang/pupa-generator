@@ -92,6 +92,12 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!-- postgresql驱动 -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+
         <!-- Mybatis 依赖配置 -->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>

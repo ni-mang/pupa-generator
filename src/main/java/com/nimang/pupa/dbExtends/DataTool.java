@@ -70,7 +70,7 @@ public class DataTool {
      */
     public static void setModule(ProTable proTable) {
         String comment = proTable.getTableComment();
-        if(comment.contains(SP_STR)){
+        if(StrUtil.isNotBlank(comment) && comment.contains(SP_STR)){
             proTable.setModule(comment.substring(0, comment.lastIndexOf(SP_STR)));
             proTable.setCnName(comment.substring(comment.lastIndexOf(SP_STR)+1));
         }else {
