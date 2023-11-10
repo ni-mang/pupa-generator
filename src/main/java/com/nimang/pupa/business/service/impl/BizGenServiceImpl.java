@@ -135,6 +135,9 @@ public class BizGenServiceImpl implements BizGenService {
                 .eq(ProMapper::getConfigId, proProject.getConfigId())
                 .eq(ProMapper::getBrand, proDatasource.getBrand()))
                 .stream().collect(Collectors.toMap(ProMapper::getLang, ProMapper::getMapper));
+        if(ObjectUtil.isEmpty(mapperMap)){
+            throw new ApiException("未匹配到该数据库数据类型的映射关系，请至“配置管理-映射”中进行配置！");
+        }
 
         // 文件生成
         List<GenTemplate> gtList = new ArrayList<>();
@@ -142,8 +145,6 @@ public class BizGenServiceImpl implements BizGenService {
         Map<Integer, Render> renderMap = getRenderMap(genData);
         new GenCommon().putGenData(genData);
         new GenProject(proProject, projectUser, proDatasource).putGenData(genData);
-
-
 
         Set<String> attrTypes = new HashSet<>();
         Set<String> importPaths = new HashSet<>();
@@ -154,8 +155,6 @@ public class BizGenServiceImpl implements BizGenService {
             GenTable genTable = new GenTable(table, currentFieldList);
             genTable.setAttrTypes(attrTypes);
             genTable.setImportPaths(importPaths);
-
-
 
             Map<String, ColumnMapper> columnMapperMap = null;
             Map<String,GenTable> genTableMap = new HashMap<>();
