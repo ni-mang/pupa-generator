@@ -2,15 +2,12 @@
 
 ## PUPA![image.ico](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/favicon.ico)<br />
 #### 蛹，蜕变的开始
-　　一款基于模板，具备多项目管理、团队化管理、自定义配置功能的代码生成工具。<br />
+　　一款基于数据库，通过在线模板生成内容的代码生成工具，具备多项目管理、团队化管理、多数据源管理、自定义配置等功能。<br />
 
 #### 演示地址
 　　http://pupa.nimang.org.cn <br />
 
-[//]: # (#### 微信交流)
-[//]: # (请备注：pupa <br />)
-[//]: # (![image.png]&#40;https://gitee.com/nimang/picture-library/raw/master/pupa/readme/wx.png&#41;)
-#### 反馈邮箱
+#### 联系邮箱
 　　362682205@qq.com
 
 ## PUPA介绍
