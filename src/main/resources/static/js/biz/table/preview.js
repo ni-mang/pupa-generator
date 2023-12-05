@@ -10,10 +10,6 @@ layui.use(['form'], function () {
     let url = serverPath + "/gen/previewTable";
     ajax(url,"POST",reqData,
         {
-            beforeSendFn:function(){
-                // 添加遮罩层
-                this.layerIndex = layer.load(0, { shade: [0.5, '#393D49'] });
-            },
             successFn:function(res) {
                 let data = res["data"]
                 for(let i=0;i<data.length;i++){
@@ -33,10 +29,6 @@ layui.use(['form'], function () {
                 $("#genPath").val(data[0].path);
                 // 渲染monaco编辑器
                 renderMonaco("container", data[0].content, data[0].contentLang)
-            },
-            completeFn:function(){
-                // 关闭遮罩层
-                layer.close(this.layerIndex);
             }
         });
 
