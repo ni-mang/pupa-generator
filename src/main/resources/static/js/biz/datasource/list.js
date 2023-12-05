@@ -42,7 +42,7 @@ layui.use(['form', 'table','miniPage','element'], function () {
             {field: 'brandDesc', width: 200, title: '数据库品牌', sort: true},
             {field: 'mainAddr', width: 300, title: '主机'},
             {field: 'schema', width: 200, title: '库、目录'},
-            {field: 'urlSuffix', width: 400, title: '链接后缀'},
+            // {field: 'urlSuffix', width: 400, title: '链接后缀'},
             {field: 'prefix', width: 200, title: '忽略前缀'},
             {field: 'createTime', width: 200, title: '创建时间', sort: true},
             {title: '操作', minWidth: 250, toolbar: '#datasourceTableBar', align: "center", fixed:"right"}
