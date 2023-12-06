@@ -1,5 +1,5 @@
 //api服务地址
-const serverPath = "http://127.0.0.1:7384/pupa";
+const serverPath = "http://" + document.location.host + "/pupa";
 //页面服务地址
 const pagePath = "/view";
 const tableName = "pupa";
