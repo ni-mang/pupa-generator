@@ -115,6 +115,11 @@ public class GenTable {
     public GenTable(ProTable proTable, List<ProField> fieldList) {
         // 表名常用处理
         this.table_name = proTable.getTableName().toLowerCase();
+        if(this.table_name.contains("_")){
+            this.className = StrUtil.toCamelCase(this.table_name);
+        }else {
+            this.className = StrUtil.lowerFirst(this.table_name);
+        }
         this.className = StrUtil.toCamelCase(this.table_name);
         this.classNameUp = StrUtil.upperFirst(this.className);
         this.classNameHyphen = this.table_name.replace("_", "-");

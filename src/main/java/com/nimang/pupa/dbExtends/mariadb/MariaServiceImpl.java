@@ -159,7 +159,11 @@ public class MariaServiceImpl implements IMetadataService {
             proField.setTableId(tableMap.get(column.getTableName()));
             proField.setExtend(filedExtent);
             proField.setExistFlag(true);
-            proField.setAttrName(StrUtil.toCamelCase(column.getColumnName().toLowerCase()));
+            if(column.getColumnName().contains("_")){
+                proField.setAttrName(StrUtil.toCamelCase(column.getColumnName().toLowerCase()));
+            }else {
+                proField.setAttrName(StrUtil.lowerFirst(column.getColumnName()));
+            }
             proField.setColumnCn(DataTool.getDesc(column.getColumnComment()));
             proField.setColumnNotes(DataTool.getNotes(column.getColumnComment()));
             proField.setEnumName(DataTool.getEnum(column.getColumnComment()));
