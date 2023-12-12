@@ -36,10 +36,9 @@
 ## 部署
 > 1. 确保服务器已安装 Java 1.8+、Mysql 数据库，在数据库内运行项目目录下的 <font color=#5C8D07>resources/sql/pupa.sql</font> 初始化数据；
 > 2. 修改项目配置文件 <font color=#5C8D07>resources/application.yml</font> 中的 <font color=#ED740C>datasource</font> 数据库连接配置；
-> 3. 修改前端配置 <font color=#5C8D07>static/js/common/common.js</font>，将 <font color=#ED740C>serverPath</font> 参数中的地址设置为相应服务器地址；
-> 4. 构建项目；
-> 5. 复制项目目录下的 <font color=#5C8D07>target/pupa-1.0-SNAPSHOT.java</font> 到服务器自定目录；
-> 6. 至此可直接通过服务器指令启动服务，也可使用提供的脚本启动运行，操作如下：
+> 3. 构建项目；
+> 4. 复制项目目录下的 <font color=#5C8D07>target/pupa-1.0-SNAPSHOT.java</font> 到服务器自定目录；
+> 5. 至此可直接通过服务器指令启动服务，也可使用提供的脚本启动运行，操作如下：
 >> 1. 修改jar文件名为 <font color=#5C8D07>pupa.jar</font>；
 >> 2. 复制项目目录下的 <font color=#5C8D07>resources/run/start.sh</font> 到服务器，与jar文件同一目录；
 >> 3. 进入服务器项目目录，执行 <font color=#2E8AEB>./start.sh</font> 命令启动项目，如 <font color=#5C8D07>start.sh</font> 未授权，则执行 <font color=#2E8AEB>chmod u+x start.sh</font> 命令进行授权，再启动项目；
