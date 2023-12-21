@@ -232,3 +232,6 @@
   ![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/ext_render_03.png)
 - 修改 <font color=#5C8D07>com/jinyuan/pupa/business/service/impl/BizGenServiceImpl.java</font>，在 <font color=#5C8D07>getRenderMap</font> 方法中，初始化渲染类，并添加进map；<br />
   ![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/ext_render_04.png)
+
+#### 推荐项目
+- [MPJTool](https://gitee.com/nimang/mpjtool)
