@@ -1,8 +1,11 @@
 <a name="DIKR0"></a>
 
-## PUPA![image.ico](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/favicon.ico)<br />
+## PUPA![image.ico](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/favicon.ico)
+
 #### 蛹，蜕变的开始
-　　一款基于数据库，通过在线模板生成内容的代码生成工具，具备多项目管理、团队化管理、多数据源管理、自定义配置等功能。<br />
+　　一款基于数据库，通过在线模板生成内容的代码生成工具，具备多项目管理、团队化管理、多数据源管理、自定义配置等功能。<br/>
+　　Github：https://github.com/ni-mang/pupa-generator <br/>
+　　Gitee：https://gitee.com/nimang/pupa
 
 #### 演示地址
 　　http://pupa.nimang.org.cn <br />
