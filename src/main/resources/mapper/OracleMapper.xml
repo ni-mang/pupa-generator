@@ -38,7 +38,7 @@
             CASE
                 temp.constraint_type
                 WHEN 'P' THEN 'PRI'
-                WHEN 'C' THEN 'UNI'
+                WHEN 'U' THEN 'UNI'
                 ELSE ''
             END columnKey
         FROM
@@ -61,7 +61,7 @@
                 LEFT JOIN user_col_comments colc ON colc.table_name = col.table_name AND colc.column_name = col.column_name
                 LEFT JOIN user_cons_columns ucc ON ucc.table_name = col.table_name AND ucc.column_name = col.column_name
                 LEFT JOIN user_constraints uc ON uc.constraint_name = ucc.constraint_name
-                WHERE (uc.constraint_type != 'C' OR uc.constraint_type IS NULL)
+                WHERE 1 = 1
             <if test="tableNames != null">
                 AND col.table_name IN
                 <foreach  item="tableName"  collection="list" open="(" separator="," close=" )">
