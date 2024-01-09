@@ -2,16 +2,33 @@
 
 ## PUPA![image.ico](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/favicon.ico)
 
+<p align="center">
+    <a target="_blank" href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">
+		<img src="https://img.shields.io/badge/JDK-8+-green.svg" />
+	</a>
+    <a target="_blank" href='https://gitee.com/nimang/pupa/stargazers'>
+		<img src='https://gitee.com/nimang/pupa/badge/star.svg?theme=gvp' alt='star'/>
+	</a>
+</p>
+<p align="center">
+    <a target="_blank" href="https://gitee.com/nimang/mpjtool">
+		<img src="https://img.shields.io/badge/MPJTool 连表辅助工具-blue.svg" />
+	</a>
+</p>
+<p align="center">
+    <a target="_blank" href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=8I4gMT8jz-0TFPswB52fL3An6LnBRATk&authKey=jpC5h9eZsXtn3VP1RnLWKS6R6NyFARLn%2BpRXX4sVU6lgzshyDPPSNFTA83TUA90s&noverify=0&group_code=469069380">
+		<img src="https://img.shields.io/badge/QQ交流群-orange.svg" />
+	</a>
+</p>
+
 #### 蛹，蜕变的开始
 　　一款基于数据库，通过在线模板生成内容的代码生成工具，具备多项目管理、团队化管理、多数据源管理、自定义配置等功能。<br/>
 　　Github：https://github.com/ni-mang/pupa-generator <br/>
 　　Gitee：https://gitee.com/nimang/pupa
 
 #### 演示地址
-　　http://pupa.nimang.org.cn <br />
-　　出于数据安全考虑，演示地址admin账号不对外开放，可通过注册账号进行体验，注册信息仅需用户名密码，不涉及敏感信息。
-#### 联系邮箱
-　　362682205@qq.com
+　　出于数据安全考虑，演示地址admin账号不对外开放，可通过注册账号进行体验，注册信息仅需用户名密码，不涉及敏感信息。<br />
+　　http://pupa.nimang.org.cn 
 
 ## PUPA介绍
 环境、框架、组件：
@@ -235,6 +252,3 @@
   ![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/ext_render_03.png)
 - 修改 <font color=#5C8D07>com/jinyuan/pupa/business/service/impl/BizGenServiceImpl.java</font>，在 <font color=#5C8D07>getRenderMap</font> 方法中，初始化渲染类，并添加进map；<br />
   ![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/ext_render_04.png)
-
-#### 推荐项目
-- [MPJTool](https://gitee.com/nimang/mpjtool)
