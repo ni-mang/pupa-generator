@@ -12,12 +12,7 @@
 </p>
 <p align="center">
     <a target="_blank" href="https://gitee.com/nimang/mpjtool">
-		<img src="https://img.shields.io/badge/MPJTool 连表辅助工具-blue.svg" />
-	</a>
-</p>
-<p align="center">
-    <a target="_blank" href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=8I4gMT8jz-0TFPswB52fL3An6LnBRATk&authKey=jpC5h9eZsXtn3VP1RnLWKS6R6NyFARLn%2BpRXX4sVU6lgzshyDPPSNFTA83TUA90s&noverify=0&group_code=469069380">
-		<img src="https://img.shields.io/badge/QQ交流群-orange.svg" />
+		<img src="https://img.shields.io/badge/MPJTool-blue.svg" />
 	</a>
 </p>
 
