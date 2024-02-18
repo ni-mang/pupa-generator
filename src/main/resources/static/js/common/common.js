@@ -167,10 +167,11 @@ function ajax(url,type,data,funtions,async,contentType) {
                         top.location.href = pagePath + '/auth/login.html'; //登录
                     });
                 } else {
-                    layer.msg(res.msg, {
+                    layer.alert(res.msg, {
                         icon: 5
-                        , time: 3000
-                    },function(){
+                        ,shadeClose: true
+                        ,title:'错误'
+                    },function(index){
                         var erroFn = funtions.erroFn;
                         if(erroFn){
                             if (typeof(erroFn) == "function") {
@@ -179,33 +180,27 @@ function ajax(url,type,data,funtions,async,contentType) {
                                 eval(erroFn+'(res)');
                             }
                         }
+                        layer.close(index);
                     });//失败的表情
                 }
             }
         },
         error:function (res) {
-            var erroFn = funtions.erroFn;
-            if(erroFn){
-                if (typeof(erroFn) == "function") {
-                    erroFn(res);
-                }else if(typeof(erroFn) == "string"){
-                    eval(erroFn+'(res)');
-                }
-            }else {
-                layer.msg(res.msg, {
-                    icon: 5
-                    , time: 3000
-                },function(){
-                    var erroFn = funtions.erroFn;
-                    if(erroFn){
-                        if (typeof(erroFn) == "function") {
-                            erroFn(res);
-                        }else if(typeof(erroFn) == "string"){
-                            eval(erroFn+'(res)');
-                        }
+            layer.alert(res.msg, {
+                icon: 5
+                ,shadeClose: true
+                ,title:'错误'
+            },function(index){
+                var erroFn = funtions.erroFn;
+                if(erroFn){
+                    if (typeof(erroFn) == "function") {
+                        erroFn(res);
+                    }else if(typeof(erroFn) == "string"){
+                        eval(erroFn+'(res)');
                     }
-                });
-            }
+                }
+                layer.close(index);
+            });
         },
         complete:function () {
             var completeFn = funtions.completeFn;
