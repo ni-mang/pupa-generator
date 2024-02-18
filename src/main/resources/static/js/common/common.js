@@ -119,10 +119,10 @@ function ajax(url,type,data,funtions,async,contentType) {
         url = obj2Param(url, data)
     }else {
         // post、put 公共参数封装
-        var version = "V1.0";
-        var uuid = getUuid(10, 10);
-        var timestamp = formatDate(new Date().getTime());
-        var baseData = {
+        const version = "V1.0";
+        const uuid = getUuid(10, 10);
+        const timestamp = formatDate(new Date().getTime());
+        const baseData = {
             "version":version,
             "requestNo":uuid,
             "timestamp":timestamp,
@@ -138,7 +138,7 @@ function ajax(url,type,data,funtions,async,contentType) {
         url: url,
         contentType:contentType,
         beforeSend:function () {
-            var beforeSendFn = funtions.beforeSendFn;
+            const beforeSendFn = funtions.beforeSendFn;
             if(beforeSendFn){
                 if (typeof(beforeSendFn) == "function") {
                     beforeSendFn();
@@ -149,7 +149,7 @@ function ajax(url,type,data,funtions,async,contentType) {
         },
         success: function(res){
             if(res.success==true) {
-                var successFn = funtions.successFn;
+                const successFn = funtions.successFn;
                 if(successFn){
                     if (typeof(successFn) == "function") {
                         successFn(res);
@@ -158,7 +158,7 @@ function ajax(url,type,data,funtions,async,contentType) {
                     }
                 }
             }else {
-                var errorCode = res.code;
+                const errorCode = res.code;
                 if (errorCode == "401") {
                     layer.msg("登录失效，请重新登录！", {
                         icon: 5,
@@ -167,10 +167,11 @@ function ajax(url,type,data,funtions,async,contentType) {
                         top.location.href = pagePath + '/auth/login.html'; //登录
                     });
                 } else {
-                    layer.alert(res.msg, {
+                    layer.alert(errorMsg(res.msg), {
                         icon: 5
                         ,shadeClose: true
                         ,title:'错误'
+                        ,area: ['600px', 'auto']
                     },function(index){
                         var erroFn = funtions.erroFn;
                         if(erroFn){
@@ -186,12 +187,13 @@ function ajax(url,type,data,funtions,async,contentType) {
             }
         },
         error:function (res) {
-            layer.alert(res.msg, {
+            layer.alert(errorMsg(res.msg), {
                 icon: 5
                 ,shadeClose: true
                 ,title:'错误'
+                ,area: ['600px', 'auto']
             },function(index){
-                var erroFn = funtions.erroFn;
+                const erroFn = funtions.erroFn;
                 if(erroFn){
                     if (typeof(erroFn) == "function") {
                         erroFn(res);
@@ -203,7 +205,7 @@ function ajax(url,type,data,funtions,async,contentType) {
             });
         },
         complete:function () {
-            var completeFn = funtions.completeFn;
+            const completeFn = funtions.completeFn;
             if(completeFn){
                 if (typeof(completeFn) == "function") {
                     completeFn();
@@ -214,6 +216,10 @@ function ajax(url,type,data,funtions,async,contentType) {
         }
     }
     $.ajax(ajaxSetting);
+}
+
+function errorMsg(errorMsg){
+    return errorMsg.replace(/### /g, "</br> ");
 }
 
 /**
