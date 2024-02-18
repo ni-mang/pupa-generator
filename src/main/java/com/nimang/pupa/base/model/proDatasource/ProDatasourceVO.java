@@ -92,6 +92,11 @@ public class ProDatasourceVO implements Serializable {
     private String prefix;
 
     /**
+     * 是否忽略缺失的表、字段
+     */
+    private String passAbsentFlag;
+
+    /**
      * 扩展配置
      */
     private List<ProExtendValueBO> extendList;

@@ -34,8 +34,8 @@ public class ExceptionConstants {
     public static final String INVALID_USER_AUTH = "无权限";
     public static final String INVALID_DATA_ERROR = "数据异常";
     public static final String INVALID_EXPORT = "导出失败";
-
     public static final String INVALID_FILE = "无效文件";
+    public static final String INVALID_DB_INFO = "连接数据库失败，错误信息：{0}";
 
 
 

@@ -184,6 +184,7 @@ CREATE TABLE `pro_datasource`  (
   `account` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '[账号]',
   `password` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '[密码]',
   `prefix` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '[忽略前缀]',
+  `pass_absent_flag` tinyint(1) UNSIGNED NULL DEFAULT 1 COMMENT '[是否忽略缺失的表、字段]0:否,1:是',
   `extend` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '[扩展配置]',
   `create_time` datetime(0) NULL DEFAULT NULL COMMENT '[创建时间]',
   `create_by` bigint(16) UNSIGNED NULL DEFAULT NULL COMMENT '[创建人]',
@@ -195,7 +196,7 @@ CREATE TABLE `pro_datasource`  (
 -- ----------------------------
 -- Records of pro_datasource
 -- ----------------------------
-INSERT INTO `pro_datasource` VALUES (908389119868448768, 908350977811591168, '示例项目-mysql', 0, '127.0.0.1:3306', 'pupa', 'useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai', 'root', 'root123', 'pro_,sys_', '[{\"key\":\"optimisticLockerCol\",\"value\":\"version\"},{\"key\":\"logicDeleteCol\",\"value\":\"del_flag\"},{\"key\":\"fillCreateTimeCol\",\"value\":\"create_time\"},{\"key\":\"fillUpdateTimeCol\",\"value\":\"update_time\"}]', '2023-10-08 13:35:09', 1, NULL);
+INSERT INTO `pro_datasource` VALUES (908389119868448768, 908350977811591168, '示例项目-mysql', 0, '127.0.0.1:3306', 'pupa', 'useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai', 'root', 'root123', 'pro_,sys_', '1', '[{\"key\":\"optimisticLockerCol\",\"value\":\"version\"},{\"key\":\"logicDeleteCol\",\"value\":\"del_flag\"},{\"key\":\"fillCreateTimeCol\",\"value\":\"create_time\"},{\"key\":\"fillUpdateTimeCol\",\"value\":\"update_time\"}]', '2023-10-08 13:35:09', 1, NULL);
 
 -- ----------------------------
 -- Table structure for pro_extend

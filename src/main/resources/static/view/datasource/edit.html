@@ -73,6 +73,15 @@
             </div>
         </div>
 
+        <div class="layui-form-item">
+            <label class="layui-form-label">忽略缺失</label>
+            <div class="layui-input-block">
+                <input type="radio" name="passAbsentFlag" value="true" title="开启" checked>
+                <input type="radio" name="passAbsentFlag" value="false" title="关闭"><br>
+                <tip>如开启，生成代码时将忽略不存在于数据库的表、字段</tip>
+            </div>
+        </div>
+
         <div class="layui-form-item layui-form-text">
             <label class="layui-form-label">扩展配置</label>
             <div class="layui-input-block">

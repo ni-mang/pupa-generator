@@ -1,5 +1,6 @@
 package com.nimang.pupa.base.model.proDatasource;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.nimang.pupa.base.model.proExtend.ProExtendValueBO;
 import com.nimang.pupa.common.annotation.ValidEnum;
 import com.nimang.pupa.dbExtends.DatasourceBrandEnum;
@@ -85,6 +86,11 @@ public class ProDatasourceAddBO implements Serializable{
      */
     @Size(max = 30,message="“忽略前缀”不应超过30个字符")
     private String prefix;
+
+    /**
+     * 是否忽略缺失的表、字段
+     */
+    private Boolean passAbsentFlag;
 
     /**
      * 扩展配置

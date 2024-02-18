@@ -121,12 +121,12 @@ public class ProTable implements Serializable {
 	 * @param prefixStr
 	 */
 	public void makeInfixName(String prefixStr){
+		this.infixName = this.getTableName();
 		if(StrUtil.isNotBlank(prefixStr)){
 			String[] prefixes = prefixStr.split(",");
 			for(String prefix:prefixes){
-				int index = this.getTableName().indexOf(prefix);
-				if(index == 0){
-					this.infixName = this.getTableName().substring(prefix.length());
+				if(this.getTableName().startsWith(prefix)){
+					this.infixName = this.infixName.substring(prefix.length());
 				}
 			}
 		}
