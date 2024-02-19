@@ -86,6 +86,12 @@ public class ProDatasource implements Serializable {
 	private String prefix;
 
 	/**
+	 * 是否忽略缺失的表、字段
+	 */
+	@TableField(value = "`pass_absent_flag`")
+	private Boolean passAbsentFlag;
+
+	/**
 	 * 扩展配置
 	 */
 	@TableField(value = "`extend`")

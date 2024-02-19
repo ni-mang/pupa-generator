@@ -28,10 +28,13 @@ import com.nimang.pupa.base.entity.SourceInfo;
 import com.nimang.pupa.base.service.IDatasourceService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.apache.ibatis.exceptions.PersistenceException;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.support.TransactionTemplate;
 
+import java.text.MessageFormat;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -260,8 +263,13 @@ public class BizProDatasourceServiceImpl implements BizProDatasourceService {
 	 */
 	public List<ProTable> findTables(IMetadataService metadataService, ProDatasource datasource, List<String> tableNames, List<ProTable> addTableList, List<ProTable> upTableList) {
 
-		List<ProTable> findTableList = metadataService.findTables(datasource, tableNames);
+		List<ProTable> findTableList = null;
+		try {
+			findTableList = metadataService.findTables(datasource, tableNames);
+		} catch (PersistenceException e) {
 
+			throw new ApiException(MessageFormat.format(ExceptionConstants.INVALID_DB_INFO, e.getMessage()));
+		}
 		LambdaQueryWrapper<ProTable> wrapper = new LambdaQueryWrapper<>();
 		wrapper.eq(ProTable::getSourceId, datasource.getId());
 		if(ObjectUtil.isNotEmpty(tableNames)){

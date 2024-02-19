@@ -49,7 +49,8 @@ public class BizGenServiceImpl implements BizGenService {
     @Override
     public void genAll(Long sourceId) {
         // 获取表
-        List<ProTable> proTableList = proTableService.list(new LambdaQueryWrapper<ProTable>().eq(ProTable::getSourceId, sourceId));
+        List<ProTable> proTableList = proTableService.list(new LambdaQueryWrapper<ProTable>()
+                .eq(ProTable::getSourceId, sourceId));
         // 获取字段
         List<ProField> proFieldList = proFieldService.list(new LambdaQueryWrapper<ProField>()
                 .eq(ProField::getSourceId, sourceId)
@@ -115,8 +116,18 @@ public class BizGenServiceImpl implements BizGenService {
      * @return
      */
     public List<GenTemplate> doGen(Long sourceId, List<ProTable> proTableList, List<ProField> proFieldList) {
+        if(ObjectUtil.isEmpty(proTableList)){
+            throw new ApiException("无法获取表单信息");
+        }
+        if(ObjectUtil.isEmpty(proFieldList)){
+            throw new ApiException("无法获取字段信息");
+        }
         // 获取数据源
         ProDatasource proDatasource = proDatasourceService.getById(sourceId);
+        if(proDatasource.getPassAbsentFlag()){
+            proTableList = proTableList.stream().filter(ProTable::getExistFlag).collect(Collectors.toList());
+            proFieldList = proFieldList.stream().filter(ProField::getExistFlag).collect(Collectors.toList());
+        }
         // 获取项目
         ProProject proProject = proProjectService.getById(proDatasource.getProjectId());
         // 获取当前项目成员
@@ -152,6 +163,9 @@ public class BizGenServiceImpl implements BizGenService {
         for(ProTable table: proTableList){
             // 获取当前表关联的字段
             List<ProField> currentFieldList = proFieldList.stream().filter(f -> f.getTableId().equals(table.getId())).collect(Collectors.toList());
+            if(ObjectUtil.isEmpty(currentFieldList)){
+                throw new ApiException("无法获取表【" + table.getTableName() + "】的字段信息");
+            }
             GenTable genTable = new GenTable(table, currentFieldList);
             genTable.setAttrTypes(attrTypes);
             genTable.setImportPaths(importPaths);
