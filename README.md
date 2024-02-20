@@ -10,16 +10,9 @@
 		<img src='https://gitee.com/nimang/pupa/badge/star.svg?theme=gvp' alt='star'/>
 	</a>
 </p>
-<p align="center">
-    <a target="_blank" href="https://gitee.com/nimang/mpjtool">
-		<img src="https://img.shields.io/badge/MPJTool-blue.svg" />
-	</a>
-</p>
 
 #### 蛹，蜕变的开始
 　　一款基于数据库，通过在线模板生成内容的代码生成工具，具备多项目管理、团队化管理、多数据源管理、自定义配置等功能。<br/>
-　　Github：https://github.com/ni-mang/pupa-generator <br/>
-　　Gitee：https://gitee.com/nimang/pupa
 
 #### 演示地址
 　　出于数据安全考虑，演示地址admin账号不对外开放，可通过注册账号进行体验，注册信息仅需用户名密码，不涉及敏感信息。<br />
@@ -86,7 +79,7 @@
 ![image.png](https://gitee.com/nimang/picture-library/raw/master/pupa/readme/pro_edit.png)
 <a name="vAZaW"></a>
 #### 成员
-> - **添加**：项目所有者为项目添加授权用户，可选用户为除管理员之外，所有非当前项目成员的注册用户，被添加的用户将获得本项目的相关权属，仅项目所有者可用
+> - **管理**：项目所有者为项目管理授权用户，可选用户为所有非当前项目成员的注册用户，被添加的用户将获得本项目的相关权限，仅项目所有者可用
 > - **编辑**：可修改署名及扩展配置，署名默认为注册时的用户名，建议及时修改
 > - **删除**：删除成员，除去此成员对于本项目的相关权属，仅项目所有者可用
 > - **转让**：将本项目所有权转让给指定成员，转让成功后，原所有者将立即剔除对本项目的相应管理权限，谨慎使用，仅项目所有者可用

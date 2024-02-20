@@ -63,7 +63,7 @@ layui.use(['form', 'table','miniPage','element'], function () {
         if (obj.event === 'add') {   // 监听添加操作
             let content = miniPage.getHrefContent(pagePath + '/member/add.html' + param);
             let index = layer.open({
-                title: '添加',
+                title: '管理',
                 type: 1,
                 shade: 0.2,
                 maxmin:true,
