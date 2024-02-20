@@ -4,9 +4,12 @@ import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.util.RandomUtil;
 import cn.hutool.crypto.digest.MD5;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
+import com.nimang.pupa.base.entity.ProProjectUser;
 import com.nimang.pupa.base.entity.SysUser;
 import com.nimang.pupa.base.model.proProjectUser.ProProjectUserAddBO;
 import com.nimang.pupa.base.model.sysUser.*;
+import com.nimang.pupa.base.service.IProProjectUserService;
 import com.nimang.pupa.base.service.ISysUserService;
 import com.nimang.pupa.business.service.BizAuthService;
 import com.nimang.pupa.business.service.BizProProjectUserService;
@@ -22,6 +25,9 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.text.MessageFormat;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 /**
@@ -35,6 +41,7 @@ public class BizAuthServiceImpl implements BizAuthService {
 
 	private final SnowFlakeIdGen snowFlakeIdGen;
 	private final ISysUserService userService;
+	private final IProProjectUserService proProjectUserService;
 	private final BizProProjectUserService bizProProjectUserService;
 
 	/**
@@ -65,7 +72,10 @@ public class BizAuthServiceImpl implements BizAuthService {
 				.status(StatusEnum.STATUS_1.getCode()).build();
 		userService.save(user);
 		Long testProId = 908350977811591168L;
-		bizProProjectUserService.add(new ProProjectUserAddBO(testProId, user.getId()));
+		List<Long> userIds =
+				proProjectUserService.list(new LambdaUpdateWrapper<ProProjectUser>().eq(ProProjectUser::getProjectId, testProId)).stream().map(ProProjectUser::getUserId).collect(Collectors.toList());
+		userIds.add(user.getId());
+		bizProProjectUserService.add(new ProProjectUserAddBO(testProId, userIds));
 		return true;
 	}
 
