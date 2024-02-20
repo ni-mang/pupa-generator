@@ -23,6 +23,7 @@
             <label class="layui-form-label required">署名</label>
             <div class="layui-input-block">
                 <input type="text" name="author" lay-verify="required" lay-reqtext="署名不能为空" placeholder="请输入署名" value="" class="layui-input">
+                <tip>用于代码生成时，作为作者署名，可通过参数“project.author”获取；如未设置，则默认使用用户昵称作为作者署名</tip>
             </div>
         </div>
 

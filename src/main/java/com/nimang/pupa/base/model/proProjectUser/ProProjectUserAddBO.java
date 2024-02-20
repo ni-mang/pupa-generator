@@ -2,8 +2,10 @@ package com.nimang.pupa.base.model.proProjectUser;
 
 import lombok.*;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 项目成员-新增BO
@@ -25,6 +27,6 @@ public class ProProjectUserAddBO implements Serializable{
 	/**
 	 * 用户ID
 	 */
-	@NotNull(message = "缺少“用户ID”")
-	private Long userId;
+	@NotEmpty(message = "缺少“用户ID”")
+	private List<Long> userIds;
 }
