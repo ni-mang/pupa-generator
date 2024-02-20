@@ -21,6 +21,8 @@ import com.nimang.pupa.business.service.BizProProjectUserService;
 import com.nimang.pupa.common.constants.Constants;
 import com.nimang.pupa.common.enums.pro.ProUserRoleEnum;
 import com.nimang.pupa.common.enums.proConfig.ProExtendScopeEnum;
+import com.nimang.pupa.common.exception.ApiException;
+import com.nimang.pupa.common.pojo.TransferVO;
 import com.nimang.pupa.common.tool.mp.query.MPQueryWrapper;
 import com.nimang.pupa.common.util.ConvertUtil;
 import com.nimang.pupa.common.util.SnowFlakeIdGen;
@@ -28,6 +30,7 @@ import com.nimang.pupa.base.model.proProjectUser.ProProjectUserQueryBO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionTemplate;
 
 import java.util.*;
@@ -58,18 +61,35 @@ public class BizProProjectUserServiceImpl implements BizProProjectUserService {
 	 * @author JustHuman
 	 * @date 2023-04-26
 	 */
+	@Transactional
 	@Override
-	public Long add(ProProjectUserAddBO addBO) {
-		ProProjectUser proProjectUser = ConvertUtil.convertOfEntity(addBO, ProProjectUser.class);
-		Long id = snowFlakeIdGen.nextId();
-		proProjectUser.setId(id);
-		proProjectUser.setRole(ProUserRoleEnum.PUR_1.getCode());
-		ProProject proProject = proProjectService.getById(addBO.getProjectId());
-		proProjectUser.setExtend(proExtendService.getJsonForScope(proProject.getConfigId(), ProExtendScopeEnum.PES_1));
-		SysUser user = userService.getById(addBO.getUserId());
-		proProjectUser.setAuthor(user.getNickName());
-		proProjectUserService.save(proProjectUser);
-		return id;
+	public Boolean add(ProProjectUserAddBO addBO) {
+		List<Long> addUserIds = new ArrayList<>(addBO.getUserIds());
+		List<Long> puIds = proProjectUserService.list(new LambdaQueryWrapper<ProProjectUser>().eq(ProProjectUser::getProjectId, addBO.getProjectId()))
+						.stream().map(ProProjectUser::getUserId).collect(Collectors.toList());
+		List<Long> removeUserIds =  new ArrayList<>(puIds);
+		addUserIds.removeAll(puIds);
+		removeUserIds.removeAll(addBO.getUserIds());
+		if(ObjectUtil.isNotEmpty(addUserIds)){
+			List<SysUser> userList = userService.list(new LambdaQueryWrapper<SysUser>().in(SysUser::getId, addUserIds));
+			ProProject proProject = proProjectService.getById(addBO.getProjectId());
+			List<ProProjectUser> projectUserList = new ArrayList<>();
+			for(SysUser user:userList){
+				ProProjectUser proProjectUser = new ProProjectUser();
+				proProjectUser.setId(snowFlakeIdGen.nextId());
+				proProjectUser.setRole(ProUserRoleEnum.PUR_1.getCode());
+				proProjectUser.setUserId(user.getId());
+				proProjectUser.setAuthor(user.getNickName());
+				proProjectUser.setExtend(proExtendService.getJsonForScope(proProject.getConfigId(), ProExtendScopeEnum.PES_1));
+				proProjectUser.setProjectId(proProject.getId());
+				projectUserList.add(proProjectUser);
+			}
+			proProjectUserService.saveBatch(projectUserList);
+		}
+		if(ObjectUtil.isNotEmpty(removeUserIds)){
+			proProjectUserService.remove(new LambdaUpdateWrapper<ProProjectUser>().in(ProProjectUser::getUserId, removeUserIds).eq(ProProjectUser::getRole, ProUserRoleEnum.PUR_1.getCode()));
+		}
+		return true;
 	}
 
 	/**
@@ -120,6 +140,10 @@ public class BizProProjectUserServiceImpl implements BizProProjectUserService {
 	 */
 	@Override
 	public Boolean remove(Long id) {
+		ProProjectUser projectUser = proProjectUserService.getById(id);
+		if(ProUserRoleEnum.PUR_0.equals(projectUser.getRole())){
+			throw new ApiException("不能删除所有者");
+		}
 		return proProjectUserService.removeById(id);
 	}
 
@@ -165,6 +189,24 @@ public class BizProProjectUserServiceImpl implements BizProProjectUserService {
 			sysUsers = userService.list(new LambdaQueryWrapper<SysUser>().notIn(SysUser::getId, puId).ne(SysUser::getId, Constants.ADMIN_ID));
 		}
 		return sysUsers;
+	}
+
+	/**
+	 * 获取项目成员穿梭框数据
+	 * @param queryBO
+	 * @return
+	 */
+	@Override
+	public TransferVO userForTransfer(ProProjectUserQueryBO queryBO) {
+		List<ProProjectUser> projectUserList = proProjectUserService.list(new LambdaQueryWrapper<ProProjectUser>().eq(ProProjectUser::getProjectId, queryBO.getProjectId()));
+		List<String> puIds = projectUserList.stream().map(u -> u.getUserId().toString()).collect(Collectors.toList());
+		Long ownerId = projectUserList.stream().filter(u -> ProUserRoleEnum.PUR_0.equals(u.getRole())).map(ProProjectUser::getUserId).collect(Collectors.toList()).get(0);
+		List<SysUser> sysUsers = userService.list(new LambdaQueryWrapper<SysUser>());
+		List<TransferVO.transferData> dataList = new ArrayList<>();
+		for(SysUser user:sysUsers){
+			dataList.add(new TransferVO.transferData(user.getId().toString(), user.getNickName(), Objects.equals(ownerId, user.getId())));
+		}
+		return new TransferVO(dataList, puIds);
 	}
 
 	/**

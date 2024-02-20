@@ -68,7 +68,7 @@ layui.use(['form', 'table','miniPage','element'], function () {
                 shade: 0.2,
                 maxmin:true,
                 shadeClose: true,
-                area: ['800px', '400px'],
+                area: ['800px', '600px'],
                 content: content,
             });
             $(window).on("resize", function () {

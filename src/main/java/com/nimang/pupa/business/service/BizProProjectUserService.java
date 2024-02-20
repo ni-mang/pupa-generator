@@ -7,6 +7,7 @@ import com.nimang.pupa.base.model.proProjectUser.ProProjectUserAddBO;
 import com.nimang.pupa.base.model.proProjectUser.ProProjectUserEditBO;
 import com.nimang.pupa.base.model.proProjectUser.ProProjectUserVO;
 import com.nimang.pupa.base.model.proProjectUser.ProProjectUserQueryBO;
+import com.nimang.pupa.common.pojo.TransferVO;
 
 import java.util.List;
 
@@ -22,7 +23,7 @@ public interface BizProProjectUserService {
      * @param addBO ProProjectUserAddBO 新增数据
      * @return Long 项目ID
      */
-    Long add(ProProjectUserAddBO addBO);
+    Boolean add(ProProjectUserAddBO addBO);
 
     /**
      * 修改
@@ -65,6 +66,13 @@ public interface BizProProjectUserService {
      * @return
      */
     List<SysUser> userForSelect(ProProjectUserQueryBO queryBO);
+
+    /**
+     * 获取项目成员穿梭框数据
+     * @param queryBO
+     * @return
+     */
+    TransferVO userForTransfer(ProProjectUserQueryBO queryBO);
 
     /**
      * 数据装配

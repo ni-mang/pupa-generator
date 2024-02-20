@@ -28,7 +28,7 @@
         <script type="text/html" id="memberToolbar">
             <div class="layui-btn-container">
                 {{#  if(${isOwner}){ }}
-                <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="add"> 添加 </button>
+                <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="add"> 管理 </button>
                 {{#  } }}
             </div>
         </script>
@@ -42,7 +42,7 @@
             {{#  if(d.userId != loginUser.id && ${isOwner}){ }}
             <a class="layui-btn layui-btn-xs layui-btn-warm" lay-event="transfer">转让</a>
             {{#  } }}
-            {{#  if(${isOwner}){ }}
+            {{#  if(d.userId != loginUser.id && ${isOwner}){ }}
             <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete">删除</a>
             {{#  } }}
             {{#  if(d.userId == loginUser.id && !${isOwner}){ }}

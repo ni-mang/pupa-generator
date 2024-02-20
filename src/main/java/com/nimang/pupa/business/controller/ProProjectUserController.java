@@ -12,6 +12,7 @@ import com.nimang.pupa.base.model.proProjectUser.ProProjectUserVO;
 import com.nimang.pupa.base.model.sysUser.UserVO;
 import com.nimang.pupa.business.service.BizProProjectUserService;
 import com.nimang.pupa.common.pojo.IdBO;
+import com.nimang.pupa.common.pojo.TransferVO;
 import com.nimang.pupa.common.tool.webTool.R;
 import com.nimang.pupa.common.tool.webTool.RPage;
 import com.nimang.pupa.common.util.ConvertUtil;
@@ -48,11 +49,11 @@ public class ProProjectUserController {
 	 * @status released
 	 */
 	@PostMapping("/add")
-	public R<Long> add(@Validated @RequestBody ProProjectUserAddBO bizModel) {
+	public R<Boolean> add(@Validated @RequestBody ProProjectUserAddBO bizModel) {
 		log.info(" 项目成员-新增-开始 参数：{}", JSON.toJSONString(bizModel));
-		Long projectId = proProjectUserService.add(bizModel);
-		log.info(" 项目成员-新增-结束 结果：{}", projectId);
-		return R.ok(projectId);
+		boolean result = proProjectUserService.add(bizModel);
+		log.info(" 项目成员-新增-结束 操作完成");
+		return R.ok(result);
 	}
 
 	/**
@@ -154,5 +155,19 @@ public class ProProjectUserController {
 		List<SysUser> userList = proProjectUserService.userForSelect(queryBO);
 		List<UserVO> voList = ConvertUtil.convertOfAll(userList,UserVO.class);
 		return R.ok(voList);
+	}
+
+	/**
+	 * 获取项目成员穿梭框数据
+	 * @param queryBO ProProjectUserQueryBO 查询参数
+	 * @return R<TransferVO>
+	 * @author JustHuman
+	 * @date 2024-02-19
+	 * @status released
+	 */
+	@GetMapping("/userForTransfer")
+	public R<TransferVO> userForTransfer(@Validated ProProjectUserQueryBO queryBO) {
+		TransferVO transfer = proProjectUserService.userForTransfer(queryBO);
+		return R.ok(transfer);
 	}
 }

@@ -215,8 +215,6 @@ public class BizGenServiceImpl implements BizGenService {
                 }
             }
             gtList.addAll(genTemplateList);
-
-//            gtList.addAll(render(templateList, renderMap));
         }
         // 更新配置生成次数
         ProConfig config = proConfigService.getById(proProject.getConfigId());
@@ -247,61 +245,6 @@ public class BizGenServiceImpl implements BizGenService {
         renderMap.put(ProTempTypeEnum.PTT_1.getCode(), new FreemarkerRender(genData));
         renderMap.put(ProTempTypeEnum.PTT_2.getCode(), new VelocityRender(genData));
         return renderMap;
-    }
-
-    /**
-     * 根据模板语言类型进行渲染
-     * @param templateList List<ProTemplate> templateList
-     * @param renderMap Map<Integer, Render>
-     * @return List<GenTemplate>
-     */
-/*    public <T extends Render> List<GenTemplate> render(List<ProTemplate> templateList, Map<Integer, T> renderMap){
-        List<GenTemplate> genTemplateList = new ArrayList<>();
-        for(ProTemplate template: templateList){
-            GenTemplate gt = new GenTemplate(template);
-            T render = renderMap.get(template.getTempType());
-            if(ObjectUtil.isNotNull(render)){
-                try {
-                    gt.setContent(render.render(gt.getContent()));
-                    gt.setPath(render.render(gt.getPath()));
-                } catch (Exception e) {
-                    throw new ApiException(render.getOfName() + "渲染模板“" + template.getName() + "”失败，请检查模板“内容”或“文件生成路径”中使用的语法是否正确!" + e.getMessage());
-                }
-                genTemplateList.add(gt);
-            }
-        }
-        return genTemplateList;
-    }*/
-
-    /**
-     * 根据模板语言类型进行渲染
-     * @param templateList List<ProTemplate> templateList
-     * @param genData Map<String, Object> genData
-     * @return List<GenTemplate>
-     */
-    public List<GenTemplate> render1(List<ProTemplate> templateList, Map<String, Object> genData){
-        List<GenTemplate> allTempList = new ArrayList<>();
-        EnjoyRender eRender = new EnjoyRender(genData);
-        FreemarkerRender fRender = new FreemarkerRender(genData);
-        VelocityRender vRender = new VelocityRender(genData);
-        for(ProTemplate template: templateList){
-            GenTemplate gt = new GenTemplate(template);
-            if(ProTempTypeEnum.PTT_0.equals(template.getTempType())){
-                // Enjoy渲染引擎
-                gt.setContent(eRender.render(gt.getContent()));
-                gt.setPath(eRender.render(gt.getPath()));
-            }else if(ProTempTypeEnum.PTT_1.equals(template.getTempType())){
-                // Freemarker渲染引擎
-                gt.setContent(fRender.render(gt.getContent()));
-                gt.setPath(fRender.render(gt.getPath()));
-            }else if(ProTempTypeEnum.PTT_2.equals(template.getTempType())){
-                // Velocity渲染引擎
-                gt.setContent(vRender.render(gt.getContent()));
-                gt.setPath(vRender.render(gt.getPath()));
-            }
-            allTempList.add(gt);
-        }
-        return allTempList;
     }
 
     /**
