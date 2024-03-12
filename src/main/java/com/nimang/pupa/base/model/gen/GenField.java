@@ -148,6 +148,7 @@ public class GenField {
         this.columnName = proField.getColumnName();
         this.ordinalPosition = proField.getOrdinalPosition();
         this.columnDefault = proField.getColumnDefault();
+        this.columnKey = proField.getColumnKey();
         this.columnType = proField.getDataType();
         this.idType = proField.getIdType();
         this.attrName = proField.getAttrName();
@@ -193,6 +194,7 @@ public class GenField {
         infoList.add(new GenDataInfo(start + ".ordinalPosition", "顺位"));
         infoList.add(new GenDataInfo(start + ".columnDefault", "默认值"));
         infoList.add(new GenDataInfo(start + ".idType", "主键类型","含：AUTO，NONE，INPUT，ASSIGN_ID，ASSIGN_UUID"));
+        infoList.add(new GenDataInfo(start + ".columnKey", "约束", "例：PRI/UNI/MUL"));
         infoList.add(new GenDataInfo(start + ".columnType", "列类型（物理类型）", "例：varchar"));
         infoList.add(new GenDataInfo(start + ".attrType", "属性类型", "例：String"));
         infoList.add(new GenDataInfo(start + ".importPath", "属性类型引用路径", "例：java.time.LocalDate"));
