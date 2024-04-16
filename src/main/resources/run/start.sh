@@ -9,4 +9,4 @@ else
 fi
 
 
-nohup java -jar -Xms256M -Xmx256m  /opt/pupa/pupa.jar > /dev/null 2>&1 &
+nohup java -jar -Xms256M -Xmx256m  pupa.jar > pupa.log 2>&1 &
