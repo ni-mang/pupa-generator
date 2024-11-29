@@ -222,12 +222,6 @@
                     <textarea placeholder="请输入内容" class="layui-textarea"></textarea>
                 </div>
             </div>
-            <!--<div class="layui-form-item layui-form-text">
-              <label class="layui-form-label">编辑器</label>
-              <div class="layui-input-block">
-                <textarea class="layui-textarea layui-hide" name="content" lay-verify="content" id="LAY_demo_editor"></textarea>
-              </div>
-            </div>-->
             <div class="layui-form-item">
                 <div class="layui-input-block">
                     <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
@@ -429,10 +423,9 @@
     </div>
 </div>
 <script>
-    layui.use(['form', 'layedit', 'laydate'], function () {
+    layui.use(['form', 'laydate'], function () {
         var form = layui.form
             , layer = layui.layer
-            , layedit = layui.layedit
             , laydate = layui.laydate;
 
         /**
@@ -448,9 +441,6 @@
             elem: '#date1'
         });
 
-        //创建一个编辑器
-        var editIndex = layedit.build('LAY_demo_editor');
-
         //自定义验证规则
         form.verify({
             title: function (value) {
@@ -463,7 +453,6 @@
                 , '密码必须6到12位，且不能出现空格'
             ]
             , content: function (value) {
-                layedit.sync(editIndex);
             }
         });
 

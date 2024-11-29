@@ -10,14 +10,12 @@ layui.use(['jquery', 'layer', 'miniAdmin', 'miniTongji'], function () {
 
     $('#showNickName').text(loginUser.nickName);
 
-    let iniUrl = "/api/init.json";
+    let initUrl = "layuimini/api/init.json";
     if(isAdmin){
-        iniUrl = "/api/init_admin.json";
-    }
-
+        initUrl = "layuimini/api/init_admin.json";    }
     var options = {
-        iniUrl: iniUrl,    // 初始化接口
-        clearUrl: "/api/clear.json", // 缓存清理接口
+        initUrl: initUrl,    // 初始化接口
+        clearUrl: "layuimini/api/clear.json", // 缓存清理接口
         renderPageVersion: true,    // 初始化页面是否加版本号
         bgColorDefault: false,      // 主题默认配置
         multiModule: false,          // 是否开启多模块

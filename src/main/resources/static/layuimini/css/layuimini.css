@@ -447,7 +447,7 @@
     margin: -75px 0 0 -75px;
     border-radius: 50%;
     border: 3px solid transparent;
-    border-top-color: #1E9FFF;
+    border-top-color: #006ad4;
     animation: spin 2s linear infinite;
 }
 
@@ -460,7 +460,7 @@
     bottom: 5px;
     border-radius: 50%;
     border: 3px solid transparent;
-    border-top-color: #1E9FFF;
+    border-top-color: #006ad4;
     animation: spin 3s linear infinite;
 }
 
@@ -473,7 +473,7 @@
     bottom: 15px;
     border-radius: 50%;
     border: 3px solid transparent;
-    border-top-color: #1E9FFF;
+    border-top-color: #006ad4;
     animation: spin 1.5s linear infinite;
 }
 
@@ -561,62 +561,6 @@
 .layui-layout-admin .layui-header .layuimini-header-menu.layuimini-pc-show,.layui-layout-admin .layui-header .layuimini-header-menu.layuimini-mobile-show {
     letter-spacing: 1px;
 }
-
-
-/**左侧菜单更多下拉样式*/
-.layuimini-menu-left .layui-nav-more,.layuimini-menu-left-zoom .layui-nav-more {
-    font-family: layui-icon !important;
-    font-size: 12px;
-    font-style: normal;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    overflow: hidden;
-    width: auto;
-    height: auto;
-    line-height: normal;
-    border: none;
-    display: inline-block;
-    margin-top: -6px !important;
-}
-
-.layuimini-menu-left .layui-nav-child .layui-nav-more {
-    margin-top: -6px !important;
-}
-
-.layuimini-menu-left .layui-nav .layui-nav-mored,.layuimini-menu-left .layui-nav-itemed>a .layui-nav-more{
-    margin-top: -9px!important;
-}
-
-.layuimini-menu-left-zoom.layui-nav .layui-nav-mored,.layuimini-menu-left-zoom.layui-nav-itemed>a .layui-nav-more{
-    margin-top: -9px!important;
-}
-
-.layuimini-menu-left .layui-nav-more:before,.layuimini-menu-left-zoom .layui-nav-more:before {
-    content: "\e61a";
-}
-.layuimini-menu-left .layui-nav-itemed > a > .layui-nav-more,.layuimini-menu-left-zoom .layui-nav-itemed > a > .layui-nav-more {
-    transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    width: 12px;
-    text-align: center;
-    border-style:none;
-}
-
-.layuimini-menu-left .layui-nav-itemed > a > .layui-nav-more:before,.layuimini-menu-left-zoom .layui-nav-itemed > a > .layui-nav-more:before {
-    content: '\e61a';
-    background-color: transparent;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-/**修复左侧菜单字体不对齐的问题*/
-.layuimini-menu-left .layui-nav-item a .fa,.layuimini-menu-left .layui-nav-item a .layui-icon{
-    width: 20px;
-}
-
 
 
 /**
@@ -721,7 +665,7 @@
     }
 
     .layuimini-all .layui-layout-admin .layui-body {
-        left: 0px !important;
+        left: 0 !important;
     }
 
     .layuimini-mini .layui-layout-admin .layuimini-menu-left, .layuimini-mini .layui-header .layuimini-logo {

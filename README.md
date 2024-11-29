@@ -24,7 +24,7 @@
 > - 数据库：Mysql 5.7.3
 > - 框架：Spring-boot-web
 > - 登录控制：sa-token 1.34.0
-> - 前端UI框架：Layuimini 2.5.5 单页模式（jQuery + Html5）
+> - 前端UI框架：Layuimini 2.8.3 单页模式（jQuery + Html5）
 > - 编辑器控件：Monaco Editor
 
 特点：

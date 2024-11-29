@@ -21,7 +21,7 @@ layui.define(["jquery", "miniMenu", "element","miniPage", "miniTheme"], function
 
         /**
          * 后台框架初始化
-         * @param options.iniUrl   后台初始化接口地址
+         * @param options.initUrl   后台初始化接口地址
          * @param options.clearUrl   后台清理缓存接口
          * @param options.renderPageVersion 初始化页面是否加版本号
          * @param options.bgColorDefault 默认皮肤
@@ -31,7 +31,7 @@ layui.define(["jquery", "miniMenu", "element","miniPage", "miniTheme"], function
          * @param options.pageAnim 切换菜单动画
          */
         render: function (options) {
-            options.iniUrl = options.iniUrl || null;
+            options.initUrl = options.initUrl || null;
             options.clearUrl = options.clearUrl || null;
             options.renderPageVersion = options.renderPageVersion || false;
             options.bgColorDefault = options.bgColorDefault || 0;
@@ -39,7 +39,8 @@ layui.define(["jquery", "miniMenu", "element","miniPage", "miniTheme"], function
             options.menuChildOpen = options.menuChildOpen || false;
             options.loadingTime = options.loadingTime || 1;
             options.pageAnim = options.pageAnim || false;
-            $.getJSON(options.iniUrl, function (data) {
+            $.getJSON(options.initUrl, function (data) {
+                console.log(data);
                 if (data == null) {
                     miniAdmin.error('暂无菜单信息')
                 } else {
