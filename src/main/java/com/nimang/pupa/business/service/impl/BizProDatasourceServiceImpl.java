@@ -334,7 +334,8 @@ public class BizProDatasourceServiceImpl implements BizProDatasourceService {
 	 * @param brand 数据库品牌
 	 * @return IMetadataService
 	 */
-	private IMetadataService getMetadataService(Integer brand){
+	@Override
+	public IMetadataService getMetadataService(Integer brand){
 		Map<String, IMetadataService> beanMap =  SpringUtil.getBeansOfType(IMetadataService.class);
 		List<IMetadataService> serviceList = beanMap.values()
 				.stream()

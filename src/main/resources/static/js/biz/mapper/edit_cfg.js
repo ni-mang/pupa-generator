@@ -13,7 +13,6 @@ layui.use(['form'], function () {
 
 
     // 填充表单数据
-    let configId = $("#configId").val();
     let id = $("#id").val();
     let reqData = {id:id};
     let url = serverPath + "/cfg/mapper/get";
@@ -30,7 +29,7 @@ layui.use(['form'], function () {
 
                 // 获取数据库类型映射数据并渲染
                 $("#mapper").val(JSON.stringify(data.mapperList));
-                renderMapper(table,'#mapperDiv',"/columnMapper",data.brand, data.lang, id, configId, data.mapperList)
+                renderMapper(table,'#mapperDiv',"/columnMapperCfg", data.brand, data.lang, id, "", data.mapperList);
             }
         });
 
@@ -41,7 +40,7 @@ layui.use(['form'], function () {
             return;
         }
         // 获取数据库类型映射数据并渲染
-        renderMapper(table,'#mapperDiv',"/columnMapper", obj.value, lang, id, configId)
+        renderMapper(table,'#mapperDiv',"/columnMapperCfg", obj.value, lang, id)
     });
     // 切换程序语言
     form.on('select(lang)', function(obj){
@@ -50,7 +49,7 @@ layui.use(['form'], function () {
             return;
         }
         // 获取数据库类型映射数据并渲染
-        renderMapper(table,'#mapperDiv',"/columnMapper", brand, obj.value, id, configId)
+        renderMapper(table,'#mapperDiv',"/columnMapperCfg", brand, obj.value, id)
     });
 
     // 触发提交运行扩展函数-获取扩展数据、类型映射数据

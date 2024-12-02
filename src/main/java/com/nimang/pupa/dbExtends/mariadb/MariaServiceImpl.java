@@ -4,9 +4,16 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.nimang.pupa.base.entity.ProDatasource;
+import com.nimang.pupa.base.entity.ProField;
+import com.nimang.pupa.base.entity.ProTable;
 import com.nimang.pupa.base.entity.SourceInfo;
+import com.nimang.pupa.base.model.proMapper.ColumnMapper;
 import com.nimang.pupa.base.service.IDatasourceService;
-import com.nimang.pupa.dbExtends.DBConstants;
+import com.nimang.pupa.base.service.IProExtendService;
+import com.nimang.pupa.common.enums.proConfig.ProExtendScopeEnum;
+import com.nimang.pupa.common.util.ConvertUtil;
+import com.nimang.pupa.common.util.SnowFlakeIdGen;
 import com.nimang.pupa.dbExtends.DataTool;
 import com.nimang.pupa.dbExtends.DatasourceBrandEnum;
 import com.nimang.pupa.dbExtends.IMetadataService;
@@ -14,19 +21,15 @@ import com.nimang.pupa.dbExtends.mariadb.entity.MariaColumns;
 import com.nimang.pupa.dbExtends.mariadb.entity.MariaTables;
 import com.nimang.pupa.dbExtends.mariadb.mapper.MariaColumnsMapper;
 import com.nimang.pupa.dbExtends.mariadb.mapper.MariaTablesMapper;
-import com.nimang.pupa.base.entity.ProDatasource;
-import com.nimang.pupa.base.entity.ProField;
-import com.nimang.pupa.base.entity.ProTable;
-import com.nimang.pupa.base.service.IProExtendService;
-import com.nimang.pupa.common.enums.proConfig.ProExtendScopeEnum;
-import com.nimang.pupa.common.util.ConvertUtil;
-import com.nimang.pupa.common.util.SnowFlakeIdGen;
 import lombok.RequiredArgsConstructor;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -44,6 +47,37 @@ public class MariaServiceImpl implements IMetadataService {
     @Override
     public DatasourceBrandEnum getBrand() {
         return DatasourceBrandEnum.PDB_MARIADB;
+    }
+
+    @Override
+    public List<ColumnMapper> getColumnMappers(){
+        return ColumnMapper.initByColumnTypes(
+                Arrays.asList(
+                        "bigint",
+                        "binary",
+                        "bit",
+                        "blob",
+                        "char",
+                        "date",
+                        "datetime",
+                        "decimal",
+                        "double",
+                        "enum",
+                        "float",
+                        "int",
+                        "integer",
+                        "longblob",
+                        "longtext",
+                        "mediumint",
+                        "mediumtext",
+                        "smallint",
+                        "text",
+                        "timestamp",
+                        "tinyint",
+                        "tinytext",
+                        "varchar"
+                )
+        );
     }
 
     @Override

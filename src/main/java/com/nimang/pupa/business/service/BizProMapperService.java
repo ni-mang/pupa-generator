@@ -2,10 +2,7 @@ package com.nimang.pupa.business.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.nimang.pupa.base.entity.ProMapper;
-import com.nimang.pupa.base.model.proMapper.ProMapperAddBO;
-import com.nimang.pupa.base.model.proMapper.ProMapperEditBO;
-import com.nimang.pupa.base.model.proMapper.ProMapperQueryBO;
-import com.nimang.pupa.base.model.proMapper.ProMapperVO;
+import com.nimang.pupa.base.model.proMapper.*;
 
 import java.util.List;
 
@@ -43,6 +40,10 @@ public interface BizProMapperService {
      * @return Boolean
      */
     Boolean removeBatch(List<Long> ids);
+
+    List<ColumnMapper> columnMapperCfg(Long id, Integer brand, String lang);
+
+    List<ColumnMapper> columnMapper(Long configId, Long id, Integer brand, String lang);
 
     /**
      * 根据主键获取

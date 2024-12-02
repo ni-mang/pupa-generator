@@ -17,15 +17,22 @@
       },
       {
         "title": "配置管理",
-        "href": "view/config/list.html",
+        "href": "",
         "icon": "fa fa-gears",
-        "target": "_self"
-      },
-      {
-        "title": "列类型管理",
-        "href": "view/column/list.html",
-        "icon": "fa fa-gears",
-        "target": "_self"
+        "target": "_self",
+        "child": [
+          {
+            "title": "生成配置",
+            "href": "view/config/list.html",
+            "icon": "fa fa-gears",
+            "target": "_self"
+          },{
+            "title": "类型映射",
+            "href": "view/mapper/list_cfg.html",
+            "icon": "fa fa-gears",
+            "target": "_self"
+          }
+        ]
       },
       {
         "title": "人员管理",

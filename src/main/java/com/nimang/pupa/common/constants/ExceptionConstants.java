@@ -11,7 +11,7 @@ public class ExceptionConstants {
     public static final String EXISTED_TABLE = "该数据库中已存在同名表";
     public static final String EXISTED_FIELD = "该表中已存在同名字段";
     public static final String EXISTED_FOR_COPY = "已存在同名的拷贝： {0}";
-    public static final String EXISTED_MAPPER = "已存在相同列名的映射";
+    public static final String EXISTED_MAPPER = "已存在此数据库与同一语言的配置";
     public static final String EXISTED_COLUMN = "已存在相同列名";
 
 

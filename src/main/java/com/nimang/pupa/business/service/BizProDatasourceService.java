@@ -3,6 +3,7 @@ package com.nimang.pupa.business.service;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.nimang.pupa.base.entity.ProDatasource;
 import com.nimang.pupa.base.model.proDatasource.*;
+import com.nimang.pupa.dbExtends.IMetadataService;
 
 import java.util.List;
 
@@ -82,4 +83,11 @@ public interface BizProDatasourceService {
      * @return Integer 同步表数量
      */
     Integer doPull(ProDatasourcePullBO pullBO);
+
+    /**
+     * 获取服务
+     * @param brand 数据库品牌
+     * @return IMetadataService
+     */
+    IMetadataService getMetadataService(Integer brand);
 }

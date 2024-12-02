@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.nimang.pupa.base.entity.ProMapper;
 import com.nimang.pupa.base.model.proMapper.*;
 import com.nimang.pupa.base.service.IProMapperService;
+import com.nimang.pupa.business.service.BizProDatasourceService;
 import com.nimang.pupa.business.service.BizProMapperService;
 import com.nimang.pupa.common.constants.ExceptionConstants;
 import com.nimang.pupa.common.enums.proTemp.ProTempLangEnum;
@@ -15,6 +16,7 @@ import com.nimang.pupa.common.tool.mp.query.MPQueryWrapper;
 import com.nimang.pupa.common.util.ConvertUtil;
 import com.nimang.pupa.common.util.SnowFlakeIdGen;
 import com.nimang.pupa.dbExtends.DatasourceBrandEnum;
+import com.nimang.pupa.dbExtends.IMetadataService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
@@ -35,6 +37,7 @@ public class BizProMapperServiceImpl implements BizProMapperService {
 
 	private final SnowFlakeIdGen snowFlakeIdGen;
 	private final IProMapperService proMapperService;
+	private final BizProDatasourceService proDatasourceService;
 
 	/**
 	 * 新增
@@ -45,11 +48,7 @@ public class BizProMapperServiceImpl implements BizProMapperService {
 	 */
 	@Override
 	public Long add(ProMapperAddBO addBO) {
-		long count = proMapperService.count(new LambdaQueryWrapper<ProMapper>()
-				.eq(ProMapper::getConfigId, addBO.getConfigId()).eq(ProMapper::getBrand, addBO.getBrand()).eq(ProMapper::getLang, addBO.getLang()));
-		if(count > 0){
-			throw new ApiException(ExceptionConstants.EXISTED_MAPPER);
-		}
+		check(addBO.getConfigId(), null, addBO.getBrand(), addBO.getLang());
 		ProMapper proMapper = ConvertUtil.convertOfEntity(addBO, ProMapper.class);
 		Long id = snowFlakeIdGen.nextId();
 		proMapper.setId(id);
@@ -67,11 +66,7 @@ public class BizProMapperServiceImpl implements BizProMapperService {
 	 */
 	@Override
 	public Boolean edit(ProMapperEditBO editBO) {
-		long count = proMapperService.count(new LambdaQueryWrapper<ProMapper>()
-				.ne(ProMapper::getId, editBO.getId()).eq(ProMapper::getConfigId, editBO.getConfigId()).eq(ProMapper::getBrand, editBO.getBrand()).eq(ProMapper::getLang, editBO.getLang()));
-		if(count > 0){
-			throw new ApiException(ExceptionConstants.EXISTED_MAPPER);
-		}
+		check(editBO.getConfigId(), editBO.getId(), editBO.getBrand(), editBO.getLang());
 		ProMapper proMapper = proMapperService.getById(editBO.getId());
 		ConvertUtil.convertOfEntity(editBO, proMapper);
 		proMapper.setMapper(JSON.toJSONString(editBO.getMapperList()));
@@ -100,6 +95,52 @@ public class BizProMapperServiceImpl implements BizProMapperService {
 	@Override
 	public Boolean removeBatch(List<Long> ids) {
 		return proMapperService.removeByIds(ids);
+	}
+
+	@Override
+	public List<ColumnMapper> columnMapperCfg(Long id, Integer brand, String lang) {
+		check(0L, id, brand, lang);
+		IMetadataService metadataService = proDatasourceService.getMetadataService(brand);
+		return metadataService.getColumnMappers();
+	}
+
+	@Override
+	public List<ColumnMapper> columnMapper(Long configId, Long id, Integer brand, String lang) {
+		check(configId, id, brand, lang);
+		LambdaQueryWrapper<ProMapper> wrapper = new LambdaQueryWrapper<>();
+		wrapper.eq(ProMapper::getConfigId, 0L)
+				.eq(ProMapper::getBrand, brand)
+				.eq(ProMapper::getLang, lang);
+		ProMapper proMapper = proMapperService.getOne(wrapper);
+		List<ColumnMapper> mapperList;
+		if(proMapper != null){
+			mapperList = JSON.parseArray(proMapper.getMapper(), ColumnMapper.class);
+		}else {
+			IMetadataService metadataService = proDatasourceService.getMetadataService(brand);
+			mapperList = metadataService.getColumnMappers();
+		}
+		return mapperList;
+	}
+
+	/**
+	 * 重复性校验
+	 * @param configId
+	 * @param id
+	 * @param brand
+	 * @param lang
+	 */
+	private void check(Long configId, Long id, Integer brand, String lang) {
+		LambdaQueryWrapper<ProMapper> wrapper = new LambdaQueryWrapper<>();
+		if(id!=null){
+			wrapper.ne(ProMapper::getId, id);
+		}
+		wrapper.eq(ProMapper::getConfigId, configId)
+				.eq(ProMapper::getBrand, brand)
+				.eq(ProMapper::getLang, lang);
+		long count = proMapperService.count(wrapper);
+		if(count>0){
+			throw new ApiException(ExceptionConstants.EXISTED_MAPPER);
+		}
 	}
 
 	/**

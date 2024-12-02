@@ -3,11 +3,11 @@ package com.nimang.pupa.dbExtends.sqlServer;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.nimang.pupa.base.entity.ProDatasource;
 import com.nimang.pupa.base.entity.ProField;
 import com.nimang.pupa.base.entity.ProTable;
 import com.nimang.pupa.base.entity.SourceInfo;
+import com.nimang.pupa.base.model.proMapper.ColumnMapper;
 import com.nimang.pupa.base.service.IDatasourceService;
 import com.nimang.pupa.base.service.IProExtendService;
 import com.nimang.pupa.common.enums.proConfig.ProExtendScopeEnum;
@@ -26,6 +26,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -49,6 +50,47 @@ public class SqlServerServiceImpl implements IMetadataService {
         return url;
     }
 
+    @Override
+    public List<ColumnMapper> getColumnMappers(){
+        return ColumnMapper.initByColumnTypes(
+                Arrays.asList(
+                        "bigint",
+                        "binary",
+                        "bit",
+                        "char",
+                        "date",
+                        "datetime",
+                        "datetime2",
+                        "datetimeoffset(2)",
+                        "decimal",
+                        "float",
+                        "image",
+                        "int",
+                        "money",
+                        "nchar",
+                        "ntext",
+                        "numeric",
+                        "nvarchar",
+                        "nvarchar(max)",
+                        "real",
+                        "smalldatetime",
+                        "smallint",
+                        "smallmoney",
+                        "text",
+                        "time",
+                        "timestamp",
+                        "tinyint",
+                        "udt",
+                        "uniqueidentifier",
+                        "varbinary",
+                        "varbinary(max)",
+                        "varchar",
+                        "varchar(max)",
+                        "xml",
+                        "bigint"
+                )
+        );
+    }
 
     @Override
     public SqlSessionFactory getSessionFactory(ProDatasource datasource) {

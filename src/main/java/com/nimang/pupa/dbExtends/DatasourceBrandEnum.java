@@ -1,10 +1,15 @@
 package com.nimang.pupa.dbExtends;
 
+import com.nimang.pupa.base.entity.ProColumnType;
+import com.nimang.pupa.base.model.proMapper.ColumnMapper;
 import com.nimang.pupa.common.enums.interfaces.EnumInterface;
 import com.nimang.pupa.common.tool.enumsTool.EnumTag;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Stream;
 
 /**
@@ -45,14 +50,5 @@ public enum DatasourceBrandEnum implements EnumInterface {
     public static String getMsgByCode(Integer code){
         DatasourceBrandEnum findEnum = getByCode(code);
         return findEnum==null?"":findEnum.getMsg();
-    }
-
-    /**
-     * 比较值是否相同
-     * @param code
-     * @return
-     */
-    public boolean equals(Integer code) {
-        return this.code.equals(code);
     }
 }

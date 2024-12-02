@@ -7,11 +7,11 @@ import com.nimang.pupa.base.entity.ProDatasource;
 import com.nimang.pupa.base.entity.ProField;
 import com.nimang.pupa.base.entity.ProTable;
 import com.nimang.pupa.base.entity.SourceInfo;
+import com.nimang.pupa.base.model.proMapper.ColumnMapper;
 import com.nimang.pupa.base.service.IDatasourceService;
 import com.nimang.pupa.base.service.IProExtendService;
 import com.nimang.pupa.common.enums.proConfig.ProExtendScopeEnum;
 import com.nimang.pupa.common.util.ConvertUtil;
-import com.nimang.pupa.common.util.LDTUtils;
 import com.nimang.pupa.common.util.SnowFlakeIdGen;
 import com.nimang.pupa.dbExtends.DataTool;
 import com.nimang.pupa.dbExtends.DatasourceBrandEnum;
@@ -19,15 +19,13 @@ import com.nimang.pupa.dbExtends.IMetadataService;
 import com.nimang.pupa.dbExtends.postgreSql.entity.PostgreColumns;
 import com.nimang.pupa.dbExtends.postgreSql.entity.PostgreTables;
 import com.nimang.pupa.dbExtends.postgreSql.mapper.PostgreMapper;
-import com.nimang.pupa.dbExtends.sqlServer.entity.SqlServerColumns;
-import com.nimang.pupa.dbExtends.sqlServer.entity.SqlServerTables;
-import com.nimang.pupa.dbExtends.sqlServer.mapper.SqlServerMapper;
 import lombok.RequiredArgsConstructor;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -51,6 +49,42 @@ public class PostgreServiceImpl implements IMetadataService {
         return url;
     }
 
+    @Override
+    public List<ColumnMapper> getColumnMappers(){
+        return ColumnMapper.initByColumnTypes(
+                Arrays.asList(
+                        "bigserial",
+                        "bit",
+                        "blob",
+                        "bool",
+                        "bpchar",
+                        "bytea",
+                        "char",
+                        "clob",
+                        "date",
+                        "datetime",
+                        "float4",
+                        "float8",
+                        "int2",
+                        "int4",
+                        "int8",
+                        "money",
+                        "name",
+                        "number",
+                        "numeric",
+                        "oid",
+                        "serial",
+                        "smallserial",
+                        "text",
+                        "time",
+                        "timestamp",
+                        "timestamptz",
+                        "timetz",
+                        "varchar",
+                        "varchar2"
+                )
+        );
+    }
 
     @Override
     public SqlSessionFactory getSessionFactory(ProDatasource datasource) {

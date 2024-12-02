@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 列字段类型映射BO
@@ -20,6 +22,20 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class ColumnMapper implements Serializable{
 	private static final long serialVersionUID = 1L;
+
+    public ColumnMapper(String columnType) {
+        this.columnType = columnType;
+        this.attrType = "";
+        this.importPath = "";
+    }
+
+    public static List<ColumnMapper> initByColumnTypes(List<String> columnTypes){
+        List<ColumnMapper> mapperList = new ArrayList<>();
+        for(String columnType : columnTypes){
+            mapperList.add(new ColumnMapper(columnType));
+        }
+        return mapperList;
+    }
 
     /**
      * 列类型

@@ -25,8 +25,6 @@ import java.util.List;
 public class ProMapperAddBO implements Serializable{
 	private static final long serialVersionUID = 1L;
 
-    private Boolean a;
-
     /**
      * 配置ID
      */

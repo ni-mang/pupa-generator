@@ -14,7 +14,6 @@ layui.use(['form'], function () {
     // 程序语言
     renderEnums(form, 'lang', 'temp_lang', '')
 
-    let configId = $("#configId").val();
     // 切换数据库品牌
     form.on('select(brand)', function(obj){
         var lang = $("select[name=lang]").val()
@@ -22,7 +21,7 @@ layui.use(['form'], function () {
             return;
         }
         // 获取数据库类型映射数据并渲染
-        renderMapper(table,'#mapperDiv',"/columnMapper", obj.value, lang, "", configId)
+        renderMapper(table,'#mapperDiv',"/columnMapperCfg", obj.value, lang)
     });
     // 切换程序语言
     form.on('select(lang)', function(obj){
@@ -31,9 +30,8 @@ layui.use(['form'], function () {
             return;
         }
         // 获取数据库类型映射数据并渲染
-        renderMapper(table,'#mapperDiv',"/columnMapper", brand, obj.value, "", configId)
+        renderMapper(table,'#mapperDiv',"/columnMapperCfg", brand, obj.value)
     });
-
 
     // 触发提交运行扩展函数-获取扩展数据、类型映射数据
     window.extendFun = function(data){

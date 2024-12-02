@@ -4,10 +4,7 @@ package com.nimang.pupa.business.controller;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.nimang.pupa.base.entity.ProMapper;
-import com.nimang.pupa.base.model.proMapper.ProMapperAddBO;
-import com.nimang.pupa.base.model.proMapper.ProMapperEditBO;
-import com.nimang.pupa.base.model.proMapper.ProMapperQueryBO;
-import com.nimang.pupa.base.model.proMapper.ProMapperVO;
+import com.nimang.pupa.base.model.proMapper.*;
 import com.nimang.pupa.business.service.BizProMapperService;
 import com.nimang.pupa.common.tool.webTool.R;
 import com.nimang.pupa.common.tool.webTool.RPage;
@@ -100,6 +97,42 @@ public class ProMapperController {
 		boolean result = proMapperService.removeBatch(ids);
 		log.info(" 数据映射-根据主键批量删除-结束 操作完成");
 		return R.ok(result);
+	}
+
+	/**
+	 * 获取默认数据类型映射规则-类型映射配置
+	 * @param id Long ID主键
+	 * @param brand Integer 数据库品牌
+	 * @param lang  String  程序语言
+	 * @return R<ProMapperVO>
+	 * @author JustHuman
+	 * @date 2024-12-01
+	 */
+	@GetMapping("/columnMapperCfg")
+	public R<List<ColumnMapper>> columnMapperCfg(Long id,
+												 @NotNull(message = "请选择数据库品牌") Integer brand,
+												 @NotNull(message = "请选择程序语言") String lang){
+		List<ColumnMapper> mapperList = proMapperService.columnMapperCfg(id, brand, lang);
+		return R.ok(mapperList);
+	}
+
+	/**
+	 * 获取默认数据类型映射规则
+	 * @param id Long ID主键
+	 * @param configId Long 配置ID主键
+	 * @param brand Integer 数据库品牌
+	 * @param lang String  程序语言
+	 * @return R<ProMapperVO>
+	 * @author JustHuman
+	 * @date 2024-12-01
+	 */
+	@GetMapping("/columnMapper")
+	public R<List<ColumnMapper>> columnMapper(Long id,
+											     @NotNull(message = "缺少配置ID") Long configId,
+												 @NotNull(message = "请选择数据库品牌") Integer brand,
+												 @NotNull(message = "请选择程序语言") String lang){
+		List<ColumnMapper> mapperList = proMapperService.columnMapper(configId, id, brand, lang);
+		return R.ok(mapperList);
 	}
 
 	/**

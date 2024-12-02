@@ -57,8 +57,16 @@ function renderExtend(table,elem,configId,scope,valData,readOnly){
  * @param valData
  * @param readOnly
  */
-function renderMapper(table,elem,brand,valData,readOnly){
-    ajax(serverPath + "/column-type/columnMapper","GET",{brand:brand},
+function renderMapper(table,elem,path,brand,lang,id,configId,valData,readOnly){
+    let data = {brand:brand, lang:lang};
+    if(id !== "" && id !== undefined){
+        data.id = id;
+    }
+    if(configId !== "" && configId !== undefined){
+        data.configId = configId;
+    }
+    console.log(path)
+    ajax(serverPath + "/cfg/mapper" + path,"GET",data,
         {
             successFn:function(res) {
                 let data = res.data;

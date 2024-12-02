@@ -26,7 +26,7 @@ layui.use(['form'], function () {
 
                 // 获取数据库类型映射数据并渲染
                 $("#mapper").val(JSON.stringify(data.mapperList));
-                renderMapper(table,'#mapperDiv',data.brand,data.mapperList, true)
+                renderMapper(table,'#mapperDiv',"/columnMapper", data.brand, data.lang, "", "",data.mapperList, true)
             }
         });
 });

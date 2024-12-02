@@ -4,6 +4,7 @@ import com.nimang.pupa.base.entity.*;
 import com.nimang.pupa.base.entity.ProDatasource;
 import com.nimang.pupa.base.entity.ProField;
 import com.nimang.pupa.base.entity.ProTable;
+import com.nimang.pupa.base.model.proMapper.ColumnMapper;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import java.util.List;
@@ -18,6 +19,12 @@ public interface IMetadataService {
      * @return String
      */
     DatasourceBrandEnum getBrand();
+
+    /**
+     * 获取预设的数据类型映射规则
+     * @return List<ColumnMapper>
+     */
+    List<ColumnMapper> getColumnMappers();
 
     /**
      * 获取数据库链接
