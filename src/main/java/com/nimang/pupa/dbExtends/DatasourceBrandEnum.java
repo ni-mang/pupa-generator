@@ -1,15 +1,10 @@
 package com.nimang.pupa.dbExtends;
 
-import com.nimang.pupa.base.entity.ProColumnType;
-import com.nimang.pupa.base.model.proMapper.ColumnMapper;
 import com.nimang.pupa.common.enums.interfaces.EnumInterface;
 import com.nimang.pupa.common.tool.enumsTool.EnumTag;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.stream.Stream;
 
 /**
